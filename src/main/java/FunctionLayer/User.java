@@ -6,47 +6,61 @@ package FunctionLayer;
  */
 public class User {
 
-    public User( String email, String password, String role ) {
-        this.email = email;
+    public User( int id, String name, String email, String password, String role ) {
+        this.id = id;
+        this.Name = name;
+        this.Email = email;
         this.password = password;
-        this.role = role;
+        this.Role = role;
+    }
+    public User( String name, String email, String password, String role ) {
+        this.Name = name;
+        this.Email = email;
+        this.password = password;
+        this.Role = role;
+    }
+    public User( String name, String email, String password ) {
+        this.Name = name;
+        this.Email = email;
+        this.password = password;
     }
 
-    private int id; // just used to demo retrieval of autogen keys in UserMapper
-    private String email;
-    private String password; // Should be hashed and all
-    private String role;
+    private int id; 
+    private String Name;
+    private String Email;
+    private String password; 
+    private String Role;
 
-    public String getEmail() {
-        return email;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setEmail( String email ) {
-        this.email = email;
+    public String getRole() {
+        return Role;
+    }
+    
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return Name;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword( String password ) {
-        this.password = password;
+    public String getUsertype() {
+        return Role;
     }
 
-    public String getRole() {
-        return role;
+    public String getEmail() {
+        return Email;
     }
 
-    public void setRole( String role ) {
-        this.role = role;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId( int id ) {
-        this.id = id;
-    }
+   
+    
+    
 
 }
