@@ -4,6 +4,7 @@
     Author     : Juste
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,27 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div>
+        <table id="table">
+            <thead>
+                <tr>
+                    <td>Order ID</td>
+                </tr>
+            </thead>
+            <tbody>
+                 <% ArrayList order = (ArrayList)session.getAttribute("list");
+                 for (int i = 0; i < order.size(); i++){ %>
+                 <tr>
+                    <td> <%=order.get(i)%> </td>
+                    <br>
+                 </tr>
+                 <tr>
+                     <td><%=order.get(++i)%></td>
+                    <br>
+                 </tr>
+                 <%  } %>              
+            </tbody>
+        </table>
+        </div>
     </body>
 </html>
