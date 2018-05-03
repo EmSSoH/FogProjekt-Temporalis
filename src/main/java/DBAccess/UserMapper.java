@@ -18,12 +18,12 @@ public class UserMapper {
     public static void createUser( User user ) throws UniversalException {
         try {
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO users (name, email, password, role) VALUES (?, ?, ?, ?)";
+            String SQL = "INSERT INTO employees (name, email, password) VALUES (?, ?, ?)";
             PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
             ps.setString( 1, user.getName() );
             ps.setString( 2, user.getEmail() );
             ps.setString( 3, user.getPassword() );
-            ps.setString( 4, user.getRole() );
+           // ps.setString( 4, user.getRole() );
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
