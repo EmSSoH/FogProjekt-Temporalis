@@ -48,10 +48,10 @@
             
              <form name="draw" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="draw">
-                        Length:<br>
+                        Length in cm:<br>
                         <input type="text" name="length" value="length">
                         <br>
-                        Width:<br>
+                        Width in cm:<br>
                         <input type="text" name="width" value="width">
                         <br>
                         <input type="submit" value="Submit">
