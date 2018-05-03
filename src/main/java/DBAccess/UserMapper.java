@@ -37,23 +37,23 @@ public class UserMapper {
     public static User login( String username, String password ) throws UniversalException {
         try {
             Connection con = Connector.connection();
-
-            String SQL = "SELECT id, role FROM employees "
-                    + "WHERE username=? AND password=?";
+            
+            String SQL = "SELECT id, email, role FROM employees "
+                    + "WHERE name=? AND password=?";
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setString( 1, username );
             ps.setString( 2, password );
             ResultSet rs = ps.executeQuery();
             if ( rs.next() ) {
-                String role = rs.getString( "role" );
                 int id = rs.getInt( "id" );
+                String email = rs.getString( "email" );
+                String role = rs.getString( "role" );
 
 
-                User user = new User( username, password, role );
-
+                User user = new User(id, username, email, password, role );
                 
-
-                user.setId( id );
+                
+                
                 return user;
             } else {
                 throw new UniversalException( "Could not validate user" );

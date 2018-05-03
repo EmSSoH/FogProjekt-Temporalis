@@ -56,10 +56,6 @@ public class User {
         return password;
     }
 
-    public String getUsertype() {
-        return Role;
-    }
-
     public String getEmail() {
         return Email;
     }
