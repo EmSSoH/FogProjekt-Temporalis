@@ -6,14 +6,14 @@ package FunctionLayer;
  */
 public class User {
 
-    public User( int id, String name, String email, String password, String role ) {
+    public User( int id, String name, String email, String password, int role ) {
         this.id = id;
         this.Name = name;
         this.Email = email;
         this.password = password;
         this.Role = role;
     }
-    public User( String name, String email, String password, String role ) {
+    public User( String name, String email, String password, int role ) {
         this.Name = name;
         this.Email = email;
         this.password = password;
@@ -29,13 +29,13 @@ public class User {
     private String Name;
     private String Email;
     private String password; 
-    private String Role;
+    private int Role;
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public String getRole() {
+    public int getRole() {
         return Role;
     }
     
@@ -51,7 +51,7 @@ public class User {
         return password;
     }
 
-    public String getUsertype() {
+    public int getUsertype() {
         return Role;
     }
 
