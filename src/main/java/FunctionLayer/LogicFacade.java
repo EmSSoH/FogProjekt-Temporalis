@@ -10,8 +10,8 @@ import java.util.List;
  */
 public class LogicFacade {
 
-    public static User login( String email, String password ) throws UniversalException {
-        return UserMapper.login( email, password );
+    public static User login( String username, String password ) throws UniversalException {
+        return UserMapper.login(username, password );
     } 
 
     public static User createUser( String email, String password ) throws UniversalException {

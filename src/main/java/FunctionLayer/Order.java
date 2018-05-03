@@ -5,17 +5,25 @@
  */
 package FunctionLayer;
 
+import java.sql.Date;
+
 /**
  *
  * @author Magnus West Madsen
  */
 public class Order {
     
-    private int orderId, date, status, carportLength, carportWidth,incline, shedLength, shedWidth, price, roofType , userId, delivery ;
+    private int orderId, status, carportLength, carportWidth,incline, shedLength, shedWidth, price, roofType , userId, delivery ;
     private String comment;
+    private Date date;
 
-
-    public Order(int orderId, int date, int status, int carportLength, int carportWidth, int incline, int roofType,
+    public Order(int orderId, Date date, int status){
+        this.orderId = orderId;
+        this.date = date;
+        this.status = status;
+    }
+    
+    public Order(int orderId, Date date, int status, int carportLength, int carportWidth, int incline, int roofType,
             int shedLength, int shedWidth, String comment, int price, int userId, int delivery) {
         
         this.orderId = orderId;
@@ -33,11 +41,15 @@ public class Order {
         this.delivery = delivery;
     }
 
+    
+    
     public void setOrderId(int orderId) {
         this.orderId = orderId;
+        
+        
     }
 
-    public void setDate(int date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -89,7 +101,7 @@ public class Order {
         return orderId;
     }
 
-    public int getDate() {
+    public Date getDate() {
         return date;
     }
 

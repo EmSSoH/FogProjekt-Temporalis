@@ -4,6 +4,8 @@
     Author     : Juste
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="FunctionLayer.Order"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -17,21 +19,23 @@
         <table id="table">
             <thead>
                 <tr>
-                    <td>Order ID</td>
+                    <th>Order ID, Date and Status</th>
                 </tr>
             </thead>
             <tbody>
-                 <% ArrayList order = (ArrayList)session.getAttribute("list");
-                 for (int i = 0; i < order.size(); i++){ %>
+                //skal redigeres.
+                 <%  List<Order> order = (ArrayList<Order>) session.getAttribute("allOrders");
+                 for (Order o : order){ %>
                  <tr>
-                    <td> <%=order.get(i)%> </td>
-                    <br>
-                 </tr>
-                 <tr>
-                     <td><%=order.get(++i)%></td>
-                    <br>
-                 </tr>
-                 <%  } %>              
+                     <td>
+                         <form action="FrontController" method="POST">
+                         <input type="hidden" name="command" value="send">
+                         <input type="submit" name="orderId" value="Id:<%out.print(o.getOrderId());%> --- Date:<%out.print(o.getDate());%>  --- Status:<%out.print(o.getStatus());%>">
+                         <%}%>
+                         </form>
+                         <br>
+                     </td>
+                 </tr>            
             </tbody>
         </table>
         </div>

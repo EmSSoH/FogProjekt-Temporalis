@@ -16,13 +16,11 @@ public class Login extends Command {
 
     @Override
     String execute( HttpServletRequest request, HttpServletResponse response ) throws UniversalException {
-        String email = request.getParameter( "email" );
+        String username = request.getParameter( "username" );
         String password = request.getParameter( "password" );
-        User user = LogicFacade.login( email, password );
-        HttpSession session = request.getSession();
-        session.setAttribute( "user", user );
-        session.setAttribute( "role", user.getRole() );
-        return user.getRole() + "page";
+        User user = LogicFacade.login( username, password );
+
+        return "orderList";
     }
 
 }

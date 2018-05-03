@@ -13,10 +13,10 @@ public class Connector {
 
     private static final String IP = "159.89.99.105";
     private static final int PORT = 3306;
-    public static final String DATABASE = "LegoHouse";
+    public static final String DATABASE = "carport";
     private static final String URL = "jdbc:mysql://" + IP + ":" + PORT + "/" + DATABASE;
-    private static final String USERNAME = "magnus";
-    private static final String PASSWORD = "1234";
+    private static final String USERNAME = "Juste";
+    private static final String PASSWORD = "admin";
 
     private static Connection singleton;
 

@@ -5,12 +5,15 @@
  */
 package DBAccess;
 
+import FunctionLayer.Order;
 import FunctionLayer.UniversalException;
 import FunctionLayer.User;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.junit.Test;
@@ -26,10 +29,10 @@ public class UserMapperTest {
 //    (4,'someone@nowhere.com','sesam','customer');
 
     private static Connection testConnection;
-    private static String USER = "testinguser";
-    private static String USERPW = "try1try2tryAgain";
-    private static String DBNAME = "useradminTest";
-    private static String HOST = "46.101.253.149";
+    private static String USER = "Juste";
+    private static String USERPW = "admin";
+    private static String DBNAME = "carport";
+    private static String HOST = "159.89.99.105";
 
     @Before
     public void setUp() {
@@ -43,19 +46,14 @@ public class UserMapperTest {
                 // Make mappers use test 
                 Connector.setConnection( testConnection );
             }
-            // reset test database
-            try ( Statement stmt = testConnection.createStatement() ) {
-                stmt.execute( "drop table if exists users" );
-                stmt.execute( "create table users like UsersTest" );
-                stmt.execute( "insert into users select * from UsersTest" );
-            }
+         
 
         } catch ( ClassNotFoundException | SQLException ex ) {
             testConnection = null;
             System.out.println( "Could not open connection to database: " + ex.getMessage() );
         }
     }
-
+ /*
     @Test
     public void testSetUpOK() {
         // Just check that we have a connection.
@@ -90,5 +88,15 @@ public class UserMapperTest {
         UserMapper.createUser( original );
         User retrieved = UserMapper.login( "king@kong.com", "uhahvorhemmeligt" );
         assertEquals( "konge", retrieved.getRole() );
+    }
+  */  
+    @Test
+    public void testAllOrders() throws UniversalException{
+        List<Order> orders = new ArrayList<>();
+        orders = OrderMapper.getAllOrders();
+        
+        for(Order o: orders){
+            System.out.println("id:" + o.getOrderId() + "  date:" + o.getDate() +"   status:" + o.getStatus());
+        }
     }
 }

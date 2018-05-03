@@ -16,10 +16,7 @@ public class Register extends Command {
         String password2 = request.getParameter( "password2" );
         if ( password1.equals( password2 ) ) {
             User user = LogicFacade.createUser( email, password1 );
-            HttpSession session = request.getSession();
-            session.setAttribute( "user", user );
-            session.setAttribute( "role", user.getRole() );
-            return user.getRole() + "page";
+            return "orderList";
         } else {
             throw new UniversalException( "the two passwords did not match" );
         }

@@ -32,7 +32,7 @@ public class EmpOrder extends Command {
             if (orders == null) {
                 throw new UniversalException("Could not fetch orders");
             } else {
-            return "employeeorderpage";
+            return "orderList";
         }
     }
 }

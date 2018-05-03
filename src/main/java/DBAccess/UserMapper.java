@@ -35,19 +35,19 @@ public class UserMapper {
         }
     }
 
-    public static User login( String email, String password ) throws UniversalException {
+    public static User login( String username, String password ) throws UniversalException {
         try {
             Connection con = Connector.connection();
-            String SQL = "SELECT id, role FROM users "
-                    + "WHERE email=? AND password=?";
+            String SQL = "SELECT id, role FROM employees "
+                    + "WHERE username=? AND password=?";
             PreparedStatement ps = con.prepareStatement( SQL );
-            ps.setString( 1, email );
+            ps.setString( 1, username );
             ps.setString( 2, password );
             ResultSet rs = ps.executeQuery();
             if ( rs.next() ) {
                 String role = rs.getString( "role" );
                 int id = rs.getInt( "id" );
-                User user = new User( email, password, role );
+                User user = new User( username, password, role );
                 user.setId( id );
                 return user;
             } else {

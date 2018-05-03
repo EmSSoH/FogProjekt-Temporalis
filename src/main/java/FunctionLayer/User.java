@@ -6,8 +6,14 @@ package FunctionLayer;
  */
 public class User {
 
-    public User( String email, String password, String role ) {
+    public User( String email, String password, String role, int hej ) {
         this.email = email;
+        this.password = password;
+        this.role = role;
+    }
+    
+     public User( String username, String password, String role ) {
+        this.username = username;
         this.password = password;
         this.role = role;
     }
@@ -16,6 +22,15 @@ public class User {
     private String email;
     private String password; // Should be hashed and all
     private String role;
+    private String username;
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
+    }
 
     public String getEmail() {
         return email;

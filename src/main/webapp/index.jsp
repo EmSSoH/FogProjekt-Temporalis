@@ -19,8 +19,8 @@
                 <td>
                     <form name="login" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="login">
-                        Email:<br>
-                        <input type="text" name="email" value="someone@nowhere.com">
+                        Username:<br>
+                        <input type="text" name="username" value="Hansi">
                         <br>
                         Password:<br>
                         <input type="password" name="password" value="sesam">
@@ -46,6 +46,11 @@
                 </td>
             </tr>
         </table>
+                    <form name="orderlist" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="orderlist">
+                        <input type="submit" value="Submit">
+                    </form>
+        
         <% String error = (String) request.getAttribute( "error");
            if ( error != null) { %>
            <H2>Error!!</h2>

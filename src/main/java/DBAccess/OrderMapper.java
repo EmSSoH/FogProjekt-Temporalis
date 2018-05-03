@@ -9,10 +9,12 @@ import FunctionLayer.Order;
 import FunctionLayer.UniversalException;
 import FunctionLayer.User;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import static java.sql.Types.DATE;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,7 +34,7 @@ public class OrderMapper {
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
             int id = ids.getInt(1);
-            order.setId(id);
+            order.setOrderId(id);
             return true;
         } catch (SQLException | ClassNotFoundException ex) {
             throw new UniversalException(ex.getMessage());
@@ -49,7 +51,7 @@ public class OrderMapper {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 
-                orders.add(new Order());
+               // orders.add(new Order());
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new UniversalException(ex.getMessage());
@@ -65,8 +67,10 @@ public class OrderMapper {
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                
-                orders.add(new Order());
+                int oId = rs.getInt("order_id");
+                Date date = rs.getDate("date");
+                int status = rs.getInt("status");
+                orders.add(new Order(oId,date,status));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new UniversalException(ex.getMessage());
