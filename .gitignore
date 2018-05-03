@@ -70,6 +70,8 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+# Compiled class file
+Connector.class
 
 # End of https://www.gitignore.io/api/macos,maven,windows,netbeans
 /nbproject/
