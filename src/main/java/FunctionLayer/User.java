@@ -6,62 +6,66 @@ package FunctionLayer;
  */
 public class User {
 
-    public User( String email, String password, String role, int hej ) {
-        this.email = email;
+
+    public User( int id, String name, String email, String password, String role ) {
+        this.id = id;
+        this.Name = name;
+        this.Email = email;
         this.password = password;
-        this.role = role;
+        this.Role = role;
+    }
+    public User( String name, String email, String password, String role ) {
+        this.Name = name;
+        this.Email = email;
+        this.password = password;
+        this.Role = role;
+    }
+    public User( String name, String email, String password ) {
+        this.Name = name;
+        this.Email = email;
+
+        this.password = password;
     }
     
-     public User( String username, String password, String role ) {
-        this.username = username;
-        this.password = password;
-        this.role = role;
+
+
+    private int id; 
+    private String Name;
+    private String Email;
+    private String password; 
+    private String Role;
+
+
+    public void setId(int id) {
+        this.id = id;
     }
 
-    private int id; // just used to demo retrieval of autogen keys in UserMapper
-    private String email;
-    private String password; // Should be hashed and all
-    private String role;
-    private String username;
-
-    public void setUsername(String username) {
-        this.username = username;
+    public String getRole() {
+        return Role;
+    }
+    
+    public int getId() {
+        return id;
     }
 
-    public String getUsername() {
-        return username;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail( String email ) {
-        this.email = email;
+    public String getName() {
+        return Name;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword( String password ) {
-        this.password = password;
+    public String getUsertype() {
+        return Role;
     }
 
-    public String getRole() {
-        return role;
+    public String getEmail() {
+        return Email;
     }
 
-    public void setRole( String role ) {
-        this.role = role;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId( int id ) {
-        this.id = id;
-    }
+   
+    
+    
 
 }
