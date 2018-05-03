@@ -48,11 +48,11 @@
             
              <form name="draw" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="draw">
-                        Username:<br>
-                        <input type="text" name="username" value="Hansi">
+                        Length:<br>
+                        <input type="text" name="length" value="length">
                         <br>
-                        Password:<br>
-                        <input type="password" name="password" value="sesam">
+                        Width:<br>
+                        <input type="text" name="width" value="width">
                         <br>
                         <input type="submit" value="Submit">
                     </form>
