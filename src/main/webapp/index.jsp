@@ -44,7 +44,19 @@
                     <form name="orderlist" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="orderlist">
                         <input type="submit" value="Check Order">
+                    </form> 
+            
+             <form name="draw" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="draw">
+                        Username:<br>
+                        <input type="text" name="username" value="Hansi">
+                        <br>
+                        Password:<br>
+                        <input type="password" name="password" value="sesam">
+                        <br>
+                        <input type="submit" value="Submit">
                     </form>
+              
         
         <% String error = (String) request.getAttribute( "error");
            if ( error != null) { %>
