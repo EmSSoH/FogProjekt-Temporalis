@@ -32,6 +32,9 @@
                         Email:<br>
                         <input type="text" name="email" value="someone@nowhere.com">
                         <br>
+                        Name:<br>
+                        <input type="text" name="name" value="bob">
+                        <br>
                         Password:<br>
                         <input type="password" name="password1" value="sesam">
                         <br>
