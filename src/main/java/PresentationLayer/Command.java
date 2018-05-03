@@ -15,6 +15,7 @@ abstract class Command {
         commands.put( "register", new Register() );
         commands.put("empOrder", new EmpOrder());
         commands.put("orderlist", new EmpOrder());
+        commands.put("send", new getOrder());
         
     }
 

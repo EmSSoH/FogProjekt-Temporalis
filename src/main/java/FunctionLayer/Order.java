@@ -16,18 +16,16 @@ public class Order {
     private int orderId, status, carportLength, carportWidth,incline, shedLength, shedWidth, price, roofType , userId, delivery ;
     private String comment;
     private Date date;
-
+    
+ 
     public Order(int orderId, Date date, int status){
         this.orderId = orderId;
         this.date = date;
         this.status = status;
     }
-    
-    public Order(int orderId, Date date, int status, int carportLength, int carportWidth, int incline, int roofType,
+     public Order(int status, int carportLength, int carportWidth, int incline, int roofType,
             int shedLength, int shedWidth, String comment, int price, int userId, int delivery) {
-        
-        this.orderId = orderId;
-        this.date = date;
+
         this.status = status;
         this.carportLength = carportLength;
         this.carportWidth = carportWidth;
@@ -39,10 +37,28 @@ public class Order {
         this.price = price;
         this.userId = userId;
         this.delivery = delivery;
+        java.util.Date tempdate = new java.util.Date();
+        date = new Date(tempdate.getTime());
     }
+     public Order(int orderId, int status, int carportLength, int carportWidth, int incline, int roofType,
+            int shedLength, int shedWidth, String comment, int price, int userId, int delivery, Date date) {
+
+        this.orderId = orderId;
+        this.status = status;
+        this.carportLength = carportLength;
+        this.carportWidth = carportWidth;
+        this.incline = incline;
+        this.roofType = roofType;
+        this.shedLength = shedLength;
+        this.shedWidth = shedWidth;
+        this.comment = comment;
+        this.price = price;
+        this.userId = userId;
+        this.delivery = delivery;
+        this.date = date;
 
     
-    
+     }
     public void setOrderId(int orderId) {
         this.orderId = orderId;
         

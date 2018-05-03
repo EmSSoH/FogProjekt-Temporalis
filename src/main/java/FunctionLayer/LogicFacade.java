@@ -37,6 +37,11 @@ public class LogicFacade {
         boolean success = OrderMapper.send(orderId);
         return success;
     }
+
+    public static Order getOrder(int id) throws UniversalException {
+        return OrderMapper.getOrder(id);
+        
+    }
     
     
     

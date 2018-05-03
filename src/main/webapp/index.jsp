@@ -9,14 +9,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="LegoStyle.css" rel="stylesheet" type="text/css"/>
         <title>Welcome page</title>
     </head>
     <body>
         <h1>Welcome to Sem 2</h1>
-        
-        <table>
-            <tr><td>Login</td>
-                <td>
+        <div>
+      
                     <form name="login" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="login">
                         Username:<br>
@@ -27,9 +26,7 @@
                         <br>
                         <input type="submit" value="Submit">
                     </form>
-                </td>
-                <td>Or Register</td>
-                <td>
+              
                     <form name="register" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="register">
                         Email:<br>
@@ -43,12 +40,10 @@
                         <br>
                         <input type="submit" value="Submit">
                     </form>
-                </td>
-            </tr>
-        </table>
+          
                     <form name="orderlist" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="orderlist">
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="Check Order">
                     </form>
         
         <% String error = (String) request.getAttribute( "error");
@@ -57,5 +52,6 @@
            <p><%= error %>
         <% }
         %>
+        </div>
     </body>
 </html>

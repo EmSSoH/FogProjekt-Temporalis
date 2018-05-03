@@ -91,4 +91,21 @@ public class OrderMapper {
         }
         return changedLines;
     }
-}
+
+    public static Order getOrder(int id) throws UniversalException {
+        Order order = null;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM orders WHERE order_id=?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                order = new Order(rs.getInt("order_id"), rs.getInt("status"), rs.getInt("length"), rs.getInt("width"), rs.getInt("incline"), rs.getInt("roof_type"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"), rs.getString("comment"), rs.getInt("price"), rs.getInt("employee_id"), rs.getInt("delivery"), rs.getDate("date"));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+        return order;
+    }
+    }
