@@ -5,6 +5,9 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<% int length = (int)session.getAttribute("length");
+   int width = (int)session.getAttribute("width");
+%>   
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,6 +15,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <SVG height= 900 width="900">
+          <rect x="0" y="0" height = "<%=length+1%>" width= "<%=width+1%>"
+           style="stroke:#000000; fill: #846f6f"/>  
+        </SVG>
     </body>
 </html>

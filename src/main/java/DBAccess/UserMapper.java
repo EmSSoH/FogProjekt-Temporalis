@@ -23,7 +23,6 @@ public class UserMapper {
             ps.setString( 1, user.getName() );
             ps.setString( 2, user.getEmail() );
             ps.setString( 3, user.getPassword() );
-           // ps.setString( 4, user.getRole() );
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
