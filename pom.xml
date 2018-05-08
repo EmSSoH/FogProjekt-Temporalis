@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>kasper.osterbye</groupId>
-    <artifactId>LegoHouse</artifactId>
+    <artifactId>FogProjekt-Temporalis</artifactId>
     <version>0.1-Test</version>
     <packaging>war</packaging>
 
-    <name>LegoHouse</name>
+    <name>FogProjekt-Temporalis</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
