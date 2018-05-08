@@ -22,10 +22,16 @@ public class draw extends Command{
          int length = Integer.parseInt(temp);
          temp = request.getParameter("width");
          int width = Integer.parseInt(temp);
+         temp = request.getParameter("slength");
+         int slength = Integer.parseInt(temp);
+         temp = request.getParameter("swidth");
+         int swidth = Integer.parseInt(temp);
          
         HttpSession session = request.getSession();
         session.setAttribute( "length", length);
         session.setAttribute( "width", width );
+        session.setAttribute( "slength", slength);
+        session.setAttribute( "swidth", swidth );
          
          
          return "drawing";

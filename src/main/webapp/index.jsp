@@ -57,6 +57,12 @@
                         Width in cm:<br>
                         <input type="text" name="width" value="width">
                         <br>
+                        Shed length in cm:<br>
+                        <input type="text" name="slength" value="slength">
+                        <br>
+                        Shed width in cm:<br>
+                        <input type="text" name="swidth" value="swidth">
+                        <br>
                         <input type="submit" value="Submit">
                     </form>
               
