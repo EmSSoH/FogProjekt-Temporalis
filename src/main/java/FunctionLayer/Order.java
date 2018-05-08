@@ -9,10 +9,11 @@ import java.sql.Date;
 
 /**
  *
- * @author Magnus West Madsen
+ * @author Temporalis
  */
 public class Order {
     
+
     private int orderId, status, carportLength, carportWidth,incline, shedLength, shedWidth, price, roofType , userId, delivery ;
     private String comment;
     private Date date;
@@ -40,6 +41,7 @@ public class Order {
         java.util.Date tempdate = new java.util.Date();
         date = new Date(tempdate.getTime());
     }
+
      public Order(int orderId, int status, int carportLength, int carportWidth, int incline, int roofType,
             int shedLength, int shedWidth, String comment, int price, int userId, int delivery, Date date) {
 

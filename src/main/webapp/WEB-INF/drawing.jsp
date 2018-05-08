@@ -7,7 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <% int length = (int)session.getAttribute("length");
    int width = (int)session.getAttribute("width");
-   
 %>   
 <!DOCTYPE html>
 <html>
