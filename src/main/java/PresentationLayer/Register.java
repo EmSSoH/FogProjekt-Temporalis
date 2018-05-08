@@ -22,7 +22,7 @@ public class Register extends Command {
             HttpSession session = request.getSession();
             session.setAttribute( "user", user );
             session.setAttribute( "role", user.getRole() );
-            return "orderList";// to be changed
+            return "index";// to be changed
 
         } else {
             throw new UniversalException( "the two passwords did not match" );
