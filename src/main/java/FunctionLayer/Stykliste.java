@@ -434,16 +434,24 @@ public class Stykliste {
        int tempi, hulbåndi;
        setTrykimpstolpe97x97mm300(6);
        //udregn rem
+       if(length<=600){
+              setSpærtræubh45x195mm600(2);
+          }else{
+              setSpærtræubh45x195mm600(2);
+              setSpærtræubh45x195mm480(1);
+          }
        setBræddebolt10x120mm(12);
        setFirkantsskiver40x40x11mm(12);
        
        //spær
        //antal spær
-       tempd = (length/0.6) +2;
+       tempd = (length*0.6) +2;
        tempi = (int) Math.round(tempd);
        if(width <= 540){
+       tempi = tempi + getSpærtræubh45x195mm600();
        setSpærtræubh45x195mm600(tempi);
        }else{
+       tempi = tempi + getSpærtræubh45x195mm480();    
        setSpærtræubh45x195mm480(tempi); 
        }
        //beslag til spær og skruer
@@ -472,9 +480,60 @@ public class Stykliste {
        setBeslagskruer4x50mm50stk(tempi);
        
        //understernsbræt
+       if(width==720){
+          setTrykimpBrædt25x200mm360(4);
+       }else if (width<=360){
+           setTrykimpBrædt25x200mm360(2);     
+       }else if (width>360 && width<=540) {
+           setTrykimpBrædt25x200mm540(2);
+       }else{
+           setTrykimpBrædt25x200mm360(2);
+           setTrykimpBrædt25x200mm540(2); 
+       }
        
+       if(length<=360){
+              tempi = 2+getTrykimpBrædt25x200mm360();
+              setTrykimpBrædt25x200mm360(tempi);
+          }else if(length>540){
+              tempi = 2+getTrykimpBrædt25x200mm360();
+              setTrykimpBrædt25x200mm360(tempi);
+              tempi = 2+getTrykimpBrædt25x200mm540();
+              setTrykimpBrædt25x200mm540(tempi);
+          }else if (length == 720){
+              tempi = 2+getTrykimpBrædt25x200mm360();
+              setTrykimpBrædt25x200mm360(tempi);
+          }else{
+              tempi = 2+getTrykimpBrædt25x200mm540();
+              setTrykimpBrædt25x200mm540(tempi);
+          }
        //oversternsbræt
+       //skal kun havde til forenden derfor at width er halvdelen af understernsbræt
+       if(width==720){
+          setTrykimpbrædt25x125mm360(2);
+       }else if (width<=360){
+           setTrykimpbrædt25x125mm360(1);     
+       }else if (width>360 && width<=540) {
+           setTrykimpbrædt25x125mm540(1);
+       }else{
+           setTrykimpbrædt25x125mm360(1);
+           setTrykimpbrædt25x125mm540(1); 
+       }
        
+       if(length<=360){
+              tempi = 2+getTrykimpbrædt25x125mm360();
+              setTrykimpbrædt25x125mm360(tempi);
+          }else if(length>540){
+              tempi = 2+getTrykimpbrædt25x125mm360();
+              setTrykimpbrædt25x125mm360(tempi);
+              tempi = 2+getTrykimpbrædt25x125mm540();
+              setTrykimpbrædt25x125mm540(tempi);
+          }else if (length == 720){
+              tempi = 2+getTrykimpbrædt25x125mm360();
+              setTrykimpbrædt25x125mm360(tempi);
+          }else{
+              tempi = 2+getTrykimpbrædt25x125mm540();
+              setTrykimpbrædt25x125mm540(tempi);
+          }
        
        
      }
