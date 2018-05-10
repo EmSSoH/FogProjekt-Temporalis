@@ -52,16 +52,16 @@
              <form name="draw" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="draw">
                         Length in cm:<br>
-                        <input type="text" name="length" value="length">
+                        <input type="text" name="length" value="780">
                         <br>
                         Width in cm:<br>
-                        <input type="text" name="width" value="width">
+                        <input type="text" name="width" value="600">
                         <br>
                         Shed length in cm:<br>
-                        <input type="text" name="slength" value="slength">
+                        <input type="text" name="slength" value="210">
                         <br>
                         Shed width in cm:<br>
-                        <input type="text" name="swidth" value="swidth">
+                        <input type="text" name="swidth" value="530">
                         <br>
                         <input type="submit" value="Submit">
                     </form>
