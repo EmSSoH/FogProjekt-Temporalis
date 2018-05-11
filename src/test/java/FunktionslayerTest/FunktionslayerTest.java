@@ -16,7 +16,7 @@ public class FunktionslayerTest {
     
     @Test
     public void testStykliste(){
-       Stykliste styk = new Stykliste(600,780,530,220); 
+       Stykliste styk = new Stykliste(600,720,530,220); 
        System.out.println(styk.getTrykimpBrædt25x200mm360());
        System.out.println(styk.getTrykimpBrædt25x200mm540());
        System.out.println(styk.getTrykimpbrædt25x125mm360());// 3 burde være 2

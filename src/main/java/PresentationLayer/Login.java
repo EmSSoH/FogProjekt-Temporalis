@@ -20,7 +20,7 @@ public class Login extends Command {
         String password = request.getParameter( "password" );
         User user = LogicFacade.login( username, password );
 
-        return "orderList";
+        return "LoginNonAdmin";
     }
 
 }
