@@ -7,6 +7,7 @@ package DBAccess;
 
 import FunctionLayer.Order;
 import FunctionLayer.UniversalException;
+import FunctionLayer.Customer;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -22,6 +23,36 @@ import java.util.List;
  * @author Temporalis
  */
 public class OrderMapper {
+
+    public static boolean updateOrder(Order order) throws UniversalException {
+        try {
+            Connection con = Connector.connection();
+
+            String SQL = "UPDATE orders (employee_id, incline, roof_type, length, width, toolshed_length, toolshed_width, status, price, delivery, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) WHERE order_id=?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, order.getUserId());
+            ps.setInt(2, order.getIncline());
+            ps.setInt(3, order.getRoofType());
+            ps.setInt(4, order.getCarportLength());
+            ps.setInt(5, order.getCarportWidth());
+            ps.setInt(6, order.getShedLength());
+            ps.setInt(7, order.getStatus());
+            ps.setInt(8, order.getPrice());
+            ps.setInt(9, order.getShedWidth());
+            ps.setInt(10, order.getDelivery());
+            ps.setString(11, order.getComment());
+            ps.executeUpdate();
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) {
+                order.setOrderId(rs.getInt(1));
+            } else {
+                throw new SQLException("no generated key found");
+            }
+            return true;
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+    }
 
     public static boolean createOrder(Order order, int customerid) throws UniversalException {
         try {
@@ -42,7 +73,7 @@ public class OrderMapper {
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 order.setOrderId(rs.getInt(1));
-            }else{
+            } else {
                 throw new SQLException("no generated key found");
             }
             return true;
@@ -60,14 +91,14 @@ public class OrderMapper {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                orders.add(new Order(rs.getInt("order_id"), rs.getInt("status"), rs.getInt("length"), rs.getInt("width"), rs.getInt("incline"), rs.getInt("roof_type"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"), rs.getString("comment"), rs.getInt("price"), rs.getInt("employee_id"), rs.getInt("delivery"), rs.getDate("date")));
+                orders.add(new Order(rs.getInt("order_id"), rs.getInt("status"), rs.getInt("length"), rs.getInt("width"), rs.getInt("incline"), rs.getInt("roof_type"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"), rs.getString("comment"), rs.getInt("price"), rs.getInt("employee_id"), rs.getInt("delivery"), rs.getDate("date"), getCustomer(rs.getInt("customer_id"))));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new UniversalException(ex.getMessage());
         }
         return orders;
     }
-    
+
     public static List<Order> getOrderWithStatus(int status) throws UniversalException {
         List<Order> orders = new ArrayList<>();
         try {
@@ -77,7 +108,7 @@ public class OrderMapper {
             ps.setInt(1, status);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                orders.add(new Order(rs.getInt("order_id"), rs.getInt("status"), rs.getInt("length"), rs.getInt("width"), rs.getInt("incline"), rs.getInt("roof_type"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"), rs.getString("comment"), rs.getInt("price"), rs.getInt("employee_id"), rs.getInt("delivery"), rs.getDate("date")));
+                orders.add(new Order(rs.getInt("order_id"), rs.getInt("status"), rs.getInt("length"), rs.getInt("width"), rs.getInt("incline"), rs.getInt("roof_type"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"), rs.getString("comment"), rs.getInt("price"), rs.getInt("employee_id"), rs.getInt("delivery"), rs.getDate("date"), getCustomer(rs.getInt("customer_id"))));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new UniversalException(ex.getMessage());
@@ -94,7 +125,7 @@ public class OrderMapper {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                orders.add(new Order(rs.getInt("order_id"), rs.getInt("status"), rs.getInt("length"), rs.getInt("width"), rs.getInt("incline"), rs.getInt("roof_type"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"), rs.getString("comment"), rs.getInt("price"), rs.getInt("employee_id"), rs.getInt("delivery"), rs.getDate("date")));
+                orders.add(new Order(rs.getInt("order_id"), rs.getInt("status"), rs.getInt("length"), rs.getInt("width"), rs.getInt("incline"), rs.getInt("roof_type"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"), rs.getString("comment"), rs.getInt("price"), rs.getInt("employee_id"), rs.getInt("delivery"), rs.getDate("date"), getCustomer(rs.getInt("customer_id"))));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new UniversalException(ex.getMessage());
@@ -111,12 +142,29 @@ public class OrderMapper {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                order = new Order(rs.getInt("order_id"), rs.getInt("status"), rs.getInt("length"), rs.getInt("width"), rs.getInt("incline"), rs.getInt("roof_type"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"), rs.getString("comment"), rs.getInt("price"), rs.getInt("employee_id"), rs.getInt("delivery"), rs.getDate("date"));
+                order = new Order(rs.getInt("order_id"), rs.getInt("status"), rs.getInt("length"), rs.getInt("width"), rs.getInt("incline"), rs.getInt("roof_type"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"), rs.getString("comment"), rs.getInt("price"), rs.getInt("employee_id"), rs.getInt("delivery"), rs.getDate("date"), getCustomer(rs.getInt("customer_id")));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new UniversalException(ex.getMessage());
         }
         return order;
+    }
+
+    public static List<Order> getAllOrdersLight() throws UniversalException {
+        List<Order> orders = new ArrayList<>();
+        try {
+            int completedOrder = 999;
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM orders where status != " + completedOrder;
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                orders.add(new Order(rs.getInt("order_id"), rs.getInt("status"), rs.getInt("length"), rs.getInt("width"), rs.getInt("incline"), rs.getInt("roof_type"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"), rs.getString("comment"), rs.getInt("price"), rs.getInt("employee_id"), rs.getInt("delivery"), rs.getDate("date"), getCustomer(rs.getInt("customer_id"))));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+        return orders;
     }
 
     public static List<Order> getAllOrders() throws UniversalException {
@@ -127,7 +175,7 @@ public class OrderMapper {
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                orders.add(new Order(rs.getInt("order_id"), rs.getInt("status"), rs.getInt("length"), rs.getInt("width"), rs.getInt("incline"), rs.getInt("roof_type"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"), rs.getString("comment"), rs.getInt("price"), rs.getInt("employee_id"), rs.getInt("delivery"), rs.getDate("date")));
+                orders.add(new Order(rs.getInt("order_id"), rs.getInt("status"), rs.getInt("length"), rs.getInt("width"), rs.getInt("incline"), rs.getInt("roof_type"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"), rs.getString("comment"), rs.getInt("price"), rs.getInt("employee_id"), rs.getInt("delivery"), rs.getDate("date"), getCustomer(rs.getInt("customer_id"))));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new UniversalException(ex.getMessage());
@@ -149,12 +197,12 @@ public class OrderMapper {
         }
         return changedLines;
     }
-    
+
     public static void createPredef(int incline, int roof_type, int length, int width, int toolshed_length, int toolshed_width, int price) throws UniversalException {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO predef (incline, roof_type, length, width, toolshed_length, toolshed_width, price) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, incline);
             ps.setInt(2, roof_type);
             ps.setInt(3, length);
@@ -165,13 +213,29 @@ public class OrderMapper {
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
-        } catch ( SQLException | ClassNotFoundException ex ) {
-            throw new UniversalException( ex.getMessage() );
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new UniversalException(ex.getMessage());
         }
     }
-    
-    public void createComponent() throws UniversalException{
+
+    public static Customer getCustomer(int customerid) throws UniversalException {
+        Customer customer = null;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM customer WHERE id=?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, customerid);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                customer = new Customer(rs.getInt("id"), rs.getString("name"), rs.getString("address"), rs.getInt("phone"), rs.getString("email"));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+        return customer;
+    }
+
+    public void createComponent() throws UniversalException {
         throw new UniversalException("Not yet implemented");
     }
 }
-
