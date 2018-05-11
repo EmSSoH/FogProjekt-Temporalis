@@ -181,41 +181,7 @@ public class OrderMapper {
 
 
 
-    //mads løsning?
-    public static int createOrder(int clength, int cwidth) throws UniversalException {
-        try {
-            Connection con = Connector.connection();
-            String SQL = "INSERT INTO orders (length, width) VALUES (?, ?)";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            
-            ps.executeUpdate();
-            ResultSet ids = ps.getGeneratedKeys();
-            ids.next();
-            int id = ids.getInt(1);
-            return id;
-        } catch (SQLException | ClassNotFoundException ex) {
-            throw new UniversalException(ex.getMessage());
-        }
-    }
-
-    public static int createOrderShed(int clength, int cwidth, int slength, int swidth) throws UniversalException {
-       try {
-            Connection con = Connector.connection();
-            String SQL = "INSERT INTO orders (length, width, toolshed_length, toolshed_width) VALUES (?, ?, ?, ?)";
-            PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1,clength);
-            ps.setInt(2,cwidth);
-            ps.setInt(3,slength);
-            ps.setInt(4,swidth);
-            ps.executeUpdate();
-            ResultSet ids = ps.getGeneratedKeys();
-            ids.next();
-            int id = ids.getInt(1);
-            return id;
-        } catch (SQLException | ClassNotFoundException ex) {
-            throw new UniversalException(ex.getMessage());
-        }
-    }
+  
 
     public static void addCustomer(int oid, int cid) throws UniversalException {
          try {
@@ -236,7 +202,7 @@ public class OrderMapper {
        try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO customer (name, address, phone, email) VALUES (?, ?, ?, ?)";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS );
             ps.setString( 1, name );
             ps.setString( 2, address );
             ps.setInt( 3, phone );

@@ -41,13 +41,6 @@ public class LogicFacade {
         
     }
 
-    public static int newOrder(int clength, int cwidth) throws UniversalException {  
-        return OrderMapper.createOrder(clength, cwidth);
-    }
-
-    public static int newOrder(int clength, int cwidth, int slength, int swidth) throws UniversalException {
-       return OrderMapper.createOrderShed(clength, cwidth, slength, swidth);
-    }
 
     public static void addCustomer(int oid, int cid) throws UniversalException {
         OrderMapper.addCustomer(oid, cid);

@@ -6,6 +6,7 @@
 package PresentationLayer;
 
 import FunctionLayer.LogicFacade;
+import FunctionLayer.Order;
 import FunctionLayer.UniversalException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -18,7 +19,7 @@ public class NewOrder extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalException {
-            int oid,cid;
+        int cid;
         
         String temp = request.getParameter( "clength" );
         int clength = Integer.parseInt(temp);
@@ -34,14 +35,13 @@ public class NewOrder extends Command {
         temp = request.getParameter("phone");
         int phone = Integer.parseInt(temp);
         
+        Order order = new Order(0, clength, cwidth, 0, 0,
+            slength, swidth, "hej", 12345, 4, 1);
+        cid = LogicFacade.createCustomer(name, address, phone, email);    
         
-        if(slength == 0 && swidth == 0){
-          oid = LogicFacade.newOrder(clength,cwidth);
-        }else{
-          oid = LogicFacade.newOrder(clength, cwidth, slength, swidth);
-        }
-        cid = LogicFacade.createCustomer(name, address, phone, email);
-        LogicFacade.addCustomer(oid,cid);
+        LogicFacade.newOrder(order, cid);
+        
+     
         
         
          
