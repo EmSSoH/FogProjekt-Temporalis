@@ -119,6 +119,7 @@ public class OrderMapper {
         return order;
     }
 
+
     public static List<Order> getAllOrders() throws UniversalException {
         List<Order> orders = new ArrayList<>();
         try {
@@ -172,6 +173,83 @@ public class OrderMapper {
     
     public void createComponent() throws UniversalException{
         throw new UniversalException("Not yet implemented");
+ 
+        
     }
-}
+    
+
+
+
+
+    //mads løsning?
+    public static int createOrder(int clength, int cwidth) throws UniversalException {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "INSERT INTO orders (length, width) VALUES (?, ?)";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            
+            ps.executeUpdate();
+            ResultSet ids = ps.getGeneratedKeys();
+            ids.next();
+            int id = ids.getInt(1);
+            return id;
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+    }
+
+    public static int createOrderShed(int clength, int cwidth, int slength, int swidth) throws UniversalException {
+       try {
+            Connection con = Connector.connection();
+            String SQL = "INSERT INTO orders (length, width, toolshed_length, toolshed_width) VALUES (?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1,clength);
+            ps.setInt(2,cwidth);
+            ps.setInt(3,slength);
+            ps.setInt(4,swidth);
+            ps.executeUpdate();
+            ResultSet ids = ps.getGeneratedKeys();
+            ids.next();
+            int id = ids.getInt(1);
+            return id;
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+    }
+
+    public static void addCustomer(int oid, int cid) throws UniversalException {
+         try {
+            Connection con = Connector.connection();
+            String SQL = "UPDATE orders SET customer_id = ? WHERE order_id = ? ";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, cid); 
+            ps.setInt(2, oid);   
+            ps.executeUpdate();
+            ResultSet ids = ps.getGeneratedKeys();
+           
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+    }
+
+    public static int createCustomer(String name, String address, int phone, String email) throws UniversalException {
+       try {
+            Connection con = Connector.connection();
+            String SQL = "INSERT INTO customer (name, address, phone, email) VALUES (?, ?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setString( 1, name );
+            ps.setString( 2, address );
+            ps.setInt( 3, phone );
+            ps.setString(4, email);
+            ps.executeUpdate();
+            ResultSet ids = ps.getGeneratedKeys();
+            ids.next();
+            int id = ids.getInt(1);
+            return id;
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+    }
+    }
+
 

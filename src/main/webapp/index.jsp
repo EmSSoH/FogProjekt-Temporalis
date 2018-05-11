@@ -44,28 +44,36 @@
                         <input type="submit" value="Submit">
                     </form>
           
-                    <form name="orderlist" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="orderlist">
-                        <input type="submit" value="Check Order">
-                    </form> 
-            
-             <form name="draw" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="draw">
-                        Length in cm:<br>
-                        <input type="text" name="length" value="780">
+             
+              
+             <form name="bestil" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="bestil">
+                        Carport Længden:<br>
+                        <input type="text" name="clength" value="600">
                         <br>
-                        Width in cm:<br>
-                        <input type="text" name="width" value="600">
+                        Carport Bredde:<br>
+                        <input type="text" name="cwidth" value="720">
                         <br>
-                        Shed length in cm:<br>
-                        <input type="text" name="slength" value="210">
+                        Shed Længden:<br>
+                        <input type="text" name="slength" value="530">
                         <br>
-                        Shed width in cm:<br>
-                        <input type="text" name="swidth" value="530">
+                        Shed Bredde:<br>
+                        <input type="text" name="swidth" value="220">
+                        <br>
+                        Name:<br>
+                        <input type="text" name="name" value="mads">
+                        <br>
+                        Phone:<br>
+                        <input type="text" name="phone" value="21844131">
+                        <br>
+                        email:<br>
+                        <input type="text" name="email" value="minmail@mail.com">
+                        <br>
+                        address:<br>
+                        <input type="text" name="address" value="herehvorjeger">
                         <br>
                         <input type="submit" value="Submit">
                     </form>
-              
         
         <% String error = (String) request.getAttribute( "error");
            if ( error != null) { %>

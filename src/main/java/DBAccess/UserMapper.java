@@ -72,9 +72,10 @@ public class UserMapper {
     public static User login( String username, String password ) throws UniversalException {
         try {
             Connection con = Connector.connection();
-            
+
             String SQL = "SELECT id, email, role FROM employees "
-                    + "WHERE name=? AND password=?";
+                    + "WHERE name= ? AND password= ? ";
+
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setString( 1, username );
             ps.setString( 2, password );
