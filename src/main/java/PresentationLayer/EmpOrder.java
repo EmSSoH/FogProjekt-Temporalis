@@ -9,6 +9,7 @@ package PresentationLayer;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.Order;
 import FunctionLayer.UniversalException;
+import java.util.Collections;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,7 +27,7 @@ public class EmpOrder extends Command {
         
         HttpSession session = request.getSession();
         List<Order> orders = LogicFacade.getAllOrders();
-        
+        Collections.reverse(orders);
         request.setAttribute("allOrders", orders);
         
             if (orders == null) {

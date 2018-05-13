@@ -20,20 +20,31 @@
         <table id="table">
             <thead>
                 <tr>
-                    <th>Order ID, Date and Status</th>
+                    <th>Order ID</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Email</th> 
+                    <th>Choose</th>
                 </tr>
             </thead>
             <tbody>
                  <%  ArrayList<Order> order = (ArrayList<Order>)request.getAttribute("allOrders");
                  for (Order o : order){ %>
                  <tr>
+                     
+                     <td><%out.print(o.getOrderId());%></td>
+                     <td><%out.print(o.getDate());%></td>
+                     <td><%out.print(o.getStatus());%></td>
+                     <td><%out.print(o.getCustomer().getName());%></td>
+                     <td><%out.print(o.getCustomer().getPhone());%></td>
+                     <td><%out.print(o.getCustomer().getEmail());%></td>
                      <td>
-                         Id:<%out.print(o.getOrderId());%> - Date:<%out.print(o.getDate());%> Navn:<%out.print(o.getCustomer().getName());%> - Tlf.:<%out.print(o.getCustomer().getPhone());%> - Email:<%out.print(o.getCustomer().getEmail());%> - Status:<%out.print(o.getStatus());%>
                          <form action="FrontController" method="POST">
                          <input type="hidden" name="command" value="send">
                          <input type="hidden" name="id" value="<%out.print(o.getOrderId());%>">
                          <input type="submit" name="getThisOrder" value="More info">
-                         
                          </form>
                          <br>
                      </td>
