@@ -7,6 +7,7 @@ package PresentationLayer;
 
 import FunctionLayer.LogicFacade;
 import FunctionLayer.Order;
+import FunctionLayer.Stykliste;
 import FunctionLayer.UniversalException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,10 +41,13 @@ public class NewOrder extends Command {
         cid = LogicFacade.createCustomer(name, address, phone, email);    
         
         LogicFacade.newOrder(order, cid);
+        Stykliste stykliste;
         
-     
-        
-        
+        if(slength < 210 && swidth < 150){
+         stykliste = new Stykliste(cwidth, clength);      
+        }else{
+         stykliste = new Stykliste(cwidth, clength,swidth,slength);       
+        }
          
         return "ordreConfirmed";
     }

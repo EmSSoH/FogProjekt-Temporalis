@@ -60,7 +60,7 @@ public class Stykliste {
     }
     
    
-    // <editor-fold defaultstate="collapsed" desc="Getters and setters. Click on the + sign on the left to edit the code.">
+// <editor-fold defaultstate="collapsed" desc="Getters and setters. Click on the + sign on the left to edit the code.">
     public void setId(int id) {
         this.id = id;
     }
@@ -429,7 +429,7 @@ public class Stykliste {
         return skruer5x100mm50stk;
     }
     // </editor-fold>
-    
+
     public void calculate(int width, int length){
        double tempd, tempwidth, templength,hulbånd ;
        int tempi, hulbåndi, beslagskruer;

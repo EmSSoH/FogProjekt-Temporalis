@@ -29,7 +29,7 @@ public class OrderMapper {
         try {
             Connection con = Connector.connection();
 
-            String SQL = "UPDATE orders (employee_id, incline, roof_type, length, width, toolshed_length, toolshed_width, status, price, delivery, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) WHERE order_id=?";
+            String SQL = "UPDATE orders (employee_id, incline, roof_type, length, width, toolshed_length, toolshed_width, status, price, delivery, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) WHERE order_id= ? ";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, order.getUserId());
             ps.setInt(2, order.getIncline());
@@ -42,6 +42,7 @@ public class OrderMapper {
             ps.setInt(9, order.getShedWidth());
             ps.setInt(10, order.getDelivery());
             ps.setString(11, order.getComment());
+            ps.setInt(12, order.getOrderId());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
