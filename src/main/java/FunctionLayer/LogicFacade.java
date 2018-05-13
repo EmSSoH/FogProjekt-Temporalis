@@ -59,7 +59,11 @@ public class LogicFacade {
     public static void createItemList(Stykliste stykliste) throws UniversalException {
       OrderMapper.createItemList(stykliste);
     }
+
+    public static Stykliste getItemList(int oid) throws UniversalException {
+       return OrderMapper.getItemList(oid);
+    }
     
-    
+
     
 }

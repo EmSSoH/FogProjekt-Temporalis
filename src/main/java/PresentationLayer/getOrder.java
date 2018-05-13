@@ -7,6 +7,7 @@ package PresentationLayer;
 
 import FunctionLayer.LogicFacade;
 import FunctionLayer.Order;
+import FunctionLayer.Stykliste;
 import FunctionLayer.UniversalException;
 import FunctionLayer.User;
 import javax.servlet.http.HttpServletRequest;
@@ -24,8 +25,9 @@ public class getOrder extends Command {
         String tempid = request.getParameter("id");
         int id = Integer.parseInt(tempid);
         Order order = LogicFacade.getOrder(id);
+        Stykliste stykliste = LogicFacade.getItemList(id);
         
-        
+        request.setAttribute("stykliste", stykliste);
         request.setAttribute( "employeeId", order.getUserId());
         request.setAttribute( "orderId", order.getOrderId() );
         request.setAttribute( "CPL", order.getCarportLength() );
@@ -40,6 +42,7 @@ public class getOrder extends Command {
         request.setAttribute( "swidth", order.getShedWidth() );
         request.setAttribute( "status", order.getStatus() );
         request.setAttribute( "userid", order.getUserId() );
+        
                    
             return "order";
        }
