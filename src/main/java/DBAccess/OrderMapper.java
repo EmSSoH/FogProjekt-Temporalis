@@ -55,7 +55,7 @@ public class OrderMapper {
         try {
             Connection con = Connector.connection();
 
-            String SQL = "INSERT INTO orders (customer_id, incline, roof_type, length, width, toolshed_length, toolshed_width, comment, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO orders (customer_id, incline, roof_type, length, width, toolshed_length, toolshed_width, price, comment, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, customerid);
             ps.setInt(2, order.getIncline());
@@ -64,8 +64,9 @@ public class OrderMapper {
             ps.setInt(5, order.getCarportWidth());
             ps.setInt(6, order.getShedLength());
             ps.setInt(7, order.getShedWidth());
-            ps.setString(8, order.getComment());
-            ps.setDate(9, order.getDate());
+            ps.setInt(8, order.getShedWidth());
+            ps.setString(9, order.getComment());
+            ps.setDate(10, order.getDate());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
@@ -247,7 +248,6 @@ public class OrderMapper {
                 String SQL = "INSERT INTO `itemlist` VALUES (?, ?, ?)";
                 PreparedStatement ps;
                 for (int i = 0; i < 45; i++) {
-                    
 
                     ps = con.prepareStatement(SQL);
 
@@ -256,7 +256,7 @@ public class OrderMapper {
                     ps.setInt(3, i + 1);
                     ps.executeUpdate();
                 }
-                
+
                 con.commit();
             } catch (SQLException | ClassNotFoundException ex) {
                 con.rollback();
@@ -270,7 +270,7 @@ public class OrderMapper {
             throw new UniversalException(ex.getMessage());
         }
     }
-    
+
     public static Stykliste getItemList(int orderId) throws UniversalException {
         int[] intArray = new int[45];
         try {
@@ -280,12 +280,44 @@ public class OrderMapper {
             ps.setInt(1, orderId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                intArray[rs.getInt("component_id")-1] = rs.getInt("amount");
+                intArray[rs.getInt("component_id") - 1] = rs.getInt("amount");
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new UniversalException(ex.getMessage());
         }
         return new Stykliste(orderId, intArray);
+    }
+
+    public static String[] getComponentNames() throws UniversalException {
+        String[] StringArray = new String[45];
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM components";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                StringArray[rs.getInt("id") - 1] = rs.getString("componenet_name");
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+        return StringArray;
+    }
+    
+    public static int[] getPrices() throws UniversalException {
+        int[] intArray = new int[45];
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM components";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                intArray[rs.getInt("id") - 1] = rs.getInt("price");
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+        return intArray;
     }
 
     public static void addCustomer(int oid, int cid) throws UniversalException {
