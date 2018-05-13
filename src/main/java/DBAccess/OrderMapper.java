@@ -8,6 +8,7 @@ package DBAccess;
 import FunctionLayer.Order;
 import FunctionLayer.UniversalException;
 import FunctionLayer.Customer;
+import FunctionLayer.Stykliste;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -167,7 +168,6 @@ public class OrderMapper {
         return orders;
     }
 
-
     public static List<Order> getAllOrders() throws UniversalException {
         List<Order> orders = new ArrayList<>();
         try {
@@ -238,40 +238,66 @@ public class OrderMapper {
 
     public void createComponent() throws UniversalException {
         throw new UniversalException("Not yet implemented");
- 
-        
+
     }
-    
 
+    public void createItemList(Stykliste stk) throws UniversalException {
+        Connection con = null;
+        try {
+            try {
+                con = Connector.connection();
+                con.setAutoCommit(false);
+                int[] intArray = stk.toIntArray();
+                String SQL = "INSERT INTO `order_components` VALUES (?, ?, ?)";
+                PreparedStatement ps;
+                for (int i = 0; i < 45; i++) {
+                    
 
+                    ps = con.prepareStatement(SQL);
 
-
-  
+                    ps.setInt(1, intArray[i]);
+                    ps.setInt(2, stk.getId());
+                    ps.setInt(3, i + 1);
+                    ps.executeUpdate();
+                }
+                
+                con.commit();
+            } catch (SQLException | ClassNotFoundException ex) {
+                con.rollback();
+                throw new UniversalException(ex.getMessage());
+            } finally {
+                if (con != null) {
+                    con.close();
+                }
+            }
+        } catch (SQLException | UniversalException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+    }
 
     public static void addCustomer(int oid, int cid) throws UniversalException {
-         try {
+        try {
             Connection con = Connector.connection();
             String SQL = "UPDATE orders SET customer_id = ? WHERE order_id = ? ";
             PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, cid); 
-            ps.setInt(2, oid);   
+            ps.setInt(1, cid);
+            ps.setInt(2, oid);
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
-           
+
         } catch (SQLException | ClassNotFoundException ex) {
             throw new UniversalException(ex.getMessage());
         }
     }
 
-
     public static int createCustomer(String name, String address, int phone, String email) throws UniversalException {
-       try {
+        try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO customer (name, address, phone, email) VALUES (?, ?, ?, ?)";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS );
-            ps.setString( 1, name );
-            ps.setString( 2, address );
-            ps.setInt( 3, phone );
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, name);
+            ps.setString(2, address);
+            ps.setInt(3, phone);
             ps.setString(4, email);
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
@@ -282,9 +308,4 @@ public class OrderMapper {
             throw new UniversalException(ex.getMessage());
         }
     }
-    }
-
-
-
-
-
+}

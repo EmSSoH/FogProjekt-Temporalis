@@ -33,7 +33,7 @@ public class Stykliste {
     ,int spærtræubh45x195mm600,int trykimpstolpe97x97mm300,int trykimpbrædt19x100mm540,int trykimpbrædt19x100mm360,int Plastmoecoliteblåtonet600,
             int Plastmoecoliteblåtonet360,int Plastmobundskruer50stk, int Hulbånd1x20mm10mtr, int Universal190mmhøjre,int Universal190mmvenstre, int skruer4komma5x60mm50stk, int beslagskruer4x50mm50stk,int Bræddebolt10x120mm,
             int Firkantsskiver40x40x11mm){
-
+            
             this.id = id;
             this.TrykimpBrædt25x200mm360 = TrykimpBrædt25x200mm360;
             this.TrykimpBrædt25x200mm540 = TrykimpBrædt25x200mm540;
@@ -60,7 +60,7 @@ public class Stykliste {
     }
     
    
-
+    // <editor-fold defaultstate="collapsed" desc="Getters and setters. Click on the + sign on the left to edit the code.">
     public void setId(int id) {
         this.id = id;
     }
@@ -428,8 +428,9 @@ public class Stykliste {
     public int getSkruer5x100mm50stk() {
         return skruer5x100mm50stk;
     }
+    // </editor-fold>
     
-     public void calculate(int width, int length){
+    public void calculate(int width, int length){
        double tempd, tempwidth, templength,hulbånd ;
        int tempi, hulbåndi, beslagskruer;
        setTrykimpstolpe97x97mm300(6);
@@ -578,7 +579,7 @@ public class Stykliste {
      
      
      
-      public void calculate(int width, int length, int swidth, int slength){
+    public void calculate(int width, int length, int swidth, int slength){
        double tempd, tempwidth, templength,hulbånd ;
        int tempi, tempi2, hulbåndi, beslagskruer;
        setTrykimpstolpe97x97mm300(6);
@@ -784,6 +785,60 @@ public class Stykliste {
        tempi = tempi/50;
        setSkruer4komma5x70mm50stk(tempi);
      }
-}
+
+    
+    public int[] toIntArray(){
+        int[] intArray = new int[45];
+        intArray[0] = TrykimpBrædt25x200mm360;
+        intArray[1] = TrykimpBrædt25x200mm540;
+        intArray[2] = trykimpbrædt25x125mm360;
+        intArray[3] = trykimpbrædt25x125mm540;
+        intArray[4] = lægteubh38x73mm420;
+        intArray[5] = regulærub45x95mm240;
+        intArray[6] = regulærub45x95mm270;
+        intArray[7] = regulærub45x95mm360;
+        intArray[8] = spærtræubh45x195mm480;
+        intArray[9] = spærtræubh45x195mm600;
+        intArray[10] = trykimpstolpe97x97mm300;
+        intArray[11] = trykimpbrædt19x100mm210;
+        intArray[12] = trykimpbrædt19x100mm240;
+        intArray[13] = trykimpbrædt19x100mm360;
+        intArray[14] = trykimpbrædt19x100mm480;
+        intArray[15] = trykimpbrædt19x100mm540;
+        intArray[16] = trykimpbrædt25x150mm480;
+        intArray[17] = trykimpbrædt25x150mm540;
+        intArray[18] = trykimpbrædt25x150mm600;
+        intArray[19] = færdigskåret;
+        intArray[20] = trykimpbræt25x50mm540;
+        intArray[21] = taglægteTI38x73mm420;
+        intArray[22] = taglægteTI38x73mm540;
+        intArray[23] = BCdobbeltssort;
+        intArray[24] = BCrygstensort;
+        intArray[25] = BCtoplægterholder;
+        intArray[26] = BCrygstensbeslag;
+        intArray[27] = BCtagstensbindereognakkekroge;
+        intArray[28] = Plastmoecoliteblåtonet360;
+        intArray[29] = Plastmoecoliteblåtonet600;
+        intArray[30] = Plastmobundskruer50stk;
+        intArray[31] = Hulbånd1x20mm10mtr;
+        intArray[32] = Universal190mmhøjre;
+        intArray[33] = Universal190mmvenstre;
+        intArray[34] = skruer4komma5x60mm50stk;
+        intArray[35] = beslagskruer4x50mm50stk;
+        intArray[36] = Bræddebolt10x120mm;
+        intArray[37] = Firkantsskiver40x40x11mm;
+        intArray[38] = skruer4komma5x70mm50stk;
+        intArray[39] = skruer4komma5x50mm50stk;
+        intArray[40] = Stalddørsgreb50x75;
+        intArray[41] = Thængsel390mm;
+        intArray[42] = Vinkelbeslag35;
+        intArray[43] = beslagskruer5x40mm50stk;
+        intArray[44] = skruer5x100mm50stk;
+        
+        return intArray;
+    }
+    
+    
+} 
     
 
