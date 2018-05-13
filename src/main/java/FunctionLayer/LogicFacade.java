@@ -55,6 +55,10 @@ public class LogicFacade {
     public static void updateOrder(Order order) throws UniversalException {
        OrderMapper.updateOrder(order);
     }
+
+    public static void createItemList(Stykliste stykliste) throws UniversalException {
+      OrderMapper.createItemList(stykliste);
+    }
     
     
     
