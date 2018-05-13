@@ -12,6 +12,7 @@
    
     int hOffset = 50;
     int roofOffset = 5;
+
 %>   
 <!DOCTYPE html>
 <html>
@@ -20,6 +21,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+
         <SVG height= 900 width="900" viewBox="0 0 1400 1400">
           <rect x="0" y="0" height = "<%=width+1%>" width= "<%=length+1%>"
            style="stroke:#000000; fill: #ffffff"/>  
@@ -53,6 +55,7 @@
           <rect x="30" y="35" height="<%=swidth%>" width= "<%=slength%>" style=" stroke:#000000; fill: #b9ffd6" fill-opacity="0.4" />
           
           <text x="140" y="<%= width - (width/2) %>" font-size="30" >Skur</text>
+
           
           <%}%>
           
@@ -82,5 +85,6 @@
         
         </SVG>
         
+
     </body>
 </html>

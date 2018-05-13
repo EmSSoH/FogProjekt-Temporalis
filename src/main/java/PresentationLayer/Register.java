@@ -22,7 +22,8 @@ public class Register extends Command {
             HttpSession session = request.getSession();
             session.setAttribute( "user", user );
             session.setAttribute( "role", user.getRole() );
-            return "index";// to be changed
+            
+            return "LoginNonAdmin";
 
         } else {
             throw new UniversalException( "the two passwords did not match" );

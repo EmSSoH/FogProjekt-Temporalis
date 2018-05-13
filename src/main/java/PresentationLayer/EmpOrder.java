@@ -27,7 +27,7 @@ public class EmpOrder extends Command {
         HttpSession session = request.getSession();
         List<Order> orders = LogicFacade.getAllOrders();
         
-        session.setAttribute("allOrders", orders);
+        request.setAttribute("allOrders", orders);
         
             if (orders == null) {
                 throw new UniversalException("Could not fetch orders");
