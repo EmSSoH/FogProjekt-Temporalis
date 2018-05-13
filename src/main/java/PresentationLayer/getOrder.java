@@ -26,8 +26,7 @@ public class getOrder extends Command {
         Order order = LogicFacade.getOrder(id);
         
         
-        request.setAttribute( "employeeId", order.getOrderId() );
-        request.setAttribute( "customerId", order.getOrderId() );
+        request.setAttribute( "employeeId", order.getUserId());
         request.setAttribute( "orderId", order.getOrderId() );
         request.setAttribute( "CPL", order.getCarportLength() );
         request.setAttribute( "CPW", order.getCarportWidth() );

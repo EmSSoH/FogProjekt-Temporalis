@@ -29,7 +29,7 @@ public class OrderMapper {
         try {
             Connection con = Connector.connection();
 
-            String SQL = "UPDATE orders (employee_id, incline, roof_type, length, width, toolshed_length, toolshed_width, status, price, delivery, comment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) WHERE order_id= ? ";
+            String SQL = "UPDATE orders SET employee_id = ?, incline = ?, roof_type= ?, length= ?, width= ?, toolshed_length= ?, toolshed_width= ?, status= ?, price= ?, delivery= ?, comment= ? WHERE order_id= ? ";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, order.getUserId());
             ps.setInt(2, order.getIncline());
@@ -37,19 +37,14 @@ public class OrderMapper {
             ps.setInt(4, order.getCarportLength());
             ps.setInt(5, order.getCarportWidth());
             ps.setInt(6, order.getShedLength());
-            ps.setInt(7, order.getStatus());
-            ps.setInt(8, order.getPrice());
-            ps.setInt(9, order.getShedWidth());
+            ps.setInt(7, order.getShedWidth());
+            ps.setInt(8, order.getStatus());
+            ps.setInt(9, order.getPrice());
             ps.setInt(10, order.getDelivery());
             ps.setString(11, order.getComment());
             ps.setInt(12, order.getOrderId());
             ps.executeUpdate();
-            ResultSet rs = ps.getGeneratedKeys();
-            if (rs.next()) {
-                order.setOrderId(rs.getInt(1));
-            } else {
-                throw new SQLException("no generated key found");
-            }
+          
             return true;
         } catch (SQLException | ClassNotFoundException ex) {
             throw new UniversalException(ex.getMessage());
