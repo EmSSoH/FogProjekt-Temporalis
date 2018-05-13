@@ -22,7 +22,6 @@
                 <tr>
                     <th>Order ID</th>
                     <th>employee id</th>
-                    <th>customer_id</th>
                     <th>status</th>
                     <th>carport length</th>
                     <th>carport Width</th>
@@ -40,8 +39,7 @@
             <tbody>
                  <tr>
                      <td> <% out.print(request.getAttribute("orderId")); %></td>
-                     <td> <% out.print(request.getAttribute("employeeID")); %></td>
-                     <td> <% out.print(request.getAttribute("customerID")); %></td>
+                     <td> <% out.print(request.getAttribute("employeeId")); %></td>
                      <td> <% out.print(request.getAttribute("status")); %></td>
                      <td> <% out.print(request.getAttribute("CPL")); %></td>
                      <td> <% out.print(request.getAttribute("CPW")); %></td>
@@ -58,7 +56,6 @@
                  <tr>
                      <td><input type="hidden" name="orderId" value="<% out.print(request.getAttribute("orderId")); %>"></td>
                      <td><input type="text" name="nemployeeId" value=""></td>
-                     <td></td>
                      <td><input type="text" name="nstatus" value=""></td>
                      <td><input type="text" name="nCPL" value=""></td>
                      <td><input type="text" name="nCPW" value=""></td>
