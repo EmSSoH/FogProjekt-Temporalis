@@ -25,7 +25,7 @@ public class EmpOrder extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalException {
         
-        HttpSession session = request.getSession();
+       
         List<Order> orders = LogicFacade.getAllOrders();
         Collections.reverse(orders);
         request.setAttribute("allOrders", orders);

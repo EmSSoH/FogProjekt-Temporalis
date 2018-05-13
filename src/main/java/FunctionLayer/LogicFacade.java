@@ -49,6 +49,12 @@ public class LogicFacade {
     public static int createCustomer(String name, String address, int phone, String email) throws UniversalException {
         return OrderMapper.createCustomer(name, address, phone, email);
     }
+
+
+
+    public static void updateOrder(Order order) throws UniversalException {
+       OrderMapper.updateOrder(order);
+    }
     
     
     

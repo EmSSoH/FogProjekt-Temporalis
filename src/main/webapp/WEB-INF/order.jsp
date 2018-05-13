@@ -10,11 +10,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="LegoStyle.css" rel="stylesheet" type="text/css"/>
+        <link href="LegoStyle.css" rel="stylesheet" type="text/css"/>    
         <title>JSP Page</title>
     </head>
     <body>
         <div> 
+       <form name="rediger" action="FrontController" method="POST">
+       <input type="hidden" name="command" value="rediger">
         <table id="table">
             <thead>
                 <tr>
@@ -35,26 +37,43 @@
                 </tr>
             </thead>
             <tbody>
-                //skal redigeres væk fra session.
                  <tr>
-                     <td> <% out.print(session.getAttribute("orderId")); %></td>
-                     <td> <% out.print(session.getAttribute("status")); %></td>
-                     <td> <% out.print(session.getAttribute("CPL")); %></td>
-                     <td> <% out.print(session.getAttribute("CPW")); %></td>
-                     <td> <% out.print(session.getAttribute("incline")); %></td>
-                     <td> <% out.print(session.getAttribute("Rtype")); %></td>
-                     <td> <% out.print(session.getAttribute("slength")); %></td>
-                     <td> <% out.print(session.getAttribute("swidth")); %></td>
-                     <td> <% out.print(session.getAttribute("comment")); %></td>
-                     <td> <% out.print(session.getAttribute("price")); %></td>
-                     <td> <% out.print(session.getAttribute("userid")); %></td>
-                     <td> <% out.print(session.getAttribute("delivery")); %></td>
-                     <td> <% out.print(session.getAttribute("date")); %></td>
+                     <td> <% out.print(request.getAttribute("orderId")); %></td>
+                     <td> <% out.print(request.getAttribute("status")); %></td>
+                     <td> <% out.print(request.getAttribute("CPL")); %></td>
+                     <td> <% out.print(request.getAttribute("CPW")); %></td>
+                     <td> <% out.print(request.getAttribute("incline")); %></td>
+                     <td> <% out.print(request.getAttribute("Rtype")); %></td>
+                     <td> <% out.print(request.getAttribute("slength")); %></td>
+                     <td> <% out.print(request.getAttribute("swidth")); %></td>
+                     <td> <% out.print(request.getAttribute("comment")); %></td>
+                     <td> <% out.print(request.getAttribute("price")); %></td>
+                     <td> <% out.print(request.getAttribute("userid")); %></td>
+                     <td> <% out.print(request.getAttribute("delivery")); %></td>
+                     <td> <% out.print(request.getAttribute("date")); %></td>
                  </tr>
-                       
+              
+                 <tr>
+                     <td><input type="text" name="oid" value=""></td>
+                     <td><input type="text" name="status" value=""></td>
+                     <td><input type="text" name="CPL" value=""></td>
+                     <td><input type="text" name="CPW" value=""></td>
+                     <td><input type="text" name="incline" value=""></td>
+                     <td><input type="text" name="Rtype" value=""></td>
+                     <td><input type="text" name="slength" value=""></td>
+                     <td><input type="text" name="swidth" value=""></td>
+                     <td><input type="text" name="comment" value=""></td>
+                     <td><input type="text" name="price" value=""></td>
+                     <td><input type="text" name="uid" value=""></td>
+                     <td><input type="text" name="delivery" value=""></td>
+                 </tr>  
+              
             </tbody>
+            
         </table>       
-
+                
+             <input type="submit" value="Submit changes">
+            </form>
      </div>   
     </body>
 </html>

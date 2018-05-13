@@ -17,6 +17,7 @@ abstract class Command {
         commands.put("send", new getOrder());
         commands.put("draw", new draw());
         commands.put("bestil", new NewOrder());
+        commands.put("rediger", new redigerOrder());
     
 
         

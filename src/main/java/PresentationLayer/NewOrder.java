@@ -45,7 +45,7 @@ public class NewOrder extends Command {
         
         
          
-        return "ordreConfrimed";
+        return "ordreConfirmed";
     }
     
 }
