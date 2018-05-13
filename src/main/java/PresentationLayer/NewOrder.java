@@ -43,7 +43,7 @@ public class NewOrder extends Command {
         LogicFacade.newOrder(order, cid);
         Stykliste stykliste;
         
-        if(slength == 0 && swidth == 0){
+        if(slength < 210 && swidth < 150){
          stykliste = new Stykliste(cwidth, clength);      
         }else{
          stykliste = new Stykliste(cwidth, clength,swidth,slength);       
