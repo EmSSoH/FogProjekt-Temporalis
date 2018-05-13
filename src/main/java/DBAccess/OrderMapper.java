@@ -55,7 +55,7 @@ public class OrderMapper {
         try {
             Connection con = Connector.connection();
 
-            String SQL = "INSERT INTO orders (customer_id, incline, roof_type, length, width, toolshed_length, toolshed_width, comment, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String SQL = "INSERT INTO orders (customer_id, incline, roof_type, length, width, toolshed_length, toolshed_width, price, comment, date) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, customerid);
             ps.setInt(2, order.getIncline());
@@ -64,8 +64,9 @@ public class OrderMapper {
             ps.setInt(5, order.getCarportWidth());
             ps.setInt(6, order.getShedLength());
             ps.setInt(7, order.getShedWidth());
-            ps.setString(8, order.getComment());
-            ps.setDate(9, order.getDate());
+            ps.setInt(8, order.getShedWidth());
+            ps.setString(9, order.getComment());
+            ps.setDate(10, order.getDate());
             ps.executeUpdate();
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
