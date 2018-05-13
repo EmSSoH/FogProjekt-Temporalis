@@ -41,8 +41,20 @@
           <% temp -= 55; }%>
           <rect x="<%= length - temp%>" y="0" height="<%=width%>" width= "<%=temp%>" style=" stroke:#000000; fill: #dddddd" fill-opacity="0.4" />
           
+          
+          <% if(swidth >= 150 && slength >= 210){ %>
+          
+          <rect x="30" y="<%=(swidth/2) + 25%>" height="10" width= "10" style=" stroke:#000000; fill: #dddddd" />
+          <rect x="30" y="<%=swidth + 25%>" height="10" width= "10" style=" stroke:#000000; fill: #dddddd" />
+          <rect x="<%=slength + 20%>" y="35" height="10" width= "10" style=" stroke:#000000; fill: #dddddd" />
+          <rect x="<%=slength + 20%>" y="<%=(swidth/2) + 25%>" height="10" width= "10" style=" stroke:#000000; fill: #dddddd" />
+          <rect x="<%=slength + 20%>" y="<%=swidth + 25%>" height="10" width= "10" style=" stroke:#000000; fill: #dddddd" />
+          
           <rect x="30" y="35" height="<%=swidth%>" width= "<%=slength%>" style=" stroke:#000000; fill: #b9ffd6" fill-opacity="0.4" />
+          
           <text x="140" y="<%= width - (width/2) %>" font-size="30" >Skur</text>
+          
+          <%}%>
           
           
           
@@ -57,16 +69,16 @@
         omrids <rect x="0" y="<%=hOffset%>" height="220" width= "<%=length%>" style=" stroke:#000000; fill: #dddddd" fill-opacity="0.0"   />
         
         <rect x="0" y="<%=hOffset - roofOffset%>"  height="30" width="<%=length%>" style="stroke:#000000; fill: #dddddd" transform="skewY(<%=Math.atan(-length/10)%>)" />
-        
+        <%if(swidth >= 150 && slength >= 210){ %>
         skur <rect x="30" y="<%=hOffset + 10%>" height="210" width="<%=slength%>" style=" stroke:#000000; fill: #b9ffd6" fill-opacity="0.4" />
-        
+        <%}%>
         <rect x="0" y="<%=hOffset - roofOffset%>"  height="15" width="<%=length%>" style="stroke:#000000; fill: #eddddd" fill-opacity="0.4" transform="skewY(<%=Math.atan(-length/10)%>)" />
         
         
         
         transform="skewY(<%=Math.atan(-length/10)%>)"
         
-        
+        210 x 150 minimum skur størelse.
         
         </SVG>
         
