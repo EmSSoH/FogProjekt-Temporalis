@@ -242,14 +242,14 @@ public class OrderMapper {
 
     }
 
-    public void createItemList(Stykliste stk) throws UniversalException {
+    public static void createItemList(Stykliste stk) throws UniversalException {
         Connection con = null;
         try {
             try {
                 con = Connector.connection();
                 con.setAutoCommit(false);
                 int[] intArray = stk.toIntArray();
-                String SQL = "INSERT INTO `order_components` VALUES (?, ?, ?)";
+                String SQL = "INSERT INTO `itemlist` VALUES (?, ?, ?)";
                 PreparedStatement ps;
                 for (int i = 0; i < 45; i++) {
                     

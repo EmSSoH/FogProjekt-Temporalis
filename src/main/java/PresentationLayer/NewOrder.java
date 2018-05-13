@@ -48,7 +48,8 @@ public class NewOrder extends Command {
         }else{
          stykliste = new Stykliste(cwidth, clength,swidth,slength);       
         }
-         
+        stykliste.setId(order.getOrderId());
+        LogicFacade.createItemList(stykliste); 
         return "ordreConfirmed";
     }
     
