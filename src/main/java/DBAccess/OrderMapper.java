@@ -261,10 +261,6 @@ public class OrderMapper {
             } catch (SQLException | ClassNotFoundException ex) {
                 con.rollback();
                 throw new UniversalException(ex.getMessage());
-            } finally {
-                if (con != null) {
-                    con.close();
-                }
             }
         } catch (SQLException | UniversalException ex) {
             throw new UniversalException(ex.getMessage());
