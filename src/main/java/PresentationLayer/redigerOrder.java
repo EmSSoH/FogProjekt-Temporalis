@@ -54,7 +54,7 @@ public class redigerOrder extends Command {
         
         
         
-        return "orderList";
+        return "LoginNonAdmin";
         
       
     }
