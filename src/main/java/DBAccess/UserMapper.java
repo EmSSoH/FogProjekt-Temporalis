@@ -33,7 +33,7 @@ public class UserMapper {
             throw new UniversalException( ex.getMessage() );
         }
     }
-
+    
     public static void createEmployee(User user) throws UniversalException {
         try {
             Connection con = Connector.connection();
@@ -41,7 +41,7 @@ public class UserMapper {
             PreparedStatement ps = con.prepareStatement( SQL, Statement.RETURN_GENERATED_KEYS );
             ps.setString( 1, user.getName() );
             ps.setString( 2, user.getEmail() );
-            ps.setString( 3, user.getPassword() );
+            ps.setString( 3, user.getPassword() ); 
             ps.executeUpdate();
             ResultSet ids = ps.getGeneratedKeys();
             ids.next();
@@ -73,7 +73,7 @@ public class UserMapper {
             Connection con = Connector.connection();
 
             String SQL = "SELECT id, email, role FROM employees "
-                    + "WHERE name= ? AND password= ? ";
+                    + "WHERE name= ? AND password= ?";
 
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setString( 1, username );
