@@ -12,7 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="LegoStyle.css" rel="stylesheet" type="text/css"/>    
+        <link href="Table.css" rel="stylesheet" type="text/css"/>    
         <title>JSP Page</title>
     </head>
     <body>

@@ -13,11 +13,12 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <div>
                <form name="orderlist" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="orderlist">
                         <input type="submit" value="Check Order">
-                    </form> 
-            
+                </form> 
+        </div>    
           
     </body>
 </html>
