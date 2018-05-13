@@ -270,6 +270,23 @@ public class OrderMapper {
             throw new UniversalException(ex.getMessage());
         }
     }
+    
+    public static Stykliste getItemList(int orderId) throws UniversalException {
+        int[] intArray = new int[45];
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM itemlist WHERE order_id=?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, orderId);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                intArray[rs.getInt("component_id")-1] = rs.getInt("amount");
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+        return new Stykliste(orderId, intArray);
+    }
 
     public static void addCustomer(int oid, int cid) throws UniversalException {
         try {
