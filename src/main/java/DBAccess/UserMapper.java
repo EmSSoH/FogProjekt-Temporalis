@@ -72,14 +72,10 @@ public class UserMapper {
         try {
             Connection con = Connector.connection();
 
-<<<<<<< HEAD
-            String SQL = "SELECT id, role FROM employees "
-                    + "WHERE name=? AND password=?";
-=======
+
             String SQL = "SELECT id, email, role FROM employees "
                     + "WHERE name= ? AND password= ?";
 
->>>>>>> f74111eb57c43030addb677a3c6a39763ace3aa6
             PreparedStatement ps = con.prepareStatement( SQL );
             ps.setString( 1, username );
             ps.setString( 2, password );
