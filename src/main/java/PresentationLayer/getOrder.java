@@ -7,6 +7,7 @@ package PresentationLayer;
 
 import FunctionLayer.LogicFacade;
 import FunctionLayer.Order;
+import FunctionLayer.Stykliste;
 import FunctionLayer.UniversalException;
 import FunctionLayer.User;
 import javax.servlet.http.HttpServletRequest;
@@ -24,21 +25,24 @@ public class getOrder extends Command {
         String tempid = request.getParameter("id");
         int id = Integer.parseInt(tempid);
         Order order = LogicFacade.getOrder(id);
+        Stykliste stykliste = LogicFacade.getItemList(id);
         
-        HttpSession session = request.getSession();
-        session.setAttribute( "orderId", order.getOrderId() );
-        session.setAttribute( "CPL", order.getCarportLength() );
-        session.setAttribute( "CPW", order.getCarportWidth() );
-        session.setAttribute( "comment", order.getComment() );
-        session.setAttribute( "date", order.getDate() );
-        session.setAttribute( "delivery", order.getDelivery() );
-        session.setAttribute( "incline", order.getIncline() );
-        session.setAttribute( "price", order.getPrice() );
-        session.setAttribute( "Rtype", order.getRoofType() );
-        session.setAttribute( "slength", order.getShedLength() );
-        session.setAttribute( "swidth", order.getShedWidth() );
-        session.setAttribute( "status", order.getStatus() );
-        session.setAttribute( "userid", order.getUserId() );
+        request.setAttribute("stykliste", stykliste);
+        request.setAttribute( "employeeId", order.getUserId());
+        request.setAttribute( "orderId", order.getOrderId() );
+        request.setAttribute( "CPL", order.getCarportLength() );
+        request.setAttribute( "CPW", order.getCarportWidth() );
+        request.setAttribute( "comment", order.getComment() );
+        request.setAttribute( "date", order.getDate() );
+        request.setAttribute( "delivery", order.getDelivery() );
+        request.setAttribute( "incline", order.getIncline() );
+        request.setAttribute( "price", order.getPrice() );
+        request.setAttribute( "Rtype", order.getRoofType() );
+        request.setAttribute( "slength", order.getShedLength() );
+        request.setAttribute( "swidth", order.getShedWidth() );
+        request.setAttribute( "status", order.getStatus() );
+        request.setAttribute( "userid", order.getUserId() );
+        
                    
             return "order";
        }

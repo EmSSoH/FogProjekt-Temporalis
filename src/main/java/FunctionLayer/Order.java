@@ -9,13 +9,15 @@ import java.sql.Date;
 
 /**
  *
- * @author Magnus West Madsen
+ * @author Temporalis
  */
 public class Order {
     
-    private int orderId, status, carportLength, carportWidth,incline, shedLength, shedWidth, price, roofType , userId, delivery ;
+
+    private int orderId, status, carportLength, carportWidth,incline, shedLength, shedWidth, price, roofType , userId, delivery;
     private String comment;
     private Date date;
+    private Customer customer;
     
  
     public Order(int orderId, Date date, int status){
@@ -40,6 +42,7 @@ public class Order {
         java.util.Date tempdate = new java.util.Date();
         date = new Date(tempdate.getTime());
     }
+
      public Order(int orderId, int status, int carportLength, int carportWidth, int incline, int roofType,
             int shedLength, int shedWidth, String comment, int price, int userId, int delivery, Date date) {
 
@@ -59,10 +62,28 @@ public class Order {
 
     
      }
+     
+     public Order(int orderId, int status, int carportLength, int carportWidth, int incline, int roofType,
+            int shedLength, int shedWidth, String comment, int price, int userId, int delivery, Date date, Customer customer) {
+
+        this.orderId = orderId;
+        this.status = status;
+        this.carportLength = carportLength;
+        this.carportWidth = carportWidth;
+        this.incline = incline;
+        this.roofType = roofType;
+        this.shedLength = shedLength;
+        this.shedWidth = shedWidth;
+        this.comment = comment;
+        this.price = price;
+        this.userId = userId;
+        this.delivery = delivery;
+        this.date = date;
+        this.customer = customer;
+     }
+
     public void setOrderId(int orderId) {
         this.orderId = orderId;
-        
-        
     }
 
     public void setDate(Date date) {
@@ -164,7 +185,12 @@ public class Order {
     public String getComment() {
         return comment;
     }
+    
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
 
-    
-    
+    public Customer getCustomer() {
+        return customer;
+    }    
 }

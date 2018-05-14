@@ -9,6 +9,7 @@ package PresentationLayer;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.Order;
 import FunctionLayer.UniversalException;
+import java.util.Collections;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -24,10 +25,10 @@ public class EmpOrder extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalException {
         
-        HttpSession session = request.getSession();
+       
         List<Order> orders = LogicFacade.getAllOrders();
-        
-        session.setAttribute("allOrders", orders);
+        Collections.reverse(orders);
+        request.setAttribute("allOrders", orders);
         
             if (orders == null) {
                 throw new UniversalException("Could not fetch orders");
