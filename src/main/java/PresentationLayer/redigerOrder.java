@@ -10,6 +10,7 @@ import FunctionLayer.Order;
 import FunctionLayer.UniversalException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -19,36 +20,42 @@ public class redigerOrder extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalException {
-        String temp = request.getParameter( "oid" );
-        int oid = Integer.parseInt(temp);
-        temp = request.getParameter( "CPL" );
+
+        HttpSession session = request.getSession();
+        
+        String temp = request.getParameter( "nemployeeId" );
+        int employeeID = Integer.parseInt(temp);
+        temp = request.getParameter( "nCPL" );
         int cpl = Integer.parseInt(temp);
-        temp = request.getParameter("CPW");
+        temp = request.getParameter("nCPW");
         int cpw = Integer.parseInt(temp);
-        temp = request.getParameter( "delivery" );
+        temp = request.getParameter( "ndelivery" );
         int delivery = Integer.parseInt(temp);
-        temp = request.getParameter( "incline" );
+        temp = request.getParameter( "nincline" );
         int incline = Integer.parseInt(temp);
-        temp = request.getParameter("price");
+        temp = request.getParameter("nprice");
         int price = Integer.parseInt(temp);
-        temp = request.getParameter("Rtype");
+        temp = request.getParameter("nRtype");
         int Rtype = Integer.parseInt(temp);
-        temp = request.getParameter( "slength" );
+        temp = request.getParameter( "nslength" );
         int slength = Integer.parseInt(temp);
-        temp = request.getParameter( "swidth" );
+        temp = request.getParameter( "nswidth" );
         int swidth = Integer.parseInt(temp);
-        temp = request.getParameter("status");
+        temp = request.getParameter("nstatus");
         int status = Integer.parseInt(temp);
-        temp = request.getParameter("uid");
-        int uid = Integer.parseInt(temp); 
-        temp = request.getParameter("comment");
-       
-        Order order = new Order(status,cpl,cpw,incline,Rtype,slength,swidth,temp,price,uid,delivery);
+        String comment = request.getParameter("ncomment");
+        
+        
+                             
+        Order order = new Order(status,cpl,cpw,incline,Rtype,slength,swidth,comment,price,employeeID,delivery);
+        temp = request.getParameter("orderId" );
+        int oid = Integer.parseInt(temp);
+        order.setOrderId(oid);
         LogicFacade.updateOrder(order);
         
         
         
-        return "hej";
+        return "LoginNonAdmin";
         
       
     }

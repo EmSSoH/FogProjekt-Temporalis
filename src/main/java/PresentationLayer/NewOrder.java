@@ -40,15 +40,26 @@ public class NewOrder extends Command {
             slength, swidth, "hej", 12345, 4, 1);
         cid = LogicFacade.createCustomer(name, address, phone, email);    
         
-        LogicFacade.newOrder(order, cid);
         Stykliste stykliste;
-        
         if(slength < 210 && swidth < 150){
          stykliste = new Stykliste(cwidth, clength);      
         }else{
          stykliste = new Stykliste(cwidth, clength,swidth,slength);       
         }
-         
+        int[] amounts = stykliste.toIntArray();
+        int[] prices = LogicFacade.getPrices();
+        int pris = 0;
+        for(int i = 0; i < 45; i++){
+            if(amounts[i] != 0){
+                pris+= amounts[i] * prices[i];
+            }
+        }
+        order.setPrice(pris);
+        
+        LogicFacade.newOrder(order, cid);
+        
+        stykliste.setId(order.getOrderId());
+        LogicFacade.createItemList(stykliste); 
         return "ordreConfirmed";
     }
     

@@ -10,56 +10,106 @@ package FunctionLayer;
  * @author Juste
  */
 public class Stykliste {
-    private int id, TrykimpBrædt25x200mm360, TrykimpBrædt25x200mm540,trykimpbrædt25x125mm360,trykimpbrædt25x125mm540,lægteubh38x73mm420,regulærub45x95mm270,regulærub45x95mm240,
-            regulærub45x95mm360,spærtræubh45x195mm600,spærtræubh45x195mm480,trykimpstolpe97x97mm300,trykimpbrædt19x100mm210,trykimpbrædt19x100mm540,trykimpbrædt19x100mm360,
-            trykimpbrædt19x100mm480,trykimpbrædt19x100mm240,trykimpbrædt25x150mm480,trykimpbrædt25x150mm600,trykimpbrædt25x150mm540,færdigskåret,trykimpbræt25x50mm540,
-            taglægteTI38x73mm540,taglægteTI38x73mm420, BCdobbeltssort, BCrygstensort, BCtoplægterholder, BCrygstensbeslag, BCtagstensbindereognakkekroge,Plastmoecoliteblåtonet600,
-            Plastmoecoliteblåtonet360,Plastmobundskruer50stk, Hulbånd1x20mm10mtr, Universal190mmhøjre, Universal190mmvenstre, skruer4komma5x60mm50stk, beslagskruer4x50mm50stk, Bræddebolt10x120mm,
-            Firkantsskiver40x40x11mm,skruer4komma5x70mm50stk, skruer4komma5x50mm50stk, Stalddørsgreb50x75,Thængsel390mm,Vinkelbeslag35,beslagskruer5x40mm50stk,skruer5x100mm50stk;
+
+    private int id, TrykimpBrædt25x200mm360, TrykimpBrædt25x200mm540, trykimpbrædt25x125mm360, trykimpbrædt25x125mm540, lægteubh38x73mm420, regulærub45x95mm270, regulærub45x95mm240,
+            regulærub45x95mm360, spærtræubh45x195mm600, spærtræubh45x195mm480, trykimpstolpe97x97mm300, trykimpbrædt19x100mm210, trykimpbrædt19x100mm540, trykimpbrædt19x100mm360,
+            trykimpbrædt19x100mm480, trykimpbrædt19x100mm240, trykimpbrædt25x150mm480, trykimpbrædt25x150mm600, trykimpbrædt25x150mm540, færdigskåret, trykimpbræt25x50mm540,
+            taglægteTI38x73mm540, taglægteTI38x73mm420, BCdobbeltssort, BCrygstensort, BCtoplægterholder, BCrygstensbeslag, BCtagstensbindereognakkekroge, Plastmoecoliteblåtonet600,
+            Plastmoecoliteblåtonet360, Plastmobundskruer200stk, Hulbånd1x20mm10mtr, Universal190mmhøjre, Universal190mmvenstre, skruer4komma5x60mm200stk, beslagskruer4x50mm250stk, Bræddebolt10x120mm,
+            Firkantsskiver40x40x11mm, skruer4komma5x70mm400stk, skruer4komma5x50mm300stk, Stalddørsgreb50x75, Thængsel390mm, Vinkelbeslag35, beslagskruer5x40mm250stk, skruer5x100mm100stk;
 
     //calculator without shed
-    public Stykliste(int width, int length){
-        calculate(width,length);
+    public Stykliste(int width, int length) {
+        calculate(width, length);
     }
-    
-    //calculator with shed
-    public Stykliste(int width, int length, int swidth, int slength){
-        calculate(width,length,swidth,slength);
-    }
-    
-    
-    //faldt tag uden skur
-    public Stykliste(int id, int TrykimpBrædt25x200mm360,int TrykimpBrædt25x200mm540,int trykimpbrædt25x125mm360,int trykimpbrædt25x125mm540,int lægteubh38x73mm420,int regulærub45x95mm270,int regulærub45x95mm240
-    ,int spærtræubh45x195mm600,int trykimpstolpe97x97mm300,int trykimpbrædt19x100mm540,int trykimpbrædt19x100mm360,int Plastmoecoliteblåtonet600,
-            int Plastmoecoliteblåtonet360,int Plastmobundskruer50stk, int Hulbånd1x20mm10mtr, int Universal190mmhøjre,int Universal190mmvenstre, int skruer4komma5x60mm50stk, int beslagskruer4x50mm50stk,int Bræddebolt10x120mm,
-            int Firkantsskiver40x40x11mm){
 
-            this.id = id;
-            this.TrykimpBrædt25x200mm360 = TrykimpBrædt25x200mm360;
-            this.TrykimpBrædt25x200mm540 = TrykimpBrædt25x200mm540;
-            this.trykimpbrædt25x125mm360 = trykimpbrædt25x125mm360;
-            this.trykimpbrædt25x125mm540 = trykimpbrædt25x125mm540;
-            this.lægteubh38x73mm420 =lægteubh38x73mm420;
-            this.regulærub45x95mm270 = regulærub45x95mm270;
-            this.regulærub45x95mm240 = regulærub45x95mm240;
-            this.spærtræubh45x195mm600 = spærtræubh45x195mm600;
-            this.trykimpstolpe97x97mm300 = trykimpstolpe97x97mm300;
-            this.trykimpbrædt19x100mm540 = trykimpbrædt19x100mm540;
-            this.trykimpbrædt19x100mm360 = trykimpbrædt19x100mm360;
-            this.Plastmoecoliteblåtonet600 = Plastmoecoliteblåtonet600;
-            this.Plastmoecoliteblåtonet360 = Plastmoecoliteblåtonet360;
-            this.Plastmobundskruer50stk = Plastmobundskruer50stk;
-            this.Hulbånd1x20mm10mtr = Hulbånd1x20mm10mtr;
-            this.Universal190mmhøjre = Universal190mmhøjre;
-            this.Universal190mmvenstre = Universal190mmvenstre;
-            this.skruer4komma5x60mm50stk = skruer4komma5x60mm50stk;
-            this.beslagskruer4x50mm50stk = beslagskruer4x50mm50stk;
-            this.Bræddebolt10x120mm = Bræddebolt10x120mm;
-            this.Firkantsskiver40x40x11mm = Firkantsskiver40x40x11mm;
-            
+    //calculator with shed
+    public Stykliste(int width, int length, int swidth, int slength) {
+        calculate(width, length, swidth, slength);
     }
-    
-   
+
+    //faldt tag uden skur
+    public Stykliste(int id, int TrykimpBrædt25x200mm360, int TrykimpBrædt25x200mm540, int trykimpbrædt25x125mm360, int trykimpbrædt25x125mm540, int lægteubh38x73mm420, int regulærub45x95mm270, int regulærub45x95mm240,
+             int spærtræubh45x195mm600, int trykimpstolpe97x97mm300, int trykimpbrædt19x100mm540, int trykimpbrædt19x100mm360, int Plastmoecoliteblåtonet600,
+            int Plastmoecoliteblåtonet360, int Plastmobundskruer50stk, int Hulbånd1x20mm10mtr, int Universal190mmhøjre, int Universal190mmvenstre, int skruer4komma5x60mm50stk, int beslagskruer4x50mm50stk, int Bræddebolt10x120mm,
+            int Firkantsskiver40x40x11mm) {
+
+        this.id = id;
+        this.TrykimpBrædt25x200mm360 = TrykimpBrædt25x200mm360;
+        this.TrykimpBrædt25x200mm540 = TrykimpBrædt25x200mm540;
+        this.trykimpbrædt25x125mm360 = trykimpbrædt25x125mm360;
+        this.trykimpbrædt25x125mm540 = trykimpbrædt25x125mm540;
+        this.lægteubh38x73mm420 = lægteubh38x73mm420;
+        this.regulærub45x95mm270 = regulærub45x95mm270;
+        this.regulærub45x95mm240 = regulærub45x95mm240;
+        this.spærtræubh45x195mm600 = spærtræubh45x195mm600;
+        this.trykimpstolpe97x97mm300 = trykimpstolpe97x97mm300;
+        this.trykimpbrædt19x100mm540 = trykimpbrædt19x100mm540;
+        this.trykimpbrædt19x100mm360 = trykimpbrædt19x100mm360;
+        this.Plastmoecoliteblåtonet600 = Plastmoecoliteblåtonet600;
+        this.Plastmoecoliteblåtonet360 = Plastmoecoliteblåtonet360;
+        this.Plastmobundskruer200stk = Plastmobundskruer50stk;
+        this.Hulbånd1x20mm10mtr = Hulbånd1x20mm10mtr;
+        this.Universal190mmhøjre = Universal190mmhøjre;
+        this.Universal190mmvenstre = Universal190mmvenstre;
+        this.skruer4komma5x60mm200stk = skruer4komma5x60mm50stk;
+        this.beslagskruer4x50mm250stk = beslagskruer4x50mm50stk;
+        this.Bræddebolt10x120mm = Bræddebolt10x120mm;
+        this.Firkantsskiver40x40x11mm = Firkantsskiver40x40x11mm;
+
+    }
+
+    //alle komponenter
+    public Stykliste(int id, int[] intArray) {
+        this.id = id;
+
+        this.TrykimpBrædt25x200mm360 = intArray[0];
+        this.TrykimpBrædt25x200mm540 = intArray[1];
+        this.trykimpbrædt25x125mm360 = intArray[2];
+        this.trykimpbrædt25x125mm540 = intArray[3];
+        this.lægteubh38x73mm420 = intArray[4];
+        this.regulærub45x95mm270 = intArray[5];
+        this.regulærub45x95mm240 = intArray[6];
+        this.regulærub45x95mm360 = intArray[7];
+        this.spærtræubh45x195mm600 = intArray[8];
+        this.spærtræubh45x195mm480 = intArray[9];
+        this.trykimpstolpe97x97mm300 = intArray[10];
+        this.trykimpbrædt19x100mm210 = intArray[11];
+        this.trykimpbrædt19x100mm540 = intArray[12];
+        this.trykimpbrædt19x100mm360 = intArray[13];
+        this.trykimpbrædt19x100mm480 = intArray[14];
+        this.trykimpbrædt19x100mm240 = intArray[15];
+        this.trykimpbrædt25x150mm480 = intArray[16];
+        this.trykimpbrædt25x150mm600 = intArray[17];
+        this.trykimpbrædt25x150mm540 = intArray[18];
+        this.færdigskåret = intArray[19];
+        this.trykimpbræt25x50mm540 = intArray[20];
+        this.taglægteTI38x73mm540 = intArray[21];
+        this.taglægteTI38x73mm420 = intArray[22];
+        this.BCdobbeltssort = intArray[23];
+        this.BCrygstensort = intArray[24];
+        this.BCtoplægterholder = intArray[25];
+        this.BCrygstensbeslag = intArray[26];
+        this.BCtagstensbindereognakkekroge = intArray[27];
+        this.Plastmoecoliteblåtonet600 = intArray[28];
+        this.Plastmoecoliteblåtonet360 = intArray[29];
+        this.Plastmobundskruer200stk = intArray[30];
+        this.Hulbånd1x20mm10mtr = intArray[31];
+        this.Universal190mmhøjre = intArray[32];
+        this.Universal190mmvenstre = intArray[33];
+        this.skruer4komma5x60mm200stk = intArray[34];
+        this.beslagskruer4x50mm250stk = intArray[35];
+        this.Bræddebolt10x120mm = intArray[36];
+        this.Firkantsskiver40x40x11mm = intArray[37];
+        this.skruer4komma5x70mm400stk = intArray[38];
+        this.skruer4komma5x50mm300stk = intArray[39];
+        this.Stalddørsgreb50x75 = intArray[40];
+        this.Thængsel390mm = intArray[41];
+        this.Vinkelbeslag35 = intArray[42];
+        this.beslagskruer5x40mm250stk = intArray[43];
+        this.skruer5x100mm100stk = intArray[44];
+    }
+
 // <editor-fold defaultstate="collapsed" desc="Getters and setters. Click on the + sign on the left to edit the code.">
     public void setId(int id) {
         this.id = id;
@@ -185,8 +235,8 @@ public class Stykliste {
         this.Plastmoecoliteblåtonet360 = Plastmoecoliteblåtonet360;
     }
 
-    public void setPlastmobundskruer50stk(int Plastmobundskruer50stk) {
-        this.Plastmobundskruer50stk = Plastmobundskruer50stk;
+    public void setPlastmobundskruer200stk(int Plastmobundskruer200stk) {
+        this.Plastmobundskruer200stk = Plastmobundskruer200stk;
     }
 
     public void setHulbånd1x20mm10mtr(int Hulbånd1x20mm10mtr) {
@@ -201,12 +251,12 @@ public class Stykliste {
         this.Universal190mmvenstre = Universal190mmvenstre;
     }
 
-    public void setSkruer4komma5x60mm50stk(int skruer4komma5x60mm50stk) {
-        this.skruer4komma5x60mm50stk = skruer4komma5x60mm50stk;
+    public void setSkruer4komma5x60mm200stk(int skruer4komma5x60mm200stk) {
+        this.skruer4komma5x60mm200stk = skruer4komma5x60mm200stk;
     }
 
-    public void setBeslagskruer4x50mm50stk(int beslagskruer4x50mm50stk) {
-        this.beslagskruer4x50mm50stk = beslagskruer4x50mm50stk;
+    public void setBeslagskruer4x50mm250stk(int beslagskruer4x50mm250stk) {
+        this.beslagskruer4x50mm250stk = beslagskruer4x50mm250stk;
     }
 
     public void setBræddebolt10x120mm(int Bræddebolt10x120mm) {
@@ -217,12 +267,12 @@ public class Stykliste {
         this.Firkantsskiver40x40x11mm = Firkantsskiver40x40x11mm;
     }
 
-    public void setSkruer4komma5x70mm50stk(int skruer4komma5x70mm50stk) {
-        this.skruer4komma5x70mm50stk = skruer4komma5x70mm50stk;
+    public void setSkruer4komma5x70mm400stk(int skruer4komma5x70mm400stk) {
+        this.skruer4komma5x70mm400stk = skruer4komma5x70mm400stk;
     }
 
-    public void setSkruer4komma5x50mm50stk(int skruer4komma5x50mm50stk) {
-        this.skruer4komma5x50mm50stk = skruer4komma5x50mm50stk;
+    public void setSkruer4komma5x50mm300stk(int skruer4komma5x50mm300stk) {
+        this.skruer4komma5x50mm300stk = skruer4komma5x50mm300stk;
     }
 
     public void setStalddørsgreb50x75(int Stalddørsgreb50x75) {
@@ -237,12 +287,12 @@ public class Stykliste {
         this.Vinkelbeslag35 = Vinkelbeslag35;
     }
 
-    public void setBeslagskruer5x40mm50stk(int beslagskruer5x40mm50stk) {
-        this.beslagskruer5x40mm50stk = beslagskruer5x40mm50stk;
+    public void setBeslagskruer5x40mm250stk(int beslagskruer5x40mm250stk) {
+        this.beslagskruer5x40mm250stk = beslagskruer5x40mm250stk;
     }
 
-    public void setSkruer5x100mm50stk(int skruer5x100mm50stk) {
-        this.skruer5x100mm50stk = skruer5x100mm50stk;
+    public void setSkruer5x100mm100stk(int skruer5x100mm100stk) {
+        this.skruer5x100mm100stk = skruer5x100mm100stk;
     }
 
     public int getId() {
@@ -369,8 +419,8 @@ public class Stykliste {
         return Plastmoecoliteblåtonet360;
     }
 
-    public int getPlastmobundskruer50stk() {
-        return Plastmobundskruer50stk;
+    public int getPlastmobundskruer200stk() {
+        return Plastmobundskruer200stk;
     }
 
     public int getHulbånd1x20mm10mtr() {
@@ -385,12 +435,12 @@ public class Stykliste {
         return Universal190mmvenstre;
     }
 
-    public int getSkruer4komma5x60mm50stk() {
-        return skruer4komma5x60mm50stk;
+    public int getSkruer4komma5x60mm200stk() {
+        return skruer4komma5x60mm200stk;
     }
 
-    public int getBeslagskruer4x50mm50stk() {
-        return beslagskruer4x50mm50stk;
+    public int getBeslagskruer4x50mm250stk() {
+        return beslagskruer4x50mm250stk;
     }
 
     public int getBræddebolt10x120mm() {
@@ -401,12 +451,12 @@ public class Stykliste {
         return Firkantsskiver40x40x11mm;
     }
 
-    public int getSkruer4komma5x70mm50stk() {
-        return skruer4komma5x70mm50stk;
+    public int getSkruer4komma5x70mm400stk() {
+        return skruer4komma5x70mm400stk;
     }
 
-    public int getSkruer4komma5x50mm50stk() {
-        return skruer4komma5x50mm50stk;
+    public int getSkruer4komma5x50mm300stk() {
+        return skruer4komma5x50mm300stk;
     }
 
     public int getStalddørsgreb50x75() {
@@ -421,371 +471,407 @@ public class Stykliste {
         return Vinkelbeslag35;
     }
 
-    public int getBeslagskruer5x40mm50stk() {
-        return beslagskruer5x40mm50stk;
+    public int getBeslagskruer5x40mm250stk() {
+        return beslagskruer5x40mm250stk;
     }
 
-    public int getSkruer5x100mm50stk() {
-        return skruer5x100mm50stk;
+    public int getSkruer5x100mm100stk() {
+        return skruer5x100mm100stk;
     }
-    // </editor-fold> 
-    
-    
-     public void calculate(int width, int length){
-       double tempd, tempwidth, templength,hulbånd ;
-       int tempi, hulbåndi, beslagskruer;
-       setTrykimpstolpe97x97mm300(6);
-       //udregn rem
-       if(length<=600){
-              setSpærtræubh45x195mm600(2);
-          }else{
-              setSpærtræubh45x195mm600(2);
-              setSpærtræubh45x195mm480(1);
-          }
-       setBræddebolt10x120mm(18);
-       setFirkantsskiver40x40x11mm(12);
-       
-       //spær
-       //antal spær
-       tempd = (length/60) +2;
-       tempi = (int) Math.round(tempd);
-       if(width >= 540){
-       tempi = tempi + getSpærtræubh45x195mm600();
-       setSpærtræubh45x195mm600(tempi);
-       }else{
-       tempi = tempi + getSpærtræubh45x195mm480();    
-       setSpærtræubh45x195mm480(tempi); 
-       }
-       //beslag til spær og skruer
-       setUniversal190mmhøjre(tempi-2);
-       setUniversal190mmvenstre(tempi-2);
-       tempi = (tempi-2)*11;
-       tempd = tempi;
-       tempd = tempd/50;
-       tempi = (int) Math.ceil(tempd);      
-       setBeslagskruer4x50mm50stk(tempi); 
-       
-       //Hulbånd og skruer
-       tempwidth = width -70;
-       templength = length -120;
-       
-       hulbånd = Math.pow(tempwidth, 2) + Math.pow(templength,2);
-       hulbånd = Math.sqrt(hulbånd);
-       hulbånd = hulbånd/1000;
-       hulbåndi = (int) Math.ceil(hulbånd)*2;
-       setHulbånd1x20mm10mtr(hulbåndi);
-       if(getSpærtræubh45x195mm600() == 0){
-           tempi = 4*(getSpærtræubh45x195mm480()-2);
-       }else{
-           tempi = 4*(getSpærtræubh45x195mm600()-2);
-       }     
-       tempd = tempi;
-       tempd = tempd/50;
-       tempi = (int) Math.ceil(tempd);
-       tempi = getBeslagskruer4x50mm50stk() + tempi;
-       setBeslagskruer4x50mm50stk(tempi);
-       
-       //understernsbræt
-       if(width==720){
-          setTrykimpBrædt25x200mm360(4);
-       }else if (width<=360){
-           setTrykimpBrædt25x200mm360(2);     
-       }else if (width>360 && width<=540) {
-           setTrykimpBrædt25x200mm540(2);
-       }else{
-           setTrykimpBrædt25x200mm360(2);
-           setTrykimpBrædt25x200mm540(2); 
-       }
-       
-       if(length<=360){
-              tempi = 2+getTrykimpBrædt25x200mm360();
-              setTrykimpBrædt25x200mm360(tempi);
-          }else if(length>540){
-              tempi = 2+getTrykimpBrædt25x200mm360();
-              setTrykimpBrædt25x200mm360(tempi);
-              tempi = 2+getTrykimpBrædt25x200mm540();
-              setTrykimpBrædt25x200mm540(tempi);
-          }else if (length == 720){
-              tempi = 2+getTrykimpBrædt25x200mm360();
-              setTrykimpBrædt25x200mm360(tempi);
-          }else{
-              tempi = 2+getTrykimpBrædt25x200mm540();
-              setTrykimpBrædt25x200mm540(tempi);
-          }
-       //oversternsbræt
-       //skal kun havde til forenden derfor at width er halvdelen af understernsbræt
-       //vand brædt
-       if(width==720){
-          setTrykimpbrædt25x125mm360(2);
-          setTrykimpbrædt19x100mm360(2);
-       }else if (width<=360){
-           setTrykimpbrædt25x125mm360(1);  
-           setTrykimpbrædt19x100mm360(1);
-       }else if (width>360 && width<=540) {
-           setTrykimpbrædt25x125mm540(1);
-           setTrykimpbrædt19x100mm540(1);
-       }else{
-           setTrykimpbrædt25x125mm360(1);
+    // </editor-fold>
+
+    public void calculate(int width, int length) {
+        double tempd, tempwidth, templength, hulbånd;
+        int tempi, hulbåndi, beslagskruer;
+        setTrykimpstolpe97x97mm300(6);
+        //udregn rem
+        if (length <= 600) {
+            setSpærtræubh45x195mm600(2);
+        } else {
+            setSpærtræubh45x195mm600(2);
+            setSpærtræubh45x195mm480(1);
+        }
+        setBræddebolt10x120mm(18);
+        setFirkantsskiver40x40x11mm(12);
+
+        //spær
+        //antal spær
+        tempd = (length / 60) + 2;
+        tempi = (int) Math.round(tempd);
+        if (width >= 540) {
+            tempi = tempi + getSpærtræubh45x195mm600();
+            setSpærtræubh45x195mm600(tempi);
+        } else {
+            tempi = tempi + getSpærtræubh45x195mm480();
+            setSpærtræubh45x195mm480(tempi);
+        }
+        //beslag til spær og skruer
+        setUniversal190mmhøjre(tempi - 2);
+        setUniversal190mmvenstre(tempi - 2);
+        tempi = (tempi - 2) * 11;
+        tempd = tempi;
+        tempd = tempd / 250;
+        tempi = (int) Math.ceil(tempd);
+        setBeslagskruer4x50mm250stk(tempi);
+
+        //Hulbånd og skruer
+        tempwidth = width - 70;
+        templength = length - 120;
+
+        hulbånd = Math.pow(tempwidth, 2) + Math.pow(templength, 2);
+        hulbånd = Math.sqrt(hulbånd);
+        hulbånd = hulbånd / 1000;
+        hulbåndi = (int) Math.ceil(hulbånd) * 2;
+        setHulbånd1x20mm10mtr(hulbåndi);
+        if (getSpærtræubh45x195mm600() == 0) {
+            tempi = 4 * (getSpærtræubh45x195mm480() - 2);
+        } else {
+            tempi = 4 * (getSpærtræubh45x195mm600() - 2);
+        }
+        tempd = tempi;
+        tempd = tempd / 250;
+        tempi = (int) Math.ceil(tempd);
+        tempi = getBeslagskruer4x50mm250stk() + tempi;
+        setBeslagskruer4x50mm250stk(tempi);
+
+        //understernsbræt
+        if (width == 720) {
+            setTrykimpBrædt25x200mm360(4);
+        } else if (width <= 360) {
+            setTrykimpBrædt25x200mm360(2);
+        } else if (width > 360 && width <= 540) {
+            setTrykimpBrædt25x200mm540(2);
+        } else {
+            setTrykimpBrædt25x200mm360(2);
+            setTrykimpBrædt25x200mm540(2);
+        }
+
+        if (length <= 360) {
+            tempi = 2 + getTrykimpBrædt25x200mm360();
+            setTrykimpBrædt25x200mm360(tempi);
+        } else if (length > 540) {
+            tempi = 2 + getTrykimpBrædt25x200mm360();
+            setTrykimpBrædt25x200mm360(tempi);
+            tempi = 2 + getTrykimpBrædt25x200mm540();
+            setTrykimpBrædt25x200mm540(tempi);
+        } else if (length == 720) {
+            tempi = 2 + getTrykimpBrædt25x200mm360();
+            setTrykimpBrædt25x200mm360(tempi);
+        } else {
+            tempi = 2 + getTrykimpBrædt25x200mm540();
+            setTrykimpBrædt25x200mm540(tempi);
+        }
+        //oversternsbræt
+        //skal kun havde til forenden derfor at width er halvdelen af understernsbræt
+        //vand brædt
+        if (width>540 && width <= 720) {
+            setTrykimpbrædt25x125mm360(2);
+            setTrykimpbrædt19x100mm360(2);
+        } else if (width <= 360) {
+            setTrykimpbrædt25x125mm360(1);
             setTrykimpbrædt19x100mm360(1);
-           setTrykimpbrædt25x125mm540(1);
-           setTrykimpbrædt19x100mm540(1);
-       }
-       
-       if(length<=360){
-              tempi = 2+getTrykimpbrædt25x125mm360();             
-              setTrykimpbrædt25x125mm360(tempi);
-              tempi = 2+getTrykimpbrædt19x100mm360();
-              setTrykimpbrædt19x100mm360(tempi);
-          }else if (length == 720){
-              tempi = 4+getTrykimpbrædt25x125mm360();
-              setTrykimpbrædt25x125mm360(tempi);
-              tempi = 2+getTrykimpbrædt19x100mm360();
-              setTrykimpbrædt19x100mm360(tempi);
-          }else if(length>540){
-              tempi = 2+getTrykimpbrædt25x125mm360();
-              setTrykimpbrædt25x125mm360(tempi);
-              tempi = 2+getTrykimpbrædt19x100mm360();
-              setTrykimpbrædt19x100mm360(tempi);
-              tempi = 2+getTrykimpbrædt25x125mm540();
-              setTrykimpbrædt25x125mm540(tempi);
-              tempi = 2+getTrykimpbrædt19x100mm540();
-              setTrykimpbrædt19x100mm540(tempi);
-          }else{
-              tempi = 2+getTrykimpbrædt25x125mm540();
-              setTrykimpbrædt25x125mm540(tempi);
-              tempi = 2+getTrykimpbrædt19x100mm540();
-              setTrykimpbrædt19x100mm540(tempi);
-          }
-       
-       
-       //plastmo tag og skruer
-       tempi = width/100;
-       if(length>=600){
-           setPlastmoecoliteblåtonet600(tempi);
-           setPlastmoecoliteblåtonet360(tempi);
-       }else if(length<=360){
-           setPlastmoecoliteblåtonet360(tempi);
-       }else{
-          setPlastmoecoliteblåtonet600(tempi);
-       }
-       
-       tempd = ((width/100)*(length/100))*12;
-       tempd = tempd/200;
-       tempi = (int) Math.ceil(tempd);
-       setPlastmobundskruer50stk(tempi);
-       
-       //random skruer? kan ikke finde nogle udregning for hvor mange der skal være så går ud fra at 200 er nok
-       setSkruer4komma5x60mm50stk(4);
-     }
-     
-     
-     
-      public void calculate(int width, int length, int swidth, int slength){
-       double tempd, tempwidth, templength,hulbånd ;
-       int tempi, tempi2, hulbåndi, beslagskruer;
-       setTrykimpstolpe97x97mm300(6);
-       //udregn rem
-       if(length<=600){
-              setSpærtræubh45x195mm600(2);
-          }else{
-              setSpærtræubh45x195mm600(2);
-              setSpærtræubh45x195mm480(1);
-          }
-       setBræddebolt10x120mm(18);
-       setFirkantsskiver40x40x11mm(12);
-       
-       //spær
-       //antal spær
-       tempd = (length/60) +2;
-       tempi = (int) Math.round(tempd);
-       if(width >= 540){
-       tempi = tempi + getSpærtræubh45x195mm600();
-       setSpærtræubh45x195mm600(tempi);
-       }else{
-       tempi = tempi + getSpærtræubh45x195mm480();    
-       setSpærtræubh45x195mm480(tempi); 
-       }
-       //beslag til spær og skruer
-       setUniversal190mmhøjre(tempi-2);
-       setUniversal190mmvenstre(tempi-2);
-       tempi = (tempi-2)*11;
-       tempd = tempi;
-       tempd = tempd/50;
-       tempi = (int) Math.ceil(tempd);      
-       setBeslagskruer4x50mm50stk(tempi); 
-       
-       //Hulbånd og skruer
-       tempwidth = width -70;
-       templength = length -120;
-       
-       hulbånd = Math.pow(tempwidth, 2) + Math.pow(templength,2);
-       hulbånd = Math.sqrt(hulbånd);
-       hulbånd = hulbånd/1000;
-       hulbåndi = (int) Math.ceil(hulbånd)*2;
-       setHulbånd1x20mm10mtr(hulbåndi);
-       if(getSpærtræubh45x195mm600() == 0){
-           tempi = 4*(getSpærtræubh45x195mm480()-2);
-       }else{
-           tempi = 4*(getSpærtræubh45x195mm600()-2);
-       }     
-       tempd = tempi;
-       tempd = tempd/50;
-       tempi = (int) Math.ceil(tempd);
-       tempi = getBeslagskruer4x50mm50stk() + tempi;
-       setBeslagskruer4x50mm50stk(tempi);
-       
-       //understernsbræt
-       if(width==720){
-          setTrykimpBrædt25x200mm360(4);
-       }else if (width<=360){
-           setTrykimpBrædt25x200mm360(2);     
-       }else if (width>360 && width<=540) {
-           setTrykimpBrædt25x200mm540(2);
-       }else{
-           setTrykimpBrædt25x200mm360(2);
-           setTrykimpBrædt25x200mm540(2); 
-       }
-       
-       if(length<=360){
-              tempi = 2+getTrykimpBrædt25x200mm360();
-              setTrykimpBrædt25x200mm360(tempi);
-          }else if(length>540){
-              tempi = 2+getTrykimpBrædt25x200mm360();
-              setTrykimpBrædt25x200mm360(tempi);
-              tempi = 2+getTrykimpBrædt25x200mm540();
-              setTrykimpBrædt25x200mm540(tempi);
-          }else if (length == 720){
-              tempi = 2+getTrykimpBrædt25x200mm360();
-              setTrykimpBrædt25x200mm360(tempi);
-          }else{
-              tempi = 2+getTrykimpBrædt25x200mm540();
-              setTrykimpBrædt25x200mm540(tempi);
-          }
-       //oversternsbræt
-       //skal kun havde til forenden derfor at width er halvdelen af understernsbræt
-       //vand brædt
-       if(width==720){
-          setTrykimpbrædt25x125mm360(2);
-          setTrykimpbrædt19x100mm360(2);
-       }else if (width<=360){
-           setTrykimpbrædt25x125mm360(1);  
-           setTrykimpbrædt19x100mm360(1);
-       }else if (width>360 && width<=540) {
-           setTrykimpbrædt25x125mm540(1);
-           setTrykimpbrædt19x100mm540(1);
-       }else{
-           setTrykimpbrædt25x125mm360(1);
+        } else if (width > 360 && width <= 540) {
+            setTrykimpbrædt25x125mm540(1);
+            setTrykimpbrædt19x100mm540(1);
+        } else {
+            setTrykimpbrædt25x125mm360(1);
             setTrykimpbrædt19x100mm360(1);
-           setTrykimpbrædt25x125mm540(1);
-           setTrykimpbrædt19x100mm540(1);
-       }
-       
-       if(length<=360){
-              tempi = 2+getTrykimpbrædt25x125mm360();             
-              setTrykimpbrædt25x125mm360(tempi);
-              tempi = 2+getTrykimpbrædt19x100mm360();
-              setTrykimpbrædt19x100mm360(tempi);
-          }else if (length == 720){
-              tempi = 4+getTrykimpbrædt25x125mm360();
-              setTrykimpbrædt25x125mm360(tempi);
-              tempi = 2+getTrykimpbrædt19x100mm360();
-              setTrykimpbrædt19x100mm360(tempi);
-          }else if(length>540){
-              tempi = 2+getTrykimpbrædt25x125mm360();
-              setTrykimpbrædt25x125mm360(tempi);
-              tempi = 2+getTrykimpbrædt19x100mm360();
-              setTrykimpbrædt19x100mm360(tempi);
-              tempi = 2+getTrykimpbrædt25x125mm540();
-              setTrykimpbrædt25x125mm540(tempi);
-              tempi = 2+getTrykimpbrædt19x100mm540();
-              setTrykimpbrædt19x100mm540(tempi);
-          }else{
-              tempi = 2+getTrykimpbrædt25x125mm540();
-              setTrykimpbrædt25x125mm540(tempi);
-              tempi = 2+getTrykimpbrædt19x100mm540();
-              setTrykimpbrædt19x100mm540(tempi);
-          }
-       
-       
-       //plastmo tag og skruer
-       tempi = width/100;
-       if(length>=600){
-           setPlastmoecoliteblåtonet600(tempi);
-           setPlastmoecoliteblåtonet360(tempi);
-       }else if(length<=360){
-           setPlastmoecoliteblåtonet360(tempi);
-       }else{
-          setPlastmoecoliteblåtonet600(tempi);
-       }
-       
-       tempd = ((width/100)*(length/100))*12;
-       tempd = tempd/200;
-       tempi = (int) Math.ceil(tempd);
-       setPlastmobundskruer50stk(tempi);
-       
-       //random skruer? kan ikke finde nogle udregning for hvor mange der skal være så går ud fra at 200 er nok
-       setSkruer4komma5x60mm50stk(4);
-       
-       //Skur data
-       //starter med dør og stolper
-       setLægteubh38x73mm420(1);
-       setStalddørsgreb50x75(1);
-       setThængsel390mm(2);
-       
-       
-       tempi = getTrykimpstolpe97x97mm300()+4;
-       setTrykimpstolpe97x97mm300(tempi);
-       
-       //reglar til gavl
-       tempwidth = swidth/100;
-       tempwidth = (tempwidth * 660) /270;
-       tempi = (int) Math.ceil(tempwidth);
-       setRegulærub45x95mm270(tempi);
-       
-       //reglar til side
-       templength = slength;
-       if(templength>360){
-           setRegulærub45x95mm360(8);
-       }else if(templength>271 && templength<=360){
-           setRegulærub45x95mm360(4);
-       }else if (templength>240 && templength<=270){
-           setRegulærub45x95mm270(4);
-       }else{
-           setRegulærub45x95mm240(4);
-       }
-       
-       //vinkelbeslag og skruer til Reglar
-       tempi = getRegulærub45x95mm240()+getRegulærub45x95mm270()+getRegulærub45x95mm360();
-       setVinkelbeslag35(tempi);
-       tempi = tempi*4;
-       tempi = tempi/50;
-       tempi = getBeslagskruer4x50mm50stk() + tempi;
-       setBeslagskruer4x50mm50stk(tempi);
-       
-       
-       
-       //skurbelægning
-       //kan ikke få matematikken til at gå op i forhold til de regler de laver.
-       //de siger man skal bruge 200 brædder jeg for det dog til 250. vært bræt dækker 6cm, den smalede længde rundt om skuret er 530+530+220+220 = 1500 
-       // derefter dividere du med 6 og for antal brædder du skal bruge hvilket er 250, jeg misser noget.
-       
-       tempi = slength*2 + swidth*2;
-       tempi = tempi/6;
-       setTrykimpbrædt19x100mm210(tempi);
-       
-       
-       //skruer til inderst beklædning
-       tempi2 = tempi;
-       tempi = tempi/2;
-       tempi = tempi*3;
-       tempi = tempi/50;
-       setSkruer4komma5x50mm50stk(tempi);
-       //skruer til ydere beklædning
-       tempi = tempi2/2;
-       tempi = tempi*6;
-       tempi = tempi/50;
-       setSkruer4komma5x70mm50stk(tempi);
-     }
+            setTrykimpbrædt25x125mm540(1);
+            setTrykimpbrædt19x100mm540(1);
+        }
+
+        if (length <= 360) {
+            tempi = 2 + getTrykimpbrædt25x125mm360();
+            setTrykimpbrædt25x125mm360(tempi);
+            tempi = 2 + getTrykimpbrædt19x100mm360();
+            setTrykimpbrædt19x100mm360(tempi);
+        } else if (length > 540 && length <= 720) {
+            tempi = 4 + getTrykimpbrædt25x125mm360();
+            setTrykimpbrædt25x125mm360(tempi);
+            tempi = 2 + getTrykimpbrædt19x100mm360();
+            setTrykimpbrædt19x100mm360(tempi);
+        } else if (length > 720 && length <= 800) {
+            tempi = 4 + getTrykimpbrædt25x125mm540();
+            setTrykimpbrædt25x125mm540(tempi);
+            tempi = 4 + getTrykimpbrædt19x100mm540();
+            setTrykimpbrædt19x100mm540(tempi);
+        } else {
+            tempi = 2 + getTrykimpbrædt25x125mm540();
+            setTrykimpbrædt25x125mm540(tempi);
+            tempi = 2 + getTrykimpbrædt19x100mm540();
+            setTrykimpbrædt19x100mm540(tempi);
+        }
+
+        //plastmo tag og skruer
+        tempi = width / 100;
+        if (length >= 600) {
+            setPlastmoecoliteblåtonet600(tempi);
+            setPlastmoecoliteblåtonet360(tempi);
+        } else if (length <= 360) {
+            setPlastmoecoliteblåtonet360(tempi);
+        } else {
+            setPlastmoecoliteblåtonet600(tempi);
+        }
+
+        tempd = ((width / 100) * (length / 100)) * 12;
+        tempd = tempd / 200;
+        tempi = (int) Math.ceil(tempd);
+        setPlastmobundskruer200stk(tempi);
+
+        //random skruer? kan ikke finde nogle udregning for hvor mange der skal være så går ud fra at 200 er nok
+        setSkruer4komma5x60mm200stk(1);
+    }
+
+    public void calculate(int width, int length, int swidth, int slength) {
+        double tempd, tempwidth, templength, hulbånd;
+        int tempi, tempi2, hulbåndi, beslagskruer;
+        setTrykimpstolpe97x97mm300(6);
+        //udregn rem
+        if (length <= 600) {
+            setSpærtræubh45x195mm600(2);
+        } else {
+            setSpærtræubh45x195mm600(2);
+            setSpærtræubh45x195mm480(1);
+        }
+        setBræddebolt10x120mm(18);
+        setFirkantsskiver40x40x11mm(12);
+
+        //spær
+        //antal spær
+        tempd = (length / 60) + 2;
+        tempi = (int) Math.round(tempd);
+        if (width >= 540) {
+            tempi = tempi + getSpærtræubh45x195mm600();
+            setSpærtræubh45x195mm600(tempi);
+        } else {
+            tempi = tempi + getSpærtræubh45x195mm480();
+            setSpærtræubh45x195mm480(tempi);
+        }
+        //beslag til spær og skruer
+        setUniversal190mmhøjre(tempi - 2);
+        setUniversal190mmvenstre(tempi - 2);
+        tempi = (tempi - 2) * 11;
+        tempd = tempi;
+        tempd = tempd / 250;
+        tempi = (int) Math.ceil(tempd);
+        setBeslagskruer4x50mm250stk(tempi);
+
+        //Hulbånd og skruer
+        tempwidth = width - 70;
+        templength = length - 120;
+
+        hulbånd = Math.pow(tempwidth, 2) + Math.pow(templength, 2);
+        hulbånd = Math.sqrt(hulbånd);
+        hulbånd = hulbånd / 1000;
+        hulbåndi = (int) Math.ceil(hulbånd) * 2;
+        setHulbånd1x20mm10mtr(hulbåndi);
+        if (getSpærtræubh45x195mm600() == 0) {
+            tempi = 4 * (getSpærtræubh45x195mm480() - 2);
+        } else {
+            tempi = 4 * (getSpærtræubh45x195mm600() - 2);
+        }
+        tempd = tempi;
+        tempd = tempd / 250;
+        tempi = (int) Math.ceil(tempd);
+        tempi = getBeslagskruer4x50mm250stk() + tempi;
+        setBeslagskruer4x50mm250stk(tempi);
+
+        //understernsbræt
+        if (width == 720) {
+            setTrykimpBrædt25x200mm360(4);
+        } else if (width <= 360) {
+            setTrykimpBrædt25x200mm360(2);
+        } else if (width > 360 && width <= 540) {
+            setTrykimpBrædt25x200mm540(2);
+        } else {
+            setTrykimpBrædt25x200mm360(2);
+            setTrykimpBrædt25x200mm540(2);
+        }
+
+        if (length <= 360) {
+            tempi = 2 + getTrykimpBrædt25x200mm360();
+            setTrykimpBrædt25x200mm360(tempi);
+        } else if (length > 540) {
+            tempi = 2 + getTrykimpBrædt25x200mm360();
+            setTrykimpBrædt25x200mm360(tempi);
+            tempi = 2 + getTrykimpBrædt25x200mm540();
+            setTrykimpBrædt25x200mm540(tempi);
+        } else if (length == 720) {
+            tempi = 2 + getTrykimpBrædt25x200mm360();
+            setTrykimpBrædt25x200mm360(tempi);
+        } else {
+            tempi = 2 + getTrykimpBrædt25x200mm540();
+            setTrykimpBrædt25x200mm540(tempi);
+        }
+        //oversternsbræt
+        //skal kun havde til forenden derfor at width er halvdelen af understernsbræt
+        //vand brædt
+        if (width > 540 && width <= 720) {
+            setTrykimpbrædt25x125mm360(2);
+            setTrykimpbrædt19x100mm360(2);
+        } else if (width <= 360) {
+            setTrykimpbrædt25x125mm360(1);
+            setTrykimpbrædt19x100mm360(1);
+        } else if (width > 360 && width <= 540) {
+            setTrykimpbrædt25x125mm540(1);
+            setTrykimpbrædt19x100mm540(1);
+        } else {
+            setTrykimpbrædt25x125mm360(1);
+            setTrykimpbrædt19x100mm360(1);
+            setTrykimpbrædt25x125mm540(1);
+            setTrykimpbrædt19x100mm540(1);
+        }
+
+        if (length <= 360) {
+            tempi = 2 + getTrykimpbrædt25x125mm360();
+            setTrykimpbrædt25x125mm360(tempi);
+            tempi = 2 + getTrykimpbrædt19x100mm360();
+            setTrykimpbrædt19x100mm360(tempi);
+        } else if (length > 540 && length <= 720) {
+            tempi = 4 + getTrykimpbrædt25x125mm360();
+            setTrykimpbrædt25x125mm360(tempi);
+            tempi = 2 + getTrykimpbrædt19x100mm360();
+            setTrykimpbrædt19x100mm360(tempi);
+        } else if (length > 720 && length <= 800) {
+            tempi = 4 + getTrykimpbrædt25x125mm540();
+            setTrykimpbrædt25x125mm540(tempi);
+            tempi = 4 + getTrykimpbrædt19x100mm540();
+            setTrykimpbrædt19x100mm540(tempi);
+        } else {
+            tempi = 2 + getTrykimpbrædt25x125mm540();
+            setTrykimpbrædt25x125mm540(tempi);
+            tempi = 2 + getTrykimpbrædt19x100mm540();
+            setTrykimpbrædt19x100mm540(tempi);
+        }
+
+        //plastmo tag og skruer
+        tempi = width / 100;
+        if (length >= 600) {
+            setPlastmoecoliteblåtonet600(tempi);
+            setPlastmoecoliteblåtonet360(tempi);
+        } else if (length <= 360) {
+            setPlastmoecoliteblåtonet360(tempi);
+        } else {
+            setPlastmoecoliteblåtonet600(tempi);
+        }
+
+        tempd = ((width / 100) * (length / 100)) * 12;
+        tempd = tempd / 200;
+        tempi = (int) Math.ceil(tempd);
+        setPlastmobundskruer200stk(tempi);
+
+        //random skruer? kan ikke finde nogle udregning for hvor mange der skal være så går ud fra at 200 er nok
+        setSkruer4komma5x60mm200stk(1);
+
+        //Skur data
+        //starter med dør og stolper
+        setLægteubh38x73mm420(1);
+        setStalddørsgreb50x75(1);
+        setThængsel390mm(2);
+
+        tempi = getTrykimpstolpe97x97mm300() + 4;
+        setTrykimpstolpe97x97mm300(tempi);
+
+        //reglar til gavl
+        tempwidth = swidth / 100;
+        tempwidth = (tempwidth * 660) / 270;
+        tempi = (int) tempwidth;
+        setRegulærub45x95mm270(tempi);
+
+        //reglar til side
+        templength = slength;
+        if (templength > 360) {
+            setRegulærub45x95mm360(8);
+        } else if (templength > 271 && templength <= 360) {
+            setRegulærub45x95mm360(4);
+        } else if (templength > 240 && templength <= 270) {
+            tempi = 4 + getRegulærub45x95mm270();
+            setRegulærub45x95mm270(tempi);
+        } else {
+            setRegulærub45x95mm240(4);
+        }
+
+        //vinkelbeslag og skruer til Reglar
+        tempi = getRegulærub45x95mm240() + getRegulærub45x95mm270() + getRegulærub45x95mm360();
+        tempi = tempi * 2;
+        setVinkelbeslag35(tempi);
+        tempi = tempi * 4;
+        tempi = tempi / 250;
+        tempi = getBeslagskruer4x50mm250stk() + tempi;
+        setBeslagskruer4x50mm250stk(tempi);
+
+        //skurbelægning
+        //kan ikke få matematikken til at gå op i forhold til de regler de laver.
+        //de siger man skal bruge 200 brædder jeg for det dog til 250. vært bræt dækker 6cm, den smalede længde rundt om skuret er 530+530+220+220 = 1500 
+        // derefter dividere du med 6 og for antal brædder du skal bruge hvilket er 250, jeg misser noget.
+        tempi = slength * 2 + swidth * 2;
+        tempi = tempi / 6;
+        setTrykimpbrædt19x100mm210(tempi);
+
+        //skruer til inderst beklædning
+        tempi2 = tempi;
+        tempd = tempi / 2;
+        tempd = tempd * 3;
+        tempd = tempd / 300;
+        tempi = (int) Math.ceil(tempd);
+        setSkruer4komma5x50mm300stk(tempi);
+        //skruer til ydere beklædning
+        tempd = tempi2 / 2;
+        tempd = tempd * 6;
+        tempd = tempd / 400;
+        tempi = (int) Math.ceil(tempd);
+        setSkruer4komma5x70mm400stk(tempi);
+    }
+
+    public int[] toIntArray() {
+        int[] intArray = new int[45];
+        intArray[0] = TrykimpBrædt25x200mm360;
+        intArray[1] = TrykimpBrædt25x200mm540;
+        intArray[2] = trykimpbrædt25x125mm360;
+        intArray[3] = trykimpbrædt25x125mm540;
+        intArray[4] = lægteubh38x73mm420;
+        intArray[5] = regulærub45x95mm240;
+        intArray[6] = regulærub45x95mm270;
+        intArray[7] = regulærub45x95mm360;
+        intArray[8] = spærtræubh45x195mm480;
+        intArray[9] = spærtræubh45x195mm600;
+        intArray[10] = trykimpstolpe97x97mm300;
+        intArray[11] = trykimpbrædt19x100mm210;
+        intArray[12] = trykimpbrædt19x100mm240;
+        intArray[13] = trykimpbrædt19x100mm360;
+        intArray[14] = trykimpbrædt19x100mm480;
+        intArray[15] = trykimpbrædt19x100mm540;
+        intArray[16] = trykimpbrædt25x150mm480;
+        intArray[17] = trykimpbrædt25x150mm540;
+        intArray[18] = trykimpbrædt25x150mm600;
+        intArray[19] = færdigskåret;
+        intArray[20] = trykimpbræt25x50mm540;
+        intArray[21] = taglægteTI38x73mm420;
+        intArray[22] = taglægteTI38x73mm540;
+        intArray[23] = BCdobbeltssort;
+        intArray[24] = BCrygstensort;
+        intArray[25] = BCtoplægterholder;
+        intArray[26] = BCrygstensbeslag;
+        intArray[27] = BCtagstensbindereognakkekroge;
+        intArray[28] = Plastmoecoliteblåtonet360;
+        intArray[29] = Plastmoecoliteblåtonet600;
+        intArray[30] = Plastmobundskruer200stk;
+        intArray[31] = Hulbånd1x20mm10mtr;
+        intArray[32] = Universal190mmhøjre;
+        intArray[33] = Universal190mmvenstre;
+        intArray[34] = skruer4komma5x60mm200stk;
+        intArray[35] = beslagskruer4x50mm250stk;
+        intArray[36] = Bræddebolt10x120mm;
+        intArray[37] = Firkantsskiver40x40x11mm;
+        intArray[38] = skruer4komma5x70mm400stk;
+        intArray[39] = skruer4komma5x50mm300stk;
+        intArray[40] = Stalddørsgreb50x75;
+        intArray[41] = Thængsel390mm;
+        intArray[42] = Vinkelbeslag35;
+        intArray[43] = beslagskruer5x40mm250stk;
+        intArray[44] = skruer5x100mm100stk;
+
+        return intArray;
+    }
+
 }
-    
-
