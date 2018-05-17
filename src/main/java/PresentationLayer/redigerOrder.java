@@ -19,7 +19,7 @@ public class redigerOrder extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalException {
-        String temp = request.getParameter( "orderId" );
+        String temp = request.getParameter( "oid" );
         int oid = Integer.parseInt(temp);
         temp = request.getParameter( "CPL" );
         int cpl = Integer.parseInt(temp);
