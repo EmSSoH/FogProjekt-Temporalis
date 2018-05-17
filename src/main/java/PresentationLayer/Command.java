@@ -18,6 +18,8 @@ abstract class Command {
         commands.put("draw", new draw());
         commands.put("bestil", new NewOrder());
         commands.put("rediger", new redigerOrder());
+        commands.put("CarportUHæld", new getPredefUhæld());
+        commands.put("CarportHæld", new getPredefhæld());
     
 
         

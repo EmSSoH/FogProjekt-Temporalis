@@ -5,6 +5,7 @@
  */
 package DBAccess;
 
+import FunctionLayer.Carport;
 import FunctionLayer.Order;
 import FunctionLayer.UniversalException;
 import FunctionLayer.Customer;
@@ -348,5 +349,41 @@ public class OrderMapper {
         } catch (SQLException | ClassNotFoundException ex) {
             throw new UniversalException(ex.getMessage());
         }
+    }
+    
+    
+
+    public static List<Carport> getAllPredefhæld() throws UniversalException {
+        List<Carport> carports = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM predef WHERE incline_amount>?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, 0);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                carports.add( new Carport(rs.getInt("predef_id"), rs.getInt("roof_type"), rs.getInt("incline_amount"), rs.getInt("length"), rs.getInt("width"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width")));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+        return carports;
+    }
+    
+    public static List<Carport> getAllPredefUhæld() throws UniversalException {
+        List<Carport> carports = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM predef WHERE incline_amount=?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, 0);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                carports.add( new Carport(rs.getInt("predef_id"), rs.getInt("roof_type"), rs.getInt("incline_amount"), rs.getInt("length"), rs.getInt("width"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width")));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+        return carports;
     }
 }

@@ -17,11 +17,11 @@
         <div>
       
                <form name="PreDefHældning" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="Carport med Hældning">
+                        <input type="hidden" name="command" value="CarportHæld">
                         <input type="submit" value="Carport med Hældning">
                 </form>
                  <form name="PreDef-Hældning" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="Carport uden Hældning">
+                        <input type="hidden" name="command" value="CarportUHæld">
                         <input type="submit" value="Carport uden Hældning">
                 </form>   
                 <form name="egenMål" action="FrontController" method="POST">
