@@ -16,64 +16,23 @@
         <h1>Welcome to Sem 2</h1>
         <div>
       
-                    <form name="login" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="login">
-                        Username:<br>
-                        <input type="text" name="name" value="user">
-                        <br>
-                        Password:<br>
-                        <input type="password" name="password" value="password">
-                        <br>
-                        <input type="submit" value="Submit">
-                    </form>
+               <form name="PreDefHældning" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="Carport med Hældning">
+                        <input type="submit" value="Carport med Hældning">
+                </form>
+                 <form name="PreDef-Hældning" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="Carport uden Hældning">
+                        <input type="submit" value="Carport uden Hældning">
+                </form>   
+                <form name="egenMål" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="Carport efter egen mål">
+                        <input type="submit" value="Carport efter egen mål">
+                </form>    
               
-                    <form name="register" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="register">
-                        Email:<br>
-                        <input type="text" name="email" value="someone@nowhere.com">
-                        <br>
-                        Name:<br>
-                        <input type="text" name="name" value="bob">
-                        <br>
-                        Password:<br>
-                        <input type="password" name="password1" value="sesam">
-                        <br>
-                        Retype Password:<br>
-                        <input type="password" name="password2" value="sesam">
-                        <br>
-                        <input type="submit" value="Submit">
-                    </form>
-          
+                   
              
               
-             <form name="bestil" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="bestil">
-                        Carport Længden:<br>
-                        <input type="text" name="clength" value="600">
-                        <br>
-                        Carport Bredde:<br>
-                        <input type="text" name="cwidth" value="720">
-                        <br>
-                        Shed Længden:<br>
-                        <input type="text" name="slength" value="530">
-                        <br>
-                        Shed Bredde:<br>
-                        <input type="text" name="swidth" value="220">
-                        <br>
-                        Name:<br>
-                        <input type="text" name="name" value="mads">
-                        <br>
-                        Phone:<br>
-                        <input type="text" name="phone" value="21844131">
-                        <br>
-                        email:<br>
-                        <input type="text" name="email" value="minmail@mail.com">
-                        <br>
-                        address:<br>
-                        <input type="text" name="address" value="herehvorjeger">
-                        <br>
-                        <input type="submit" value="Submit">
-                    </form>
+           
         
         <% String error = (String) request.getAttribute( "error");
            if ( error != null) { %>
@@ -82,5 +41,11 @@
         <% }
         %>
         </div>
+        
+        
+        
+         <ul>
+        <li><a href="login">Login</a></li>
+        </ul>
     </body>
 </html>
