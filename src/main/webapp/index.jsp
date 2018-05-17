@@ -9,43 +9,38 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="LegoStyle.css" rel="stylesheet" type="text/css"/>
+        <link href="Frontpage.css" rel="stylesheet" type="text/css"/>
         <title>Welcome page</title>
     </head>
     <body>
-        <h1>Welcome to Sem 2</h1>
-        <div>
-      
-               <form name="PreDefHældning" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="Carport med Hældning">
+        
+        
+        <div class="grid-container">
+            <div class="header">
+            <h2>Fog Projekt</h2>
+            </div>
+        <div class="left" style="background-color:#aaa;">
+                        <form name="CPH" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="CPH">
                         <input type="submit" value="Carport med Hældning">
-                </form>
-                 <form name="PreDef-Hældning" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="Carport uden Hældning">
+                        <img src="Hældning.JPG" width="580" height="280"/>  
+                </form></div>
+        <div class="middle" style="background-color:#bbb;">
+                        <form name="CPF" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="CPF">
                         <input type="submit" value="Carport uden Hældning">
-                </form>   
-                <form name="egenMål" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="Carport efter egen mål">
+                        <img src="Flad.jpg" width="580" height="280"/>  
+                </form>   </div>  
+        <div class="right" style="background-color:#ccc;">
+                        <form name="EM" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="EM">
                         <input type="submit" value="Carport efter egen mål">
-                </form>    
-              
-                   
-             
-              
-           
-        
-        <% String error = (String) request.getAttribute( "error");
-           if ( error != null) { %>
-           <H2>Error!!</h2>
-           <p><%= error %>
-        <% }
-        %>
+                </form> </div>
+        <div class="footer">
+            <ul>
+                <li><a href="/WEB-INF/login.jsp">Login</a></li>
+            </ul>
         </div>
-        
-        
-        
-         <ul>
-        <li><a href="login">Login</a></li>
-        </ul>
+</div>
     </body>
 </html>
