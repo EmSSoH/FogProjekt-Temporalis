@@ -12,8 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-         <form name="bestil" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="bestil">
+         <form name="customer" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="customer">
                         Carport Længden:<br>
                         <input type="text" name="clength" value="600">
                         <br>
@@ -25,18 +25,6 @@
                         <br>
                         Shed Bredde:<br>
                         <input type="text" name="swidth" value="220">
-                        <br>
-                        Name:<br>
-                        <input type="text" name="name" value="mads">
-                        <br>
-                        Phone:<br>
-                        <input type="text" name="phone" value="21844131">
-                        <br>
-                        email:<br>
-                        <input type="text" name="email" value="minmail@mail.com">
-                        <br>
-                        address:<br>
-                        <input type="text" name="address" value="herehvorjeger">
                         <br>
                         <input type="submit" value="Submit">
                     </form>

@@ -57,17 +57,17 @@
               
                  <tr>
                      <td><input type="hidden" name="orderId" value="<% out.print(request.getAttribute("orderId")); %>"></td>
-                     <td><input type="text" name="nemployeeId" value=""></td>
-                     <td><input type="text" name="nstatus" value=""></td>
-                     <td><input type="text" name="nCPL" value=""></td>
-                     <td><input type="text" name="nCPW" value=""></td>
-                     <td><input type="text" name="nincline" value=""></td>
-                     <td><input type="text" name="nRtype" value=""></td>
-                     <td><input type="text" name="nslength" value=""></td>
-                     <td><input type="text" name="nswidth" value=""></td>
-                     <td><input type="text" name="ncomment" value=""></td>
-                     <td><input type="text" name="nprice" value=""></td>
-                     <td><input type="text" name="ndelivery" value=""></td>
+                     <td><input type="text" name="nemployeeId" value="<% out.print(request.getAttribute("employeeId")); %>"></td>
+                     <td><input type="text" name="nstatus" value="<% out.print(request.getAttribute("status")); %>"></td>
+                     <td><input type="text" name="nCPL" value=" <% out.print(request.getAttribute("CPL")); %>"></td>
+                     <td><input type="text" name="nCPW" value="<% out.print(request.getAttribute("CPW")); %>"></td>
+                     <td><input type="text" name="nincline" value="<% out.print(request.getAttribute("incline")); %>"></td>
+                     <td><input type="text" name="nRtype" value="<% out.print(request.getAttribute("Rtype")); %>"></td>
+                     <td><input type="text" name="nslength" value="<% out.print(request.getAttribute("slength")); %>"></td>
+                     <td><input type="text" name="nswidth" value="<% out.print(request.getAttribute("swidth")); %>"></td>
+                     <td><input type="text" name="ncomment" value="<% out.print(request.getAttribute("comment")); %>"></td>
+                     <td><input type="text" name="nprice" value="<% out.print(request.getAttribute("price")); %>"></td>
+                     <td><input type="text" name="ndelivery" value="<% out.print(request.getAttribute("date")); %>"></td>
                  </tr>  
               
             </tbody>

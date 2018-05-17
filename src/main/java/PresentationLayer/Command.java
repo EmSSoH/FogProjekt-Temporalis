@@ -18,8 +18,11 @@ abstract class Command {
         commands.put("draw", new draw());
         commands.put("bestil", new NewOrder());
         commands.put("rediger", new redigerOrder());
-        commands.put("CPF", new getPreDefMinusHældning());
         commands.put("EM", new getEgenMål());
+        commands.put("CPF", new getPredefUhæld());
+        commands.put("CPH", new getPredefhæld());
+        commands.put("customer", new combineOrder());
+
     
 
         
