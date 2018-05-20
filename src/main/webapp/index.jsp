@@ -9,78 +9,39 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="LegoStyle.css" rel="stylesheet" type="text/css"/>
+        <link href="Frontpage.css" rel="stylesheet" type="text/css"/>
         <title>Welcome page</title>
     </head>
     <body>
-        <h1>Welcome to Sem 2</h1>
-        <div>
-      
-                    <form name="login" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="login">
-                        Username:<br>
-                        <input type="text" name="name" value="user">
-                        <br>
-                        Password:<br>
-                        <input type="password" name="password" value="password">
-                        <br>
-                        <input type="submit" value="Submit">
-                    </form>
-              
-                    <form name="register" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="register">
-                        Email:<br>
-                        <input type="text" name="email" value="someone@nowhere.com">
-                        <br>
-                        Name:<br>
-                        <input type="text" name="name" value="bob">
-                        <br>
-                        Password:<br>
-                        <input type="password" name="password1" value="sesam">
-                        <br>
-                        Retype Password:<br>
-                        <input type="password" name="password2" value="sesam">
-                        <br>
-                        <input type="submit" value="Submit">
-                    </form>
-          
-             
-              
-             <form name="bestil" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="bestil">
-                        Carport Længden:<br>
-                        <input type="text" name="clength" value="600">
-                        <br>
-                        Carport Bredde:<br>
-                        <input type="text" name="cwidth" value="720">
-                        <br>
-                        Shed Længden:<br>
-                        <input type="text" name="slength" value="530">
-                        <br>
-                        Shed Bredde:<br>
-                        <input type="text" name="swidth" value="220">
-                        <br>
-                        Name:<br>
-                        <input type="text" name="name" value="mads">
-                        <br>
-                        Phone:<br>
-                        <input type="text" name="phone" value="21844131">
-                        <br>
-                        email:<br>
-                        <input type="text" name="email" value="minmail@mail.com">
-                        <br>
-                        address:<br>
-                        <input type="text" name="address" value="herehvorjeger">
-                        <br>
-                        <input type="submit" value="Submit">
-                    </form>
+
         
-        <% String error = (String) request.getAttribute( "error");
-           if ( error != null) { %>
-           <H2>Error!!</h2>
-           <p><%= error %>
-        <% }
-        %>
+        
+        <div class="grid-container">
+            <div class="header">
+            <h2>Fog Projekt</h2>
+            </div>
+        <div class="left" style="background-color:#aaa;">
+                        <form name="CPH" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="CPH">
+                        <input type="submit" value="Carport med Hældning">
+                        <img src="Hældning.JPG" width="580" height="280"/>  
+                </form></div>
+        <div class="middle" style="background-color:#bbb;">
+                        <form name="CPF" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="CPF">
+                        <input type="submit" value="Carport uden Hældning">
+                        <img src="Flad.jpg" width="580" height="280"/>  
+                </form>   </div>  
+        <div class="right" style="background-color:#ccc;">
+                        <form name="EM" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="EM">
+                        <input type="submit" value="Carport efter egen mål">
+                </form> </div>
+        <div class="footer">
+            <ul>
+                <li><a href="/WEB-INF/login.jsp">Login</a></li>
+            </ul>
         </div>
+</div>
     </body>
 </html>

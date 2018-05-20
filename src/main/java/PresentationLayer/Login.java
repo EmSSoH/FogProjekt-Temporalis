@@ -25,9 +25,11 @@ public class Login extends Command {
         session.setAttribute( "name", user.getName());
         session.setAttribute( "role", user.getRole());
         
-
+        if(user.getRole() == 1){
+            return "loginAdmin";
+        }else{
         return "LoginNonAdmin";
-
+        }
     }
 
 }

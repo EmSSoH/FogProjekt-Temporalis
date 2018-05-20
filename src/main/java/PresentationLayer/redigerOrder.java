@@ -20,6 +20,7 @@ public class redigerOrder extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalException {
+
         HttpSession session = request.getSession();
         
         String temp = request.getParameter( "nemployeeId" );

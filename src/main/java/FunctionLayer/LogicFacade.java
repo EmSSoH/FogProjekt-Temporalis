@@ -67,5 +67,11 @@ public class LogicFacade {
        return OrderMapper.getItemList(oid);
     }
     
-
+    public static List<Carport> getAllPredefhæld() throws UniversalException {
+        return OrderMapper.getAllPredefhæld();
+    }
+    public static List<Carport> getAllPredefUhæld() throws UniversalException {
+        return OrderMapper.getAllPredefUhæld();
+    }
+    
 }

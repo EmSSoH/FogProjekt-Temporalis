@@ -12,7 +12,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="LegoStyle.css" rel="stylesheet" type="text/css"/>    
+        <link href="Table.css" rel="stylesheet" type="text/css"/>    
         <title>JSP Page</title>
     </head>
     <body>
@@ -57,17 +57,17 @@
               
                  <tr>
                      <td><input type="hidden" name="orderId" value="<% out.print(request.getAttribute("orderId")); %>"></td>
-                     <td><input type="text" name="nemployeeId" value=""></td>
-                     <td><input type="text" name="nstatus" value=""></td>
-                     <td><input type="text" name="nCPL" value=""></td>
-                     <td><input type="text" name="nCPW" value=""></td>
-                     <td><input type="text" name="nincline" value=""></td>
-                     <td><input type="text" name="nRtype" value=""></td>
-                     <td><input type="text" name="nslength" value=""></td>
-                     <td><input type="text" name="nswidth" value=""></td>
-                     <td><input type="text" name="ncomment" value=""></td>
-                     <td><input type="text" name="nprice" value=""></td>
-                     <td><input type="text" name="ndelivery" value=""></td>
+                     <td><input type="text" name="nemployeeId" value="<% out.print(request.getAttribute("employeeId")); %>"></td>
+                     <td><input type="text" name="nstatus" value="<% out.print(request.getAttribute("status")); %>"></td>
+                     <td><input type="text" name="nCPL" value=" <% out.print(request.getAttribute("CPL")); %>"></td>
+                     <td><input type="text" name="nCPW" value="<% out.print(request.getAttribute("CPW")); %>"></td>
+                     <td><input type="text" name="nincline" value="<% out.print(request.getAttribute("incline")); %>"></td>
+                     <td><input type="text" name="nRtype" value="<% out.print(request.getAttribute("Rtype")); %>"></td>
+                     <td><input type="text" name="nslength" value="<% out.print(request.getAttribute("slength")); %>"></td>
+                     <td><input type="text" name="nswidth" value="<% out.print(request.getAttribute("swidth")); %>"></td>
+                     <td><input type="text" name="ncomment" value="<% out.print(request.getAttribute("comment")); %>"></td>
+                     <td><input type="text" name="nprice" value="<% out.print(request.getAttribute("price")); %>"></td>
+                     <td><input type="text" name="ndelivery" value="<% out.print(request.getAttribute("date")); %>"></td>
                  </tr>  
               
             </tbody>
@@ -139,36 +139,36 @@
         Plastmoecoliteblåtonet600      = <% out.print(stykliste.getPlastmoecoliteblåtonet600());%><br>
          <%} if(stykliste.getPlastmoecoliteblåtonet360()!= 0){%>
         Plastmoecoliteblåtonet360      = <% out.print(stykliste.getPlastmoecoliteblåtonet360());%><br>
-         <%} if(stykliste.getPlastmobundskruer50stk()!= 0){%>
-        Plastmobundskruer50stk         = <% out.print(stykliste.getPlastmobundskruer50stk());%><br>
+         <%} if(stykliste.getPlastmobundskruer200stk()!= 0){%>
+        Plastmobundskruer50stk         = <% out.print(stykliste.getPlastmobundskruer200stk());%><br>
          <%} if(stykliste.getHulbånd1x20mm10mtr()!= 0){%>
         Hulbånd1x20mm10mtr             = <% out.print(stykliste.getHulbånd1x20mm10mtr());%><br>
          <%} if(stykliste.getUniversal190mmhøjre()!= 0){%>
         Universal190mmhøjre            = <% out.print(stykliste.getUniversal190mmhøjre());%><br>
          <%} if(stykliste.getUniversal190mmvenstre()!= 0){%>
         Universal190mmvenstre          = <% out.print(stykliste.getUniversal190mmvenstre());%><br>
-         <%} if(stykliste.getSkruer4komma5x60mm50stk()!= 0){%>
-        skruer4komma5x60mm50stk        = <% out.print(stykliste.getSkruer4komma5x60mm50stk());%><br>
-         <%} if(stykliste.getBeslagskruer4x50mm50stk()!= 0){%>
-        beslagskruer4x50mm50stk        = <% out.print(stykliste.getBeslagskruer4x50mm50stk());%><br>
+         <%} if(stykliste.getSkruer4komma5x60mm200stk()!= 0){%>
+        skruer4komma5x60mm50stk        = <% out.print(stykliste.getSkruer4komma5x60mm200stk());%><br>
+         <%} if(stykliste.getBeslagskruer4x50mm250stk()!= 0){%>
+        beslagskruer4x50mm50stk        = <% out.print(stykliste.getBeslagskruer4x50mm250stk());%><br>
          <%} if(stykliste.getBræddebolt10x120mm()!= 0){%>
         Bræddebolt10x120mm             = <% out.print(stykliste.getBræddebolt10x120mm());%><br>
          <%} if(stykliste.getFirkantsskiver40x40x11mm()!= 0){%>
         Firkantsskiver40x40x11mm       = <% out.print(stykliste.getFirkantsskiver40x40x11mm());%><br>
-         <%} if(stykliste.getSkruer4komma5x70mm50stk()!= 0){%>
-        skruer4komma5x70mm50stk        = <% out.print(stykliste.getSkruer4komma5x70mm50stk());%><br>
-         <%} if(stykliste.getSkruer4komma5x50mm50stk()!= 0){%>
-        skruer4komma5x50mm50stk        = <% out.print(stykliste.getSkruer4komma5x50mm50stk());%><br>
+         <%} if(stykliste.getSkruer4komma5x70mm400stk()!= 0){%>
+        skruer4komma5x70mm50stk        = <% out.print(stykliste.getSkruer4komma5x70mm400stk());%><br>
+         <%} if(stykliste.getSkruer4komma5x50mm300stk()!= 0){%>
+        skruer4komma5x50mm50stk        = <% out.print(stykliste.getSkruer4komma5x50mm300stk());%><br>
          <%} if(stykliste.getStalddørsgreb50x75()!= 0){%>
         Stalddørsgreb50x75             = <% out.print(stykliste.getStalddørsgreb50x75());%><br>
          <%} if(stykliste.getThængsel390mm()!= 0){%>
         Thængsel390mm                  = <% out.print(stykliste.getThængsel390mm());%><br>
          <%} if(stykliste.getVinkelbeslag35()!= 0){%>
         Vinkelbeslag35                 = <% out.print(stykliste.getVinkelbeslag35());%><br>
-         <%} if(stykliste.getBeslagskruer5x40mm50stk()!= 0){%>
-        beslagskruer5x40mm50stk        = <% out.print(stykliste.getBeslagskruer5x40mm50stk());%><br>
-         <%} if(stykliste.getSkruer5x100mm50stk()!= 0){%>
-        skruer5x100mm50stk             = <% out.print(stykliste.getSkruer5x100mm50stk());%><br>
+         <%} if(stykliste.getBeslagskruer5x40mm250stk()!= 0){%>
+        beslagskruer5x40mm50stk        = <% out.print(stykliste.getBeslagskruer5x40mm250stk());%><br>
+         <%} if(stykliste.getSkruer5x100mm100stk()!= 0){%>
+        skruer5x100mm50stk             = <% out.print(stykliste.getSkruer5x100mm100stk());%><br>
          <%}%>
                    
            <form name="draw" action="FrontController" method="POST">
