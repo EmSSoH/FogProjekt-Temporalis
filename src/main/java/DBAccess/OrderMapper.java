@@ -11,21 +11,31 @@ import FunctionLayer.UniversalException;
 import FunctionLayer.Customer;
 import FunctionLayer.Stykliste;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import static java.sql.Types.DATE;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * The order mapper is used for any things that are related to both database and
+ * placing orders. This is actions such as added new orders, adding customers,
+ * looking up predefs and looking up components
  *
  * @author Temporalis
  */
 public class OrderMapper {
 
+    /**
+     * This is used to update orders that exist in the database. It changes the
+     * order in the database to match with the order object which is supplied
+     * when called.
+     *
+     * @param order the order object with the variables changed
+     * @return boolean. True if succeeded or false if failed.
+     * @throws UniversalException
+     */
     public static boolean updateOrder(Order order) throws UniversalException {
         try {
             Connection con = Connector.connection();
@@ -45,13 +55,25 @@ public class OrderMapper {
             ps.setString(11, order.getComment());
             ps.setInt(12, order.getOrderId());
             ps.executeUpdate();
-          
+
             return true;
         } catch (SQLException | ClassNotFoundException ex) {
             throw new UniversalException(ex.getMessage());
         }
     }
 
+    /**
+     * This method is used to place the information from an order object into
+     * the database with a customer id matching the int given to the method
+     *
+     * @param order This is the order object which is added to the database
+     * @param customerid This is the id in the database of the customer, who has
+     * placed this specific order
+     * @return This returns a boolean, true if it succeeded or false if it
+     * failed. Reasons for failure might be an incorrect order or an invalid
+     * customer ID.
+     * @throws UniversalException
+     */
     public static boolean createOrder(Order order, int customerid) throws UniversalException {
         try {
             Connection con = Connector.connection();
@@ -81,6 +103,14 @@ public class OrderMapper {
         }
     }
 
+    /**
+     * This is used for getting a list of all orders placed by a customer with
+     * the id supplied
+     *
+     * @param id is the id of the customer
+     * @return a list of all order objects
+     * @throws UniversalException
+     */
     public static List<Order> getCustomerOrders(int id) throws UniversalException {
         List<Order> orders = new ArrayList<>();
         try {
@@ -98,6 +128,14 @@ public class OrderMapper {
         return orders;
     }
 
+    /**
+     * This is for getting all orders with a specific status. For example
+     * getting all non-assigned orders, which is status 0 in the database.
+     *
+     * @param status is the int marking what status we want all orders with
+     * @return a list of all the orders in a list
+     * @throws UniversalException
+     */
     public static List<Order> getOrderWithStatus(int status) throws UniversalException {
         List<Order> orders = new ArrayList<>();
         try {
@@ -115,6 +153,15 @@ public class OrderMapper {
         return orders;
     }
 
+    /**
+     * This is for getting all orders assigned to a specific employee, this is
+     * good as the employee will not have to look through a massive list of all
+     * orders to find which is his / hers
+     *
+     * @param id the id of the employee
+     * @return a list of order objects
+     * @throws UniversalException
+     */
     public static List<Order> getEmployeeOrders(int id) throws UniversalException {
         List<Order> orders = new ArrayList<>();
         try {
@@ -132,6 +179,13 @@ public class OrderMapper {
         return orders;
     }
 
+    /**
+     * This gets a specific order with the order_id matching the id
+     *
+     * @param id is the id of the order which is to be fetched from the db
+     * @return an order object
+     * @throws UniversalException
+     */
     public static Order getOrder(int id) throws UniversalException {
         Order order = null;
         try {
@@ -149,6 +203,12 @@ public class OrderMapper {
         return order;
     }
 
+    /**
+     * This gets all orders that haven't been marked as completed / archived.
+     *
+     * @return a list of all order objects that are incomplete
+     * @throws UniversalException
+     */
     public static List<Order> getAllOrdersLight() throws UniversalException {
         List<Order> orders = new ArrayList<>();
         try {
@@ -166,6 +226,12 @@ public class OrderMapper {
         return orders;
     }
 
+    /**
+     * This gets all orders from the DB
+     *
+     * @return a list of all order objects in the DB
+     * @throws UniversalException
+     */
     public static List<Order> getAllOrders() throws UniversalException {
         List<Order> orders = new ArrayList<>();
         try {
@@ -182,6 +248,15 @@ public class OrderMapper {
         return orders;
     }
 
+    /**
+     * This is used to update the status of an order object. Technically should
+     * be doable with the updateOrder.
+     *
+     * @param orderId the id of the order
+     * @param newStatus the new status which it should be given
+     * @return a boolean to say if it succeeded or not
+     * @throws UniversalException
+     */
     public static boolean updateStatus(int orderId, int newStatus) throws UniversalException {
         boolean changedLines;
         try {
@@ -197,6 +272,18 @@ public class OrderMapper {
         return changedLines;
     }
 
+    /**
+     * This is used to add a predefined carport to the database
+     *
+     * @param incline the incline of the roof
+     * @param roof_type the roof type
+     * @param length length of the carport
+     * @param width width of the carport
+     * @param toolshed_length length of the toolshed
+     * @param toolshed_width width of the toolshed
+     * @param price price of this construction
+     * @throws UniversalException
+     */
     public static void createPredef(int incline, int roof_type, int length, int width, int toolshed_length, int toolshed_width, int price) throws UniversalException {
         try {
             Connection con = Connector.connection();
@@ -217,6 +304,48 @@ public class OrderMapper {
         }
     }
 
+    /**
+     * This is used to update the predefs already in the database
+     *
+     * @param id is the id of the predef which is getting updated
+     * @param incline the incline of the roof
+     * @param roof_type the roof type
+     * @param length length of the carport
+     * @param width width of the carport
+     * @param toolshed_length length of the toolshed
+     * @param toolshed_width width of the toolshed
+     * @param price price of this construction
+     * @throws UniversalException
+     */
+    public static void updatePredef(int id, int incline, int roof_type, int length, int width, int toolshed_length, int toolshed_width, int price) throws UniversalException {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "UPDATE predef SET incline = ?, roof_type = ?, length = ?, width = ?, toolshed_length = ?, toolshed_width = ?, price = ?) WHERE predef_id = ?";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, incline);
+            ps.setInt(2, roof_type);
+            ps.setInt(3, length);
+            ps.setInt(4, width);
+            ps.setInt(5, toolshed_length);
+            ps.setInt(6, toolshed_width);
+            ps.setInt(7, price);
+            ps.setInt(8, id);
+            ps.executeUpdate();
+            ResultSet ids = ps.getGeneratedKeys();
+            ids.next();
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+    }
+
+    /**
+     * This is used to get a specific customer from the database with their
+     * information
+     *
+     * @param customerid the id of the customer
+     * @return a customer object
+     * @throws UniversalException
+     */
     public static Customer getCustomer(int customerid) throws UniversalException {
         Customer customer = null;
         try {
@@ -234,11 +363,61 @@ public class OrderMapper {
         return customer;
     }
 
-    public void createComponent() throws UniversalException {
-        throw new UniversalException("Not yet implemented");
-
+    /**
+     * This is used to add a new component to the database matching the price 
+     * and name which is supplied
+     *
+     * @param name the name of the component
+     * @param price the price of the component
+     * @throws UniversalException
+     */
+    public static void createComponent(String name, int price) throws UniversalException {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "INSERT INTO components (component_name, price) VALUES (?, ?)";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, name);
+            ps.setInt(2, price);
+            ps.executeUpdate();
+            ResultSet ids = ps.getGeneratedKeys();
+            ids.next();
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
     }
 
+    /**
+     * This is used to update an already existing component in the database so 
+     * it will match the price and name which is supplied
+     * 
+     * @param id is the id of the component in the database
+     * @param name is the updated name of the component
+     * @param price is the updated price of the component
+     * @throws UniversalException
+     */
+    public static void updateComponent(int id, String name, int price) throws UniversalException {
+        try {
+            Connection con = Connector.connection();
+            String SQL = "UPDATE components SET component_name = ?, price = ? WHERE id = ?";
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setString(1, name);
+            ps.setInt(2, price);
+            ps.setInt(3, id);
+            ps.executeUpdate();
+            ResultSet ids = ps.getGeneratedKeys();
+            ids.next();
+        } catch (SQLException | ClassNotFoundException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+    }
+
+    /**
+     * This is used to insert an itemlist of the Stykliste object type into the
+     * database
+     *
+     * @param stk is the itemlist which is to be added to the database
+     * @throws UniversalException
+     */
     public static void createItemList(Stykliste stk) throws UniversalException {
         Connection con = null;
         try {
@@ -268,6 +447,14 @@ public class OrderMapper {
         }
     }
 
+    /**
+     * This is used to get an itemlist from the DB for the order matching the
+     * orderId
+     *
+     * @param orderId is the order whose itemlist we want
+     * @return an itemlist as a Stykliste object
+     * @throws UniversalException
+     */
     public static Stykliste getItemList(int orderId) throws UniversalException {
         int[] intArray = new int[45];
         try {
@@ -285,6 +472,14 @@ public class OrderMapper {
         return new Stykliste(orderId, intArray);
     }
 
+    /**
+     * This is used to get a list of components as an array with the length of
+     * 45. This is because we currently have 45 components. The position in the
+     * array matches the id in the database minus 1
+     *
+     * @return a StringArray with names of the components
+     * @throws UniversalException
+     */
     public static String[] getComponentNames() throws UniversalException {
         String[] StringArray = new String[45];
         try {
@@ -300,7 +495,14 @@ public class OrderMapper {
         }
         return StringArray;
     }
-    
+
+    /**
+     * This gets an intArray with the prices of the components with a position
+     * matching the id in the db minus 1
+     *
+     * @return an intArray with the prices
+     * @throws UniversalException
+     */
     public static int[] getPrices() throws UniversalException {
         int[] intArray = new int[45];
         try {
@@ -317,6 +519,13 @@ public class OrderMapper {
         return intArray;
     }
 
+    /**
+     * This is used to set customer id on a specific order
+     *
+     * @param oid order id
+     * @param cid customer id
+     * @throws UniversalException
+     */
     public static void addCustomer(int oid, int cid) throws UniversalException {
         try {
             Connection con = Connector.connection();
@@ -332,6 +541,16 @@ public class OrderMapper {
         }
     }
 
+    /**
+     * This is used to add a customer to the database
+     *
+     * @param name customer name
+     * @param address customer address
+     * @param phone customer phone
+     * @param email customer email
+     * @return an int of the id which was generated in the db
+     * @throws UniversalException
+     */
     public static int createCustomer(String name, String address, int phone, String email) throws UniversalException {
         try {
             Connection con = Connector.connection();
@@ -350,9 +569,11 @@ public class OrderMapper {
             throw new UniversalException(ex.getMessage());
         }
     }
-    
-    
 
+    /**
+     *
+     * @return @throws UniversalException
+     */
     public static List<Carport> getAllPredefhæld() throws UniversalException {
         List<Carport> carports = new ArrayList<>();
         try {
@@ -362,14 +583,18 @@ public class OrderMapper {
             ps.setInt(1, 0);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                carports.add( new Carport(rs.getInt("predef_id"), rs.getInt("roof_type"), rs.getInt("incline_amount"), rs.getInt("length"), rs.getInt("width"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width")));
+                carports.add(new Carport(rs.getInt("predef_id"), rs.getInt("roof_type"), rs.getInt("incline_amount"), rs.getInt("length"), rs.getInt("width"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width")));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new UniversalException(ex.getMessage());
         }
         return carports;
     }
-    
+
+    /**
+     *
+     * @return @throws UniversalException
+     */
     public static List<Carport> getAllPredefUhæld() throws UniversalException {
         List<Carport> carports = new ArrayList<>();
         try {
@@ -379,7 +604,7 @@ public class OrderMapper {
             ps.setInt(1, 0);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                carports.add( new Carport(rs.getInt("predef_id"), rs.getInt("roof_type"), rs.getInt("incline_amount"), rs.getInt("length"), rs.getInt("width"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width")));
+                carports.add(new Carport(rs.getInt("predef_id"), rs.getInt("roof_type"), rs.getInt("incline_amount"), rs.getInt("length"), rs.getInt("width"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width")));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new UniversalException(ex.getMessage());
