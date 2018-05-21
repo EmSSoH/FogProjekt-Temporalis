@@ -9,9 +9,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link href="Frontpage.css" rel="stylesheet" type="text/css"/> 
+        
     </head>
     <body>
+        <div class="center" style="background-color:#bbb;">
          <form name="customer" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="customer">
                         Carport Længden:<br>
@@ -28,5 +30,6 @@
                         <br>
                         <input type="submit" value="Submit">
                     </form>
+            </div>
     </body>
 </html>

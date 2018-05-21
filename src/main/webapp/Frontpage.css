@@ -35,14 +35,14 @@ body {
   font-size: 35px;
 }
 
-/* The grid container */
+
 .grid-container {
   display: grid;
   grid-template-areas: 
   'header header header header header header' 
   'left left middle middle right right' 
   'footer footer footer footer footer footer';
-  /* grid-column-gap: 10px; - if you want gap between the columns */
+ 
 } 
 input[type=text], select {
     
@@ -94,7 +94,7 @@ input[type=submit]:hover {
 .middle,
 .right {
   padding: 10px;
-  height: 300px; /* Should be removed. Only for demonstration */
+  height: 300px; 
 }
 
 /* Style the left column */
@@ -115,6 +115,11 @@ input[type=submit]:hover {
    width: 600px;
 }
 
+.center{
+    display: block;
+    text-align: center;
+    width: 600px;
+}
 /* Style the footer */
 .footer {
   grid-area: footer;
@@ -123,7 +128,7 @@ input[type=submit]:hover {
   text-align: center;
 }
 
-/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+
 @media (max-width: 600px) {
   .grid-container  {
     grid-template-areas: 

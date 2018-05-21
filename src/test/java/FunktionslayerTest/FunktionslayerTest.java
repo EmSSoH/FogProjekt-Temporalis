@@ -24,7 +24,7 @@ public class FunktionslayerTest {
        assertEquals(styk.getTrykimpbrædt25x125mm540(),4);
        assertEquals(styk.getSpærtræubh45x195mm600(),17);
        assertEquals(styk.getSpærtræubh45x195mm480(),1);
-       assertEquals(styk.getTrykimpstolpe97x97mm300(),6); 
+       assertEquals(styk.getTrykimpstolpe97x97mm300(),7); 
        assertEquals(styk.getTrykimpbrædt19x100mm540(),4);
        assertEquals(styk.getTrykimpbrædt19x100mm360(),2);
        assertEquals(styk.getPlastmoecoliteblåtonet600(),6);
@@ -34,7 +34,7 @@ public class FunktionslayerTest {
        assertEquals(styk.getUniversal190mmhøjre(),15);
        assertEquals(styk.getUniversal190mmvenstre(),15);
        assertEquals(styk.getSkruer4komma5x60mm200stk(),1);
-       //assertEquals(styk.getBeslagskruer4x50mm250stk(),3);// 7 burde være 15 men antalet af skruer er insane ...
+       assertEquals(styk.getBeslagskruer4x50mm250stk(),3);
        assertEquals(styk.getBræddebolt10x120mm(),18); 
        assertEquals(styk.getFirkantsskiver40x40x11mm(),12);
 
@@ -52,11 +52,10 @@ public class FunktionslayerTest {
        assertEquals(styk.getLægteubh38x73mm420(),1);
        assertEquals(styk.getRegulærub45x95mm270(),12);
        assertEquals(styk.getRegulærub45x95mm240(),4);
-       
        assertEquals(styk.getSpærtræubh45x195mm600(),17);
        assertEquals(styk.getSpærtræubh45x195mm480(),1);
-       //assertEquals(styk.getTrykimpstolpe97x97mm300(),11); //mangler 1 stolpe somewhere
-       //assertEquals(styk.getTrykimpbrædt19x100mm210(),200);
+       assertEquals(styk.getTrykimpstolpe97x97mm300(),11);
+       assertEquals(styk.getTrykimpbrædt19x100mm210(),200);
        assertEquals(styk.getTrykimpbrædt19x100mm540(),4);
        assertEquals(styk.getTrykimpbrædt19x100mm360(),2);
        assertEquals(styk.getPlastmoecoliteblåtonet600(),6);
@@ -66,7 +65,7 @@ public class FunktionslayerTest {
        assertEquals(styk.getUniversal190mmhøjre(),15);
        assertEquals(styk.getUniversal190mmvenstre(),15);
        assertEquals(styk.getSkruer4komma5x60mm200stk(),1);
-       //assertEquals(styk.getBeslagskruer4x50mm250stk(),3);// 7 burde være 15 men antalet af skruer er insane ...
+       assertEquals(styk.getBeslagskruer4x50mm250stk(),3);
        assertEquals(styk.getBræddebolt10x120mm(),18); 
        assertEquals(styk.getFirkantsskiver40x40x11mm(),12);
        assertEquals(styk.getSkruer4komma5x70mm400stk(),2);
