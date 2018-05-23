@@ -18,6 +18,21 @@ abstract class Command {
         commands.put("draw", new draw());
         commands.put("bestil", new NewOrder());
         commands.put("rediger", new redigerOrder());
+        commands.put("EM", new getEgenMål());
+        commands.put("CPF", new getPredefUhæld());
+        commands.put("CPH", new getPredefhæld());
+        commands.put("customer", new combineOrder());
+        commands.put("predigering", new predefRedigering());
+        commands.put("kredigering", new komponentRedigere());
+        commands.put("gtlogin", new gotoLogin());
+        commands.put("redigerpredef", new getPredefRediger());
+        commands.put("updatePredef", new updatePredef());
+        commands.put("redigercomponent", new getKompRediger());
+        commands.put("updateKomp", new updateKomp());
+        commands.put("newComp", new goToCreateKomp());
+        commands.put("createKomp", new createKomp());
+        commands.put("newPredef", new goToCreatePredef());
+        commands.put("createPredef", new createPredef());
     
 
         

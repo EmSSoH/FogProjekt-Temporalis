@@ -67,5 +67,45 @@ public class LogicFacade {
        return OrderMapper.getItemList(oid);
     }
     
+    public static List<Carport> getAllPredefhæld() throws UniversalException {
+        return OrderMapper.getAllPredefhæld();
+    }
+    public static List<Carport> getAllPredefUhæld() throws UniversalException {
+        return OrderMapper.getAllPredefUhæld();
+    }
+
+    public static List<Carport> getAllPredef() throws UniversalException {
+        return OrderMapper.getAllPredef();
+    }
+
+    public static Carport getPredef(int id) throws UniversalException {
+        return OrderMapper.getPredef(id);
+    }
+
+
+    public static void updatePredef(int id, int incline, int Rtype, int cpl, int cpw, int slength, int swidth) throws UniversalException {
+        OrderMapper.updatePredef(id, incline, Rtype, slength, swidth, slength, swidth);
+    }
+
+    public static List<Components> getAllComponents() throws UniversalException {
+        
+        return OrderMapper.getAllComp();
+    }
+
+    public static Components getComp(int id) throws UniversalException {
+        return OrderMapper.getComp(id);
+    }
+
+    public static void updateComp(int id, String name, int price) throws UniversalException {
+        OrderMapper.updateComponent(id, name, price);
+    }
+
+    public static void createComp(String name, int price) throws UniversalException {
+        OrderMapper.createComponent(name, price);
+    }
+
+    public static void createPredef(int incline, int Rtype, int clength, int cwidth, int slength, int swidth) throws UniversalException {
+        OrderMapper.createPredef(incline, Rtype, slength, swidth, slength, swidth);
+    }
 
 }

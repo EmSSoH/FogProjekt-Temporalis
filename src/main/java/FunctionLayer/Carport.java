@@ -7,8 +7,17 @@ package FunctionLayer;
 public class Carport {
     
     
-    public Carport(boolean Hældning, int CarL, int CarB, int Tagtype, int Taghæld, int RedL, int RedB) {
-        this.Hæld = Hældning;
+    public Carport(int CarL, int CarB, int Tagtype, int Taghæld, int RedL, int RedB) {
+        this.CarL = CarL;
+        this.CarB = CarB;
+        this.Tagtype = Tagtype;
+        this.Taghæld = Taghæld;
+        this.RedL = RedL;
+        this.RedB = RedB;
+    }
+
+    public Carport(int predef_id, int CarL, int CarB, int Tagtype, int Taghæld, int RedL, int RedB) {
+        this.predef_id = predef_id;
         this.CarL = CarL;
         this.CarB = CarB;
         this.Tagtype = Tagtype;
@@ -18,7 +27,8 @@ public class Carport {
     }
     
     
-    private boolean Hæld;
+    
+    private int predef_id;
     private int CarL;
     private int CarB;
     private int Tagtype;
@@ -26,9 +36,34 @@ public class Carport {
     private int RedL;
     private int RedB;
 
-    public boolean isHældning() {
-        return Hæld;
+    public void setPredef_id(int predef_id) {
+        this.predef_id = predef_id;
     }
+
+    public void setCarL(int CarL) {
+        this.CarL = CarL;
+    }
+
+    public void setCarB(int CarB) {
+        this.CarB = CarB;
+    }
+
+    public void setTagtype(int Tagtype) {
+        this.Tagtype = Tagtype;
+    }
+
+    public void setTaghæld(int Taghæld) {
+        this.Taghæld = Taghæld;
+    }
+
+    public void setRedL(int RedL) {
+        this.RedL = RedL;
+    }
+
+    public void setRedB(int RedB) {
+        this.RedB = RedB;
+    }
+    
 
     public int getCarL() {
         return CarL;
@@ -52,6 +87,10 @@ public class Carport {
 
     public int getRedB() {
         return RedB;
+    }
+
+    public int getPredef_id() {
+        return predef_id;
     }
 
     
