@@ -36,9 +36,14 @@
                         <input type="submit" value="Submit">
                     </form>
              
-             <form name="dbredigering" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="dbredigering">
-                        <input type="submit" value="Rediger Database">
+                <form name="Komponent redigering" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="kredigering">
+                        <input type="submit" value="Komponent redigering">
+                </form> 
+             
+              <form name="Predef redigering" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="predigering">
+                        <input type="submit" value="Predef redigering">
                 </form> 
           
         </div>    

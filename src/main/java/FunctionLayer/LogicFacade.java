@@ -73,5 +73,18 @@ public class LogicFacade {
     public static List<Carport> getAllPredefUhæld() throws UniversalException {
         return OrderMapper.getAllPredefUhæld();
     }
-    
+
+    public static List<Carport> getAllPredef() throws UniversalException {
+        return OrderMapper.getAllPredef();
+    }
+
+    public static Carport getPredef(int id) throws UniversalException {
+        return OrderMapper.getPredef(id);
+    }
+
+
+    public static void updatePredef(int id, int incline, int Rtype, int cpl, int cpw, int slength, int swidth) throws UniversalException {
+        OrderMapper.updatePredef(id, incline, Rtype, slength, swidth, slength, swidth);
+    }
+
 }

@@ -22,7 +22,11 @@ abstract class Command {
         commands.put("CPF", new getPredefUhæld());
         commands.put("CPH", new getPredefhæld());
         commands.put("customer", new combineOrder());
-
+        commands.put("predigering", new predefRedigering());
+        commands.put("kredigering", new komponentRedigere());
+        commands.put("gtlogin", new gotoLogin());
+        commands.put("redigerpredef", new getPredefRediger());
+        commands.put("updatePredef", new updatePredef());
     
 
         

@@ -35,6 +35,34 @@ public class Carport {
     private int Taghæld;
     private int RedL;
     private int RedB;
+
+    public void setPredef_id(int predef_id) {
+        this.predef_id = predef_id;
+    }
+
+    public void setCarL(int CarL) {
+        this.CarL = CarL;
+    }
+
+    public void setCarB(int CarB) {
+        this.CarB = CarB;
+    }
+
+    public void setTagtype(int Tagtype) {
+        this.Tagtype = Tagtype;
+    }
+
+    public void setTaghæld(int Taghæld) {
+        this.Taghæld = Taghæld;
+    }
+
+    public void setRedL(int RedL) {
+        this.RedL = RedL;
+    }
+
+    public void setRedB(int RedB) {
+        this.RedB = RedB;
+    }
     
 
     public int getCarL() {

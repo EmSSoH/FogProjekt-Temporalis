@@ -317,10 +317,10 @@ public class OrderMapper {
      * @param price price of this construction
      * @throws UniversalException
      */
-    public static void updatePredef(int id, int incline, int roof_type, int length, int width, int toolshed_length, int toolshed_width, int price) throws UniversalException {
+    public static void updatePredef(int id, int incline, int roof_type, int length, int width, int toolshed_length, int toolshed_width) throws UniversalException {
         try {
             Connection con = Connector.connection();
-            String SQL = "UPDATE predef SET incline = ?, roof_type = ?, length = ?, width = ?, toolshed_length = ?, toolshed_width = ?, price = ?) WHERE predef_id = ?";
+            String SQL = "UPDATE predef SET incline_amount = ?, roof_type = ?, length = ?, width = ?, toolshed_length = ?, toolshed_width = ? WHERE predef_id = ? ";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, incline);
             ps.setInt(2, roof_type);
@@ -328,11 +328,9 @@ public class OrderMapper {
             ps.setInt(4, width);
             ps.setInt(5, toolshed_length);
             ps.setInt(6, toolshed_width);
-            ps.setInt(7, price);
-            ps.setInt(8, id);
+            ps.setInt(7, id);
             ps.executeUpdate();
-            ResultSet ids = ps.getGeneratedKeys();
-            ids.next();
+
         } catch (SQLException | ClassNotFoundException ex) {
             throw new UniversalException(ex.getMessage());
         }
@@ -583,7 +581,23 @@ public class OrderMapper {
             ps.setInt(1, 0);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                carports.add(new Carport(rs.getInt("predef_id"), rs.getInt("roof_type"), rs.getInt("incline_amount"), rs.getInt("length"), rs.getInt("width"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width")));
+                carports.add(new Carport(rs.getInt("predef_id"), rs.getInt("length"), rs.getInt("width"), rs.getInt("roof_type"), rs.getInt("incline_amount"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width")));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+        return carports;
+    }
+    
+    public static List<Carport> getAllPredef() throws UniversalException {
+        List<Carport> carports = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM predef";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                carports.add(new Carport(rs.getInt("predef_id"), rs.getInt("length"), rs.getInt("width"), rs.getInt("roof_type"), rs.getInt("incline_amount"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width")));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new UniversalException(ex.getMessage());
@@ -604,11 +618,28 @@ public class OrderMapper {
             ps.setInt(1, 0);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                carports.add(new Carport(rs.getInt("predef_id"), rs.getInt("roof_type"), rs.getInt("incline_amount"), rs.getInt("length"), rs.getInt("width"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width")));
+                carports.add(new Carport(rs.getInt("predef_id"), rs.getInt("length"), rs.getInt("width"), rs.getInt("roof_type"), rs.getInt("incline_amount"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width")));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new UniversalException(ex.getMessage());
         }
         return carports;
+    }
+
+    public static Carport getPredef(int id) throws UniversalException {
+          Carport carport = null;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM predef WHERE predef_id = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                carport = new Carport(rs.getInt("predef_id"), rs.getInt("length"), rs.getInt("width"), rs.getInt("roof_type"), rs.getInt("incline_amount"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+        return carport;
     }
 }

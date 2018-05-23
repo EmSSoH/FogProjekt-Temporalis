@@ -38,9 +38,10 @@
                         <input type="submit" value="Carport efter egen mål">
                 </form> </div>
         <div class="footer">
-            <ul>
-                <li><a href="/WEB-INF/login.jsp">Login</a></li>
-            </ul>
+                <form name="login" action="FrontController" method="POST">
+                        <input type="hidden" name="command" value="gtlogin">
+                        <input type="submit" value="login">  
+                </form>
         </div>
 </div>
     </body>
