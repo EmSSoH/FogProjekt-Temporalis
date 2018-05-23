@@ -104,4 +104,8 @@ public class LogicFacade {
         OrderMapper.createComponent(name, price);
     }
 
+    public static void createPredef(int incline, int Rtype, int clength, int cwidth, int slength, int swidth) throws UniversalException {
+        OrderMapper.createPredef(incline, Rtype, slength, swidth, slength, swidth);
+    }
+
 }

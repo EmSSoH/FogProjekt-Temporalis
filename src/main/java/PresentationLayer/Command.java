@@ -32,6 +32,7 @@ abstract class Command {
         commands.put("newComp", new goToCreateKomp());
         commands.put("createKomp", new createKomp());
         commands.put("newPredef", new goToCreatePredef());
+        commands.put("createPredef", new createPredef());
     
 
         
