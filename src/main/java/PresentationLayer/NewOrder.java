@@ -9,6 +9,8 @@ import FunctionLayer.LogicFacade;
 import FunctionLayer.Order;
 import FunctionLayer.Stykliste;
 import FunctionLayer.UniversalException;
+import java.util.ArrayList;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -46,12 +48,15 @@ public class NewOrder extends Command {
         }else{
          stykliste = new Stykliste(cwidth, clength,swidth,slength);       
         }
-        int[] amounts = stykliste.toIntArray();
-        int[] prices = LogicFacade.getPrices();
+        List<Integer> amounts = new ArrayList<>();
+        List<Integer> prices = new ArrayList<>();
+        
+        amounts = stykliste.toIntArray();
+        prices = LogicFacade.getPrices();
         int pris = 0;
         for(int i = 0; i < 45; i++){
-            if(amounts[i] != 0){
-                pris+= amounts[i] * prices[i];
+            if(amounts.get(i) != 0){
+                pris+= amounts.get(i) * prices.get(i);
             }
         }
         order.setPrice(pris);
