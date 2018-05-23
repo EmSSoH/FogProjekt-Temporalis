@@ -100,4 +100,8 @@ public class LogicFacade {
         OrderMapper.updateComponent(id, name, price);
     }
 
+    public static void createComp(String name, int price) throws UniversalException {
+        OrderMapper.createComponent(name, price);
+    }
+
 }

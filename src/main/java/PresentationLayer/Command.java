@@ -29,6 +29,9 @@ abstract class Command {
         commands.put("updatePredef", new updatePredef());
         commands.put("redigercomponent", new getKompRediger());
         commands.put("updateKomp", new updateKomp());
+        commands.put("newComp", new goToCreateKomp());
+        commands.put("createKomp", new createKomp());
+        commands.put("newPredef", new goToCreatePredef());
     
 
         
