@@ -1,22 +1,23 @@
 <%-- 
-    Document   : bestilPreDef-Hældning
-    Created on : 16-05-2018, 10:53:29
+    Document   : predefRedigering
+    Created on : 22-05-2018, 12:21:14
     Author     : Juste
 --%>
-<%@page import="java.util.List"%>
-<%@page import="FunctionLayer.Carport"%>
+
 <%@page import="java.util.ArrayList"%>
+<%@page import="FunctionLayer.Carport"%>
+<%@page import="FunctionLayer.Carport"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="Table.css" rel="stylesheet" type="text/css"/>
+         <link href="Table.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
     </head>
     <body>
-        <div>
-        <table id="table1">
+         <div>
+        <table id="table">
             <thead>
                 <tr>
                     <th>Billed</th>
@@ -30,7 +31,7 @@
                 </tr>
             </thead>
             <tbody>
-                 <%  ArrayList<Carport> carports = (ArrayList<Carport>)request.getAttribute("allPredefUHæld");
+                 <%  ArrayList<Carport> carports = (ArrayList<Carport>)request.getAttribute("allPredef");
                  for (Carport o : carports){ %>
                  <tr>
                      
@@ -43,14 +44,15 @@
                      <td><%out.print(o.getRedB());%></td>
                      <td>
                          <form action="FrontController" method="POST">
-                         <input id="table1" type="hidden" name="command" value="customer">
-                         <input id="table1" type="hidden" name="clength" value="<%out.print(o.getCarL());%>">
-                         <input id="table1" type="hidden" name="cwidth" value="<%out.print(o.getCarB());%>">
-                         <input id="table1" type="hidden" name="Rtype" value="<%out.print(o.getTagtype());%>">
-                         <input id="table1" type="hidden" name="incline" value="<%out.print(o.getTaghæld());%>">
-                         <input id="table1" type="hidden" name="slength" value="<%out.print(o.getRedL());%>">
-                         <input id="table1" type="hidden" name="swidth" value="<%out.print(o.getRedB());%>">
-                         <input id="table1" type="submit" name="BuyThisCarport" value="Bestil">
+                         <input type="hidden" name="command" value="redigerpredef">
+                         <input type="hidden" name="id" value="<%out.print(o.getPredef_id());%>">
+                         <input type="hidden" name="clength" value="<%out.print(o.getCarL());%>">
+                         <input type="hidden" name="cwidth" value="<%out.print(o.getCarB());%>">
+                         <input type="hidden" name="Rtype" value="<%out.print(o.getTagtype());%>">
+                         <input type="hidden" name="incline" value="<%out.print(o.getTaghæld());%>">
+                         <input type="hidden" name="slength" value="<%out.print(o.getRedL());%>">
+                         <input type="hidden" name="swidth" value="<%out.print(o.getRedB());%>">
+                         <input type="submit" name="redigerpredef" value="Rediger">
                          </form>
                          <br>
                      </td>
@@ -59,6 +61,5 @@
             </tbody>
         </table>
         </div>
-
     </body>
 </html>

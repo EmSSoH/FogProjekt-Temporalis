@@ -5,31 +5,29 @@
  */
 package PresentationLayer;
 
-import FunctionLayer.Carport;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.UniversalException;
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Magnus West Madsen
+ * @author Juste
  */
-public class getPredefhæld extends Command {
-    
+public class createKomp extends Command {
+
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalException {
+        String name = request.getParameter( "price" );
+        int price = Integer.parseInt(name);
+        name = request.getParameter( "name" );
         
-       
-        List<Carport> carports = LogicFacade.getAllPredefhæld();
-        request.setAttribute("allPredefHæld", carports);
+        LogicFacade.createComp(name,price);
         
-            if (carports == null) {
-                throw new UniversalException("Could not fetch preDef Carports");
-            } else {
-            return "bestilPreDefHældning";
-        }
+        
+        return "loginAdmin";
+        
+        
     }
     
 }

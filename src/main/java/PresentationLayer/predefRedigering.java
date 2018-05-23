@@ -14,22 +14,21 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Magnus West Madsen
+ * @author Juste
  */
-public class getPredefhæld extends Command {
-    
+public class predefRedigering extends Command {
+
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalException {
-        
-       
-        List<Carport> carports = LogicFacade.getAllPredefhæld();
-        request.setAttribute("allPredefHæld", carports);
+      
+        List<Carport> carports = LogicFacade.getAllPredef();
+        request.setAttribute("allPredef", carports);
         
             if (carports == null) {
                 throw new UniversalException("Could not fetch preDef Carports");
             } else {
-            return "bestilPreDefHældning";
-        }
+                return "predefRedigering";
+            }
     }
     
 }

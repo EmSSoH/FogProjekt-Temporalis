@@ -5,31 +5,34 @@
  */
 package PresentationLayer;
 
-import FunctionLayer.Carport;
+import FunctionLayer.Components;
 import FunctionLayer.LogicFacade;
+import FunctionLayer.Order;
 import FunctionLayer.UniversalException;
+import java.util.Collections;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Magnus West Madsen
+ * @author Juste
  */
-public class getPredefhæld extends Command {
-    
+public class komponentRedigere extends Command {
+
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalException {
+      
+        List<Components> comp = LogicFacade.getAllComponents();
+        request.setAttribute("allComp", comp);
         
-       
-        List<Carport> carports = LogicFacade.getAllPredefhæld();
-        request.setAttribute("allPredefHæld", carports);
-        
-            if (carports == null) {
-                throw new UniversalException("Could not fetch preDef Carports");
+            if (comp == null) {
+                throw new UniversalException("Could not fetch orders");
             } else {
-            return "bestilPreDefHældning";
-        }
+              return"komponentRedigering";
+            }
+        
+      
     }
     
 }
