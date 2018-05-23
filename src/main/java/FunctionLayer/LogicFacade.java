@@ -87,4 +87,17 @@ public class LogicFacade {
         OrderMapper.updatePredef(id, incline, Rtype, slength, swidth, slength, swidth);
     }
 
+    public static List<Components> getAllComponents() throws UniversalException {
+        
+        return OrderMapper.getAllComp();
+    }
+
+    public static Components getComp(int id) throws UniversalException {
+        return OrderMapper.getComp(id);
+    }
+
+    public static void updateComp(int id, String name, int price) throws UniversalException {
+        OrderMapper.updateComponent(id, name, price);
+    }
+
 }

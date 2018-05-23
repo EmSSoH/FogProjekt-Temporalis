@@ -5,6 +5,9 @@
  */
 package PresentationLayer;
 
+import FunctionLayer.Carport;
+import FunctionLayer.Components;
+import FunctionLayer.LogicFacade;
 import FunctionLayer.UniversalException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,7 +20,17 @@ public class getKompRediger extends Command {
 
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String tempid = request.getParameter("id");
+        int id = Integer.parseInt(tempid);
+        Components comp = LogicFacade.getComp(id);
+        
+      
+        request.setAttribute( "id", comp.getId());
+        request.setAttribute( "name", comp.getCompName());
+        request.setAttribute( "price", comp.getPrice());
+
+       
+         return "redigerChosenKomp";
     }
     
 }

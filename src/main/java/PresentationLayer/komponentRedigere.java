@@ -5,6 +5,7 @@
  */
 package PresentationLayer;
 
+import FunctionLayer.Components;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.Order;
 import FunctionLayer.UniversalException;
@@ -22,15 +23,14 @@ public class komponentRedigere extends Command {
     @Override
     String execute(HttpServletRequest request, HttpServletResponse response) throws UniversalException {
       
-      /*  List<> orders = LogicFacade.getAllOrders();
-        Collections.reverse(orders);
-        request.setAttribute("allOrders", orders);
+        List<Components> comp = LogicFacade.getAllComponents();
+        request.setAttribute("allComp", comp);
         
-            if (orders == null) {
+            if (comp == null) {
                 throw new UniversalException("Could not fetch orders");
-            } else {*/
+            } else {
               return"komponentRedigering";
-        //}
+            }
         
       
     }

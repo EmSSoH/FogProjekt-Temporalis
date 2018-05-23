@@ -27,6 +27,8 @@ abstract class Command {
         commands.put("gtlogin", new gotoLogin());
         commands.put("redigerpredef", new getPredefRediger());
         commands.put("updatePredef", new updatePredef());
+        commands.put("redigercomponent", new getKompRediger());
+        commands.put("updateKomp", new updateKomp());
     
 
         

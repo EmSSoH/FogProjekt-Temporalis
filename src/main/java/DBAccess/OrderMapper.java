@@ -6,6 +6,7 @@
 package DBAccess;
 
 import FunctionLayer.Carport;
+import FunctionLayer.Components;
 import FunctionLayer.Order;
 import FunctionLayer.UniversalException;
 import FunctionLayer.Customer;
@@ -360,7 +361,39 @@ public class OrderMapper {
         }
         return customer;
     }
-
+    
+    public static List<Components> getAllComp() throws UniversalException {
+        List<Components> comp = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM components";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                comp.add(new Components(rs.getInt("id"),rs.getString("component_name"), rs.getInt("price")));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+        return comp;
+    }
+    
+     public static Components getComp(int id) throws UniversalException {
+        Components comp = null;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM components WHERE id = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                comp = new Components(rs.getInt("id"),rs.getString("component_name"), rs.getInt("price"));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+        return comp;
+    }
     /**
      * This is used to add a new component to the database matching the price 
      * and name which is supplied
@@ -402,8 +435,6 @@ public class OrderMapper {
             ps.setInt(2, price);
             ps.setInt(3, id);
             ps.executeUpdate();
-            ResultSet ids = ps.getGeneratedKeys();
-            ids.next();
         } catch (SQLException | ClassNotFoundException ex) {
             throw new UniversalException(ex.getMessage());
         }

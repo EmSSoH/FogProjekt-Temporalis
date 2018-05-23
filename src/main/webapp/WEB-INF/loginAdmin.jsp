@@ -9,6 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="Table.css" rel="stylesheet" type="text/css"/>
         <title>JSP Page</title>
     </head>
     <body>
@@ -36,6 +37,18 @@
                         <input type="submit" value="Submit">
                     </form>
              
+             
+             
+             <form name="Nyt Komponenet" action="FrontController" method="post">
+                 <input type="hidden" name="command" value="newComp">
+                 <input type="submit" value="Nyt Komponenet">
+             </form>
+             
+             <form name="Ny Predef" action="FrontController" method="post">
+                 <input type="hidden" name="command" value="newPredef">
+                 <input type="submit" value="Ny Predef">
+             </form>
+             
                 <form name="Komponent redigering" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="kredigering">
                         <input type="submit" value="Komponent redigering">
@@ -44,7 +57,7 @@
               <form name="Predef redigering" action="FrontController" method="POST">
                         <input type="hidden" name="command" value="predigering">
                         <input type="submit" value="Predef redigering">
-                </form> 
+              </form> 
           
         </div>    
     </body>
