@@ -44,8 +44,7 @@
                      <td>
                          <form action="FrontController" method="POST">
                          <input type="hidden" name="command" value="send">
-                         <input type="hidden" name="id" value="<%out.print(o.getOrderId());%>">
-                         <input type="submit" name="BuyThisCarport" value="Bestil">
+                         <input type="submit" name="BuyThisCarport" value="Bestil"> ikke lavet endnu
                          </form>
                          <br>
                      </td>
