@@ -13,15 +13,18 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <div class="login">
          <form name="login" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="login">
+                        <input class="nonTable" type="hidden" name="command" value="login">
                         Username:<br>
-                        <input type="text" name="name" value="user">
+                        <input class="nonTable" type="text" name="name" value="user">
                         <br>
                         Password:<br>
-                        <input type="password" name="password" value="password">
+                        <input class="nonTable" type="password" name="password" value="password">
                         <br>
-                        <input type="submit" value="Submit">
+                        <input class="nonTable" type="submit" value="Submit">
           </form>
+            
+        </div>
     </body>
 </html>

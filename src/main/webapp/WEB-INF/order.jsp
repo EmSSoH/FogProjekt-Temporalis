@@ -76,7 +76,8 @@
                 
              <input type="submit" value="Submit changes">
             </form>
-                     
+           
+                 
                   <%  Stykliste stykliste = (Stykliste)request.getAttribute("stykliste");
                     %>
         <%if(stykliste.getTrykimpBrædt25x200mm360()!= 0){%>

@@ -16,7 +16,7 @@
     </head>
     <body>
         <div>
-        <table id="table">
+        <table id="table1">
             <thead>
                 <tr>
                     <th>Billed</th>
@@ -43,14 +43,14 @@
                      <td><%out.print(o.getRedB());%></td>
                      <td>
                          <form action="FrontController" method="POST">
-                         <input type="hidden" name="command" value="customer">
-                         <input type="hidden" name="clength" value="<%out.print(o.getCarL());%>">
-                         <input type="hidden" name="cwidth" value="<%out.print(o.getCarB());%>">
-                         <input type="hidden" name="Rtype" value="<%out.print(o.getTagtype());%>">
-                         <input type="hidden" name="incline" value="<%out.print(o.getTaghæld());%>">
-                         <input type="hidden" name="slength" value="<%out.print(o.getRedL());%>">
-                         <input type="hidden" name="swidth" value="<%out.print(o.getRedB());%>">
-                         <input type="submit" name="BuyThisCarport" value="Bestil">
+                         <input id="table1" type="hidden" name="command" value="customer">
+                         <input id="table1" type="hidden" name="clength" value="<%out.print(o.getCarL());%>">
+                         <input id="table1" type="hidden" name="cwidth" value="<%out.print(o.getCarB());%>">
+                         <input id="table1" type="hidden" name="Rtype" value="<%out.print(o.getTagtype());%>">
+                         <input id="table1" type="hidden" name="incline" value="<%out.print(o.getTaghæld());%>">
+                         <input id="table1" type="hidden" name="slength" value="<%out.print(o.getRedL());%>">
+                         <input id="table1" type="hidden" name="swidth" value="<%out.print(o.getRedB());%>">
+                         <input id="table1" type="submit" name="BuyThisCarport" value="Bestil">
                          </form>
                          <br>
                      </td>
