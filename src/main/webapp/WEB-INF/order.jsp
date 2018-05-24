@@ -57,17 +57,17 @@
               
                  <tr>
                      <td><input class="table" type="hidden" name="orderId" value="<% out.print(request.getAttribute("orderId")); %>"></td>
-                     <td><input class="table" type="text" name="nemployeeId" value="<% out.print(request.getAttribute("employeeId")); %>"></td>
-                     <td><input class="table" type="text" name="nstatus" value="<% out.print(request.getAttribute("status")); %>"></td>
-                     <td><input class="table" type="text" name="nCPL" value=" <% out.print(request.getAttribute("CPL")); %>"></td>
-                     <td><input class="table" type="text" name="nCPW" value="<% out.print(request.getAttribute("CPW")); %>"></td>
-                     <td><input class="table" type="text" name="nincline" value="<% out.print(request.getAttribute("incline")); %>"></td>
-                     <td><input class="table" type="text" name="nRtype" value="<% out.print(request.getAttribute("Rtype")); %>"></td>
-                     <td><input class="table" type="text" name="nslength" value="<% out.print(request.getAttribute("slength")); %>"></td>
-                     <td><input class="table" type="text" name="nswidth" value="<% out.print(request.getAttribute("swidth")); %>"></td>
+                     <td><input class="table" type="number" name="nemployeeId" value="<% out.print(request.getAttribute("employeeId")); %>"></td>
+                     <td><input class="table" type="number" name="nstatus" value="<% out.print(request.getAttribute("status")); %>"></td>
+                     <td><input class="table" type="number" name="nCPL" value=" <% out.print(request.getAttribute("CPL")); %>"></td>
+                     <td><input class="table" type="number" name="nCPW" value="<% out.print(request.getAttribute("CPW")); %>"></td>
+                     <td><input class="table" type="number" name="nincline" value="<% out.print(request.getAttribute("incline")); %>"></td>
+                     <td><input class="table" type="number" name="nRtype" value="<% out.print(request.getAttribute("Rtype")); %>"></td>
+                     <td><input class="table" type="number" name="nslength" value="<% out.print(request.getAttribute("slength")); %>"></td>
+                     <td><input class="table" type="number" name="nswidth" value="<% out.print(request.getAttribute("swidth")); %>"></td>
                      <td><input class="table" type="text" name="ncomment" value="<% out.print(request.getAttribute("comment")); %>"></td>
-                     <td><input class="table" type="text" name="nprice" value="<% out.print(request.getAttribute("price")); %>"></td>
-                     <td><input class="table" type="text" name="ndelivery" value="<% out.print(request.getAttribute("date")); %>"></td>
+                     <td><input class="table" type="number" name="nprice" value="<% out.print(request.getAttribute("price")); %>"></td>
+                     <td><input class="table" type="number" name="ndelivery" value="<% out.print(request.getAttribute("date")); %>"></td>
                  </tr>  
               
             </tbody>

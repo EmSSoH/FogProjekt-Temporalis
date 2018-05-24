@@ -48,15 +48,15 @@ public class NewOrder extends Command {
         }else{
          stykliste = new Stykliste(cwidth, clength,swidth,slength);       
         }
-        List<Integer> amounts = new ArrayList<>();
-        List<Integer> prices = new ArrayList<>();
+        int[] amounts = stykliste.toIntArray();
+        int[] prices = LogicFacade.getPrices();
         
         amounts = stykliste.toIntArray();
         prices = LogicFacade.getPrices();
         int pris = 0;
-        for(int i = 0; i < 45; i++){
-            if(amounts.get(i) != 0){
-                pris+= amounts.get(i) * prices.get(i);
+        for(int i = 0; i < amounts.length-1; i++){
+            if(amounts[i] != 0){
+                pris+= amounts[i] * prices[i];
             }
         }
         order.setPrice(pris);
