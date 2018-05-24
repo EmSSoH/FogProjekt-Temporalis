@@ -9,7 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link href="Table.css" rel="stylesheet" type="text/css"/>
+        <title>Ny predef Carport</title>
     </head>
     <body>
        <h1>Indsæt Predef data</h1>
@@ -31,17 +32,17 @@
                     </thead>
                     <tbody>
                         <tr>           
-                        <td><input type="text" name="incline" value="incline"></td>
-                        <td><input type="text" name="Rtype" value="Roof Type"></td> 
-                        <td><input type="text" name="clength" value="Length"></td>     
-                        <td><input type="text" name="cwidth" value="Width"></td>     
-                        <td><input type="text" name="slength" value="Shed length"></td>     
-                        <td><input type="text" name="swidth" value="Shed Width"></td>     
-                        <td><input type="text" name="price" value="pris"></td>     
+                        <td><input class="table" type="text" name="incline" value="incline"></td>
+                        <td><input class="table" type="text" name="Rtype" value="Roof Type"></td> 
+                        <td><input class="table" type="text" name="clength" value="Length"></td>     
+                        <td><input class="table" type="text" name="cwidth" value="Width"></td>     
+                        <td><input class="table" type="text" name="slength" value="Shed length"></td>     
+                        <td><input class="table" type="text" name="swidth" value="Shed Width"></td>     
+                        <td><input class="table" type="text" name="price" value="pris"></td>     
                      </tr>        
                     </tbody>
                     </table>
-                 <input type="submit" value="Lav Predef">
+                 <input class="nonTable"  type="submit" value="Lav Predef">
             </form>
         </div>
     </body>

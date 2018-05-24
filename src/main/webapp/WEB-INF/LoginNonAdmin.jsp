@@ -10,13 +10,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="Table.css" rel="stylesheet" type="text/css"/>
-        <title>JSP Page</title>
+        <title>LoginNonAdmin</title>
     </head>
     <body>
-        <div>
+        <div  class="center" style="background-color:#bbb;">
                <form name="orderlist" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="orderlist">
-                        <input type="submit" value="Check Order">
+                        <input class="table" type="hidden" name="command" value="orderlist">
+                        <input class="table" type="submit" value="Check Order">
                 </form> 
         </div>    
           

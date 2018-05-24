@@ -13,6 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <div>
        <form name="rediger" action="FrontController" method="POST">
        <input type="hidden" name="command" value="updateKomp">
         <table id="table">
@@ -31,15 +32,16 @@
                  </tr>
               
                  <tr>           
-                     <td><input type="hidden" name="nid" value="<% out.print(request.getAttribute("id")); %>"></td>
-                     <td><input type="text" name="nname" value="<% out.print(request.getAttribute("name")); %>"></td>
-                     <td><input type="text" name="nprice" value="<% out.print(request.getAttribute("price")); %>"></td>     
+                     <td><input class="table" type="hidden" name="nid" value="<% out.print(request.getAttribute("id")); %>"></td>
+                     <td><input class="table" type="text" name="nname" value="<% out.print(request.getAttribute("name")); %>"></td>
+                     <td><input class="table" type="text" name="nprice" value="<% out.print(request.getAttribute("price")); %>"></td>     
                  </tr>  
               
             </tbody>
             
         </table>         
-             <input type="submit" value="Submit changes">
+             <input class="nonTable" type="submit" value="Submit changes">
             </form>
+        </div>
     </body>
 </html>

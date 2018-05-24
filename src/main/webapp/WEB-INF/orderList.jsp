@@ -13,7 +13,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="Table.css" rel="stylesheet" type="text/css"/>
-        <title>JSP Page</title>
+        <title>Ordre liste</title>
     </head>
     <body>
         <div>
@@ -42,9 +42,9 @@
                      <td><%out.print(o.getCustomer().getEmail());%></td>
                      <td>
                          <form action="FrontController" method="POST">
-                         <input type="hidden" name="command" value="send">
-                         <input type="hidden" name="id" value="<%out.print(o.getOrderId());%>">
-                         <input type="submit" name="getThisOrder" value="More info">
+                         <input class="table" type="hidden" name="command" value="send">
+                         <input class="table" type="hidden" name="id" value="<%out.print(o.getOrderId());%>">
+                         <input class="table" type="submit" name="getThisOrder" value="More info">
                          </form>
                          <br>
                      </td>

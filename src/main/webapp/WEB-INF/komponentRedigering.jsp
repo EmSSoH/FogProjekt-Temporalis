@@ -13,7 +13,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="Table.css" rel="stylesheet" type="text/css"/>
-        <title>JSP Page</title>
+        <title>Komponent redigering</title>
     </head>
     <body>
           <div>
@@ -34,11 +34,11 @@
                      <td><%out.print(o.getPrice());%></td>
                      <td>
                          <form action="FrontController" method="POST">
-                         <input type="hidden" name="command" value="redigercomponent">
-                         <input type="hidden" name="id" value="<%out.print(o.getId());%>">
-                         <input type="hidden" name="name" value="<%out.print(o.getCompName());%>">
-                         <input type="hidden" name="price" value="<%out.print(o.getPrice());%>">
-                         <input type="submit" name="redigercomponent" value="Rediger">
+                         <input class="table" type="hidden" name="command" value="redigercomponent">
+                         <input class="table" type="hidden" name="id" value="<%out.print(o.getId());%>">
+                         <input class="table" type="hidden" name="name" value="<%out.print(o.getCompName());%>">
+                         <input class="table" type="hidden" name="price" value="<%out.print(o.getPrice());%>">
+                         <input class="table" type="submit" name="redigercomponent" value="Rediger">
                          </form>
                          <br>
                      </td>

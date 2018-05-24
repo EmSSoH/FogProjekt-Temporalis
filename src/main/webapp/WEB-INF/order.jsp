@@ -13,7 +13,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="Table.css" rel="stylesheet" type="text/css"/>    
-        <title>JSP Page</title>
+        <title>Ordre</title>
     </head>
     <body>
         <div> 
@@ -56,28 +56,29 @@
                  </tr>
               
                  <tr>
-                     <td><input type="hidden" name="orderId" value="<% out.print(request.getAttribute("orderId")); %>"></td>
-                     <td><input type="text" name="nemployeeId" value="<% out.print(request.getAttribute("employeeId")); %>"></td>
-                     <td><input type="text" name="nstatus" value="<% out.print(request.getAttribute("status")); %>"></td>
-                     <td><input type="text" name="nCPL" value=" <% out.print(request.getAttribute("CPL")); %>"></td>
-                     <td><input type="text" name="nCPW" value="<% out.print(request.getAttribute("CPW")); %>"></td>
-                     <td><input type="text" name="nincline" value="<% out.print(request.getAttribute("incline")); %>"></td>
-                     <td><input type="text" name="nRtype" value="<% out.print(request.getAttribute("Rtype")); %>"></td>
-                     <td><input type="text" name="nslength" value="<% out.print(request.getAttribute("slength")); %>"></td>
-                     <td><input type="text" name="nswidth" value="<% out.print(request.getAttribute("swidth")); %>"></td>
-                     <td><input type="text" name="ncomment" value="<% out.print(request.getAttribute("comment")); %>"></td>
-                     <td><input type="text" name="nprice" value="<% out.print(request.getAttribute("price")); %>"></td>
-                     <td><input type="text" name="ndelivery" value="<% out.print(request.getAttribute("date")); %>"></td>
+                     <td><input class="table" type="hidden" name="orderId" value="<% out.print(request.getAttribute("orderId")); %>"></td>
+                     <td><input class="table" type="text" name="nemployeeId" value="<% out.print(request.getAttribute("employeeId")); %>"></td>
+                     <td><input class="table" type="text" name="nstatus" value="<% out.print(request.getAttribute("status")); %>"></td>
+                     <td><input class="table" type="text" name="nCPL" value=" <% out.print(request.getAttribute("CPL")); %>"></td>
+                     <td><input class="table" type="text" name="nCPW" value="<% out.print(request.getAttribute("CPW")); %>"></td>
+                     <td><input class="table" type="text" name="nincline" value="<% out.print(request.getAttribute("incline")); %>"></td>
+                     <td><input class="table" type="text" name="nRtype" value="<% out.print(request.getAttribute("Rtype")); %>"></td>
+                     <td><input class="table" type="text" name="nslength" value="<% out.print(request.getAttribute("slength")); %>"></td>
+                     <td><input class="table" type="text" name="nswidth" value="<% out.print(request.getAttribute("swidth")); %>"></td>
+                     <td><input class="table" type="text" name="ncomment" value="<% out.print(request.getAttribute("comment")); %>"></td>
+                     <td><input class="table" type="text" name="nprice" value="<% out.print(request.getAttribute("price")); %>"></td>
+                     <td><input class="table" type="text" name="ndelivery" value="<% out.print(request.getAttribute("date")); %>"></td>
                  </tr>  
               
             </tbody>
             
         </table>       
                 
-             <input type="submit" value="Submit changes">
+             <input class="order"  type="submit" value="Submit changes">
             </form>
+                 <br>
            
-                 
+                 <div class="login">            
                   <%  Stykliste stykliste = (Stykliste)request.getAttribute("stykliste");
                     %>
         <%if(stykliste.getTrykimpBrædt25x200mm360()!= 0){%>
@@ -183,8 +184,9 @@
                        
                         <input type="hidden" name="swidth" value="<% out.print(request.getAttribute("slength")); %>">
                         <br>
-                        <input type="submit" value="Draw">
+                        <input class="table" type="submit" value="Draw">
                     </form>
+              </div>
      </div>   
     </body>
 </html>

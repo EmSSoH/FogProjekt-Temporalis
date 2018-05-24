@@ -9,7 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <link href="Table.css" rel="stylesheet" type="text/css"/>
+        <title>Nyt Komponent</title>
     </head>
     <body>
         <h1>Indsæt Komponent data</h1>
@@ -26,12 +27,12 @@
                     </thead>
                     <tbody>
                         <tr>           
-                        <td><input type="text" name="name" value="navn"></td>
-                        <td><input type="text" name="price" value="pris"></td>     
+                        <td><input class="table" type="text" name="name" value="navn"></td>
+                        <td><input class="table" type="text" name="price" value="pris"></td>     
                      </tr>        
                     </tbody>
                     </table>
-                 <input type="submit" value="Lav Komponent">
+                 <input class="nonTable"  type="submit" value="Lav Komponent">
             </form>
         </div>
     </body>

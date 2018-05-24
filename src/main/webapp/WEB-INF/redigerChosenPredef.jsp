@@ -13,6 +13,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <div>
         <form name="rediger" action="FrontController" method="POST">
        <input type="hidden" name="command" value="updatePredef">
         <table id="table">
@@ -40,12 +41,12 @@
               
                  <tr>
                      
-                     <td><input type="text" name="nCPL" value="<% out.print(request.getAttribute("clength")); %>"></td>
-                     <td><input type="text" name="nCPW" value="<% out.print(request.getAttribute("cwidth")); %>"></td>
-                     <td><input type="text" name="nincline" value="<% out.print(request.getAttribute("Rtype")); %>"></td>
-                     <td><input type="text" name="nRtype" value="<% out.print(request.getAttribute("incline")); %>"></td>
-                     <td><input type="text" name="nslength" value="<% out.print(request.getAttribute("slength")); %>"></td>
-                     <td><input type="text" name="nswidth" value="<% out.print(request.getAttribute("swidth")); %>"></td>
+                     <td><input class="table" type="text" name="nCPL" value="<% out.print(request.getAttribute("clength")); %>"></td>
+                     <td><input class="table" type="text" name="nCPW" value="<% out.print(request.getAttribute("cwidth")); %>"></td>
+                     <td><input class="table" type="text" name="nincline" value="<% out.print(request.getAttribute("Rtype")); %>"></td>
+                     <td><input class="table" type="text" name="nRtype" value="<% out.print(request.getAttribute("incline")); %>"></td>
+                     <td><input class="table" type="text" name="nslength" value="<% out.print(request.getAttribute("slength")); %>"></td>
+                     <td><input class="table" type="text" name="nswidth" value="<% out.print(request.getAttribute("swidth")); %>"></td>
                     
                  </tr>  
               
@@ -53,7 +54,8 @@
             
         </table>       
              <input type="hidden" name="id" value="<%out.print(request.getAttribute("id")); %>">   
-             <input type="submit" value="Submit changes">
+             <input class="nonTable" type="submit" value="Submit changes">
             </form>
+        </div>
     </body>
 </html>

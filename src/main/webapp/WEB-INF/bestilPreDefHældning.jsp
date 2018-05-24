@@ -12,7 +12,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="Table.css" rel="stylesheet" type="text/css"/>
-        <title>JSP Page</title>
+        <title>Bestil med hældning</title>
     </head>
     <body>
         <div>
@@ -43,14 +43,14 @@
                      <td><%out.print(o.getRedB());%></td>
                      <td>
                          <form action="FrontController" method="POST">
-                         <input type="hidden" name="command" value="customer">
-                         <input type="hidden" name="clength" value="<%out.print(o.getCarL());%>">
-                         <input type="hidden" name="cwidth" value="<%out.print(o.getCarB());%>">
-                         <input type="hidden" name="Rtype" value="<%out.print(o.getTagtype());%>">
-                         <input type="hidden" name="incline" value="<%out.print(o.getTaghæld());%>">
-                         <input type="hidden" name="slength" value="<%out.print(o.getRedL());%>">
-                         <input type="hidden" name="swidth" value="<%out.print(o.getRedB());%>">
-                         <input type="submit" name="BuyThisCarport" value="Bestil">
+                         <input class="table" type="hidden" name="command" value="customer">
+                         <input class="table" type="hidden" name="clength" value="<%out.print(o.getCarL());%>">
+                         <input class="table" type="hidden" name="cwidth" value="<%out.print(o.getCarB());%>">
+                         <input class="table" type="hidden" name="Rtype" value="<%out.print(o.getTagtype());%>">
+                         <input class="table" type="hidden" name="incline" value="<%out.print(o.getTaghæld());%>">
+                         <input class="table" type="hidden" name="slength" value="<%out.print(o.getRedL());%>">
+                         <input class="table" type="hidden" name="swidth" value="<%out.print(o.getRedB());%>">
+                         <input class="table" type="submit" name="BuyThisCarport" value="Bestil">
                          </form>
                          <br>
                      </td>

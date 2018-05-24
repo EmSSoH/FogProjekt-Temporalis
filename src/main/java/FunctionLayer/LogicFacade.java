@@ -58,7 +58,7 @@ public class LogicFacade {
         OrderMapper.createItemList(stykliste);
     }
 
-    public static int[] getPrices() throws UniversalException {
+    public static List<Integer> getPrices() throws UniversalException {
         return OrderMapper.getPrices();
     }
 
