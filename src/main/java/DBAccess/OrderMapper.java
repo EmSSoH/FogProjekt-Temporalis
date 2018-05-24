@@ -531,7 +531,7 @@ public class OrderMapper {
      * @throws UniversalException
      */
     public static int[] getPrices() throws UniversalException {
-        int[] intArray = new int[45];
+        int[] intArray = new int[46];
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM components";
