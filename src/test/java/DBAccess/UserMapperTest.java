@@ -84,6 +84,142 @@ public class UserMapperTest {
         assertEquals(order.getComment(),"test");
     }
     
+
+        @Test
+        public void testCreateUpdateOrder() throws UniversalException {   
+            Order order = new Order(1, 300, 300, 10, 1, 300, 300, "what what", 2, 1, 1);
+            OrderMapper.createOrder(order, 1);
+            int  id = order.getOrderId();
+            order = OrderMapper.getOrder(id);
+            assertEquals(order.getUserId(),1);
+            assertEquals(order.getIncline(),10);
+            assertEquals(order.getRoofType(),1);
+            assertEquals(order.getCarportLength(),300);
+            assertEquals(order.getCarportWidth(),300);
+            assertEquals(order.getShedLength(),300);
+            assertEquals(order.getShedWidth(),300);
+            assertEquals(order.getStatus(),0);
+            assertEquals(order.getPrice(),300);
+            assertEquals(order.getDelivery(),2);
+            assertEquals(order.getComment(),"what what");
+            
+            Order nOrder = new Order(1, 400, 400, 10, 1, 400, 400, "what what sup", 2, 1, 1);
+            nOrder.setOrderId(id);
+            OrderMapper.updateOrder(nOrder);
+            Order torder = OrderMapper.getOrder(id);
+            
+            assertEquals(torder.getUserId(),1);
+            assertEquals(torder.getIncline(),10);
+            assertEquals(torder.getRoofType(),1);
+            assertEquals(torder.getCarportLength(),400);
+            assertEquals(torder.getCarportWidth(),400);
+            assertEquals(torder.getShedLength(),400);
+            assertEquals(torder.getShedWidth(),400);
+            assertEquals(torder.getStatus(),1);
+            assertEquals(torder.getPrice(),2);
+            assertEquals(torder.getDelivery(),1);
+            assertEquals(torder.getComment(),"what what sup");
+            
+        }
+
+/*
+    public static boolean createOrder(Order order, int customerid) throws UniversalException {
+
+    }
+
+
+    public static List<Order> getCustomerOrders(int id) throws UniversalException {
+ 
+    }
+
+    public static List<Order> getAllOrdersLight() throws UniversalException {
+
+    }
+
+    public static List<Order> getAllOrders() throws UniversalException {
+
+    }
+
+
+    public static boolean updateStatus(int orderId, int newStatus) throws UniversalException {
+ 
+    }
+
+
+    public static void createPredef(int incline, int roof_type, int length, int width, int toolshed_length, int toolshed_width) throws UniversalException {
+
+    }
+
+    public static void updatePredef(int id, int incline, int roof_type, int length, int width, int toolshed_length, int toolshed_width) throws UniversalException {
+
+    }
+
+    public static Customer getCustomer(int customerid) throws UniversalException {
+
+    }
     
+    public static List<Components> getAllComp() throws UniversalException {
+
+    }
     
+     public static Components getComp(int id) throws UniversalException {
+
+    }
+ 
+    public static void createComponent(String name, int price) throws UniversalException {
+
+    }
+
+    public static void updateComponent(int id, String name, int price) throws UniversalException {
+  
+    }
+
+
+    public static void createItemList(Stykliste stk) throws UniversalException {
+
+    }
+
+    public static Stykliste getItemList(int orderId) throws UniversalException {
+
+    }
+
+    public static List<String> getComponentNames() throws UniversalException {
+
+    }
+
+    public static List<Integer> getPrices() throws UniversalException {
+
+    }
+
+
+    public static void addCustomer(int oid, int cid) throws UniversalException {
+
+    }
+
+    public static int createCustomer(String name, String address, int phone, String email) throws UniversalException {
+
+    }
+
+
+    public static List<Carport> getAllPredefhæld() throws UniversalException {
+
+    }
+    
+    public static List<Carport> getAllPredef() throws UniversalException {
+
+    }
+
+
+    public static List<Carport> getAllPredefUhæld() throws UniversalException {
+
+    }
+
+    public static Carport getPredef(int id) throws UniversalException {
+
+    }*/
 }
+
+    
+    
+    
+
