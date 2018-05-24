@@ -9,26 +9,26 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="Frontpage.css" rel="stylesheet" type="text/css"/> 
-        
+        <link href="Table.css" rel="stylesheet" type="text/css"/> 
+        <title>Bestil egen mål</title>
     </head>
     <body>
-        <div class="center" style="background-color:#bbb;">
+        <div class="login" style="background-color:#bbb;">
          <form name="customer" action="FrontController" method="POST">
-                        <input type="hidden" name="command" value="customer">
+                        <input class="table" type="hidden" name="command" value="customer">
                         Carport Længden:<br>
-                        <input type="text" name="clength" value="600">
+                        <input class="table" type="text" name="clength" value="600">
                         <br>
                         Carport Bredde:<br>
-                        <input type="text" name="cwidth" value="720">
+                        <input class="table" type="text" name="cwidth" value="720">
                         <br>
                         Shed Længden:<br>
-                        <input type="text" name="slength" value="530">
+                        <input class="table" type="text" name="slength" value="530">
                         <br>
                         Shed Bredde:<br>
-                        <input type="text" name="swidth" value="220">
+                        <input class="table" type="text" name="swidth" value="220">
                         <br>
-                        <input type="submit" value="Submit">
+                        <input class="table" type="submit" value="Submit">
                     </form>
             </div>
     </body>

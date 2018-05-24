@@ -10,19 +10,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="Table.css" rel="stylesheet" type="text/css"/>
-        <title>JSP Page</title>
+        <title>Login</title>
     </head>
     <body>
-        <div class="login">
+        <div class="login" style="background-color:#bbb;">
          <form name="login" action="FrontController" method="POST">
-                        <input class="nonTable" type="hidden" name="command" value="login">
+                        <input class="table" type="hidden" name="command" value="login">
                         Username:<br>
-                        <input class="nonTable" type="text" name="name" value="user">
+                        <input class="table" type="text" name="name" value="user">
                         <br>
                         Password:<br>
-                        <input class="nonTable" type="password" name="password" value="password">
+                        <input class="table" type="password" name="password" value="password">
                         <br>
-                        <input class="nonTable" type="submit" value="Submit">
+                        <input class="table" type="submit" value="Submit">
           </form>
             
         </div>

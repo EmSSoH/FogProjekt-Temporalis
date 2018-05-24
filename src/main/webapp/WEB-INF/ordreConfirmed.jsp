@@ -10,9 +10,10 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="Table.css" rel="stylesheet" type="text/css"/>
-        <title>JSP Page</title>
+        <title>Ordre confirmed</title>
     </head>
     <body>
+        <h1>Ordre er blevet sendt</h1>
         <ul>
         <li><a href="index.jsp">Front page</a></li>
            </ul>

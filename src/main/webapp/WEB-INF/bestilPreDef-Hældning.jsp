@@ -12,11 +12,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="Table.css" rel="stylesheet" type="text/css"/>
-        <title>JSP Page</title>
+        <title>Bestil uden hældning</title>
     </head>
     <body>
         <div>
-        <table id="table1">
+        <table id="table">
             <thead>
                 <tr>
                     <th>Billed</th>
@@ -43,14 +43,14 @@
                      <td><%out.print(o.getRedB());%></td>
                      <td>
                          <form action="FrontController" method="POST">
-                         <input id="table1" type="hidden" name="command" value="customer">
-                         <input id="table1" type="hidden" name="clength" value="<%out.print(o.getCarL());%>">
-                         <input id="table1" type="hidden" name="cwidth" value="<%out.print(o.getCarB());%>">
-                         <input id="table1" type="hidden" name="Rtype" value="<%out.print(o.getTagtype());%>">
-                         <input id="table1" type="hidden" name="incline" value="<%out.print(o.getTaghæld());%>">
-                         <input id="table1" type="hidden" name="slength" value="<%out.print(o.getRedL());%>">
-                         <input id="table1" type="hidden" name="swidth" value="<%out.print(o.getRedB());%>">
-                         <input id="table1" type="submit" name="BuyThisCarport" value="Bestil">
+                         <input class="table" id="table1" type="hidden" name="command" value="customer">
+                         <input class="table" id="table1" type="hidden" name="clength" value="<%out.print(o.getCarL());%>">
+                         <input class="table" id="table1" type="hidden" name="cwidth" value="<%out.print(o.getCarB());%>">
+                         <input class="table" id="table1" type="hidden" name="Rtype" value="<%out.print(o.getTagtype());%>">
+                         <input class="table" id="table1" type="hidden" name="incline" value="<%out.print(o.getTaghæld());%>">
+                         <input class="table" id="table1" type="hidden" name="slength" value="<%out.print(o.getRedL());%>">
+                         <input class="table" id="table1" type="hidden" name="swidth" value="<%out.print(o.getRedB());%>">
+                         <input class="table" id="table1" type="submit" name="BuyThisCarport" value="Bestil">
                          </form>
                          <br>
                      </td>
