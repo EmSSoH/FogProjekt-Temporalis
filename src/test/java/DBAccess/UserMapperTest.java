@@ -22,13 +22,6 @@ import static org.junit.Assert.*;
 import org.junit.Before;
 
 public class UserMapperTest {
-//    Test date in the UsersTest table
-//    INSERT INTO `UsersTest` VALUES 
-//    (1,'jens@somewhere.com','jensen','customer'),
-//    (2,'ken@somewhere.com','kensen','customer'),
-//    (3,'robin@somewhere.com','batman','employee'),
-//    (4,'someone@nowhere.com','sesam','customer');
-
     private static Connection testConnection;
     private static String USER = "Juste";
     private static String USERPW = "admin";
@@ -38,7 +31,7 @@ public class UserMapperTest {
     @Before
     public void setUp() {
         try {
-            // awoid making a new connection for each test
+            // avoid making a new connection for each test
             if ( testConnection == null ) {
                 String url = String.format( "jdbc:mysql://%s:3306/%s", HOST, DBNAME );
                 Class.forName( "com.mysql.jdbc.Driver" );

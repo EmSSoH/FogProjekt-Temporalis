@@ -359,7 +359,7 @@ public class OrderMapper {
         }
         return customer;
     }
-    
+
     public static List<Components> getAllComp() throws UniversalException {
         List<Components> comp = new ArrayList<>();
         try {
@@ -368,15 +368,15 @@ public class OrderMapper {
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                comp.add(new Components(rs.getInt("id"),rs.getString("component_name"), rs.getInt("price")));
+                comp.add(new Components(rs.getInt("id"), rs.getString("component_name"), rs.getInt("price")));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new UniversalException(ex.getMessage());
         }
         return comp;
     }
-    
-     public static Components getComp(int id) throws UniversalException {
+
+    public static Components getComp(int id) throws UniversalException {
         Components comp = null;
         try {
             Connection con = Connector.connection();
@@ -385,15 +385,16 @@ public class OrderMapper {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                comp = new Components(rs.getInt("id"),rs.getString("component_name"), rs.getInt("price"));
+                comp = new Components(rs.getInt("id"), rs.getString("component_name"), rs.getInt("price"));
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new UniversalException(ex.getMessage());
         }
         return comp;
     }
+
     /**
-     * This is used to add a new component to the database matching the price 
+     * This is used to add a new component to the database matching the price
      * and name which is supplied
      *
      * @param name the name of the component
@@ -416,9 +417,9 @@ public class OrderMapper {
     }
 
     /**
-     * This is used to update an already existing component in the database so 
+     * This is used to update an already existing component in the database so
      * it will match the price and name which is supplied
-     * 
+     *
      * @param id is the id of the component in the database
      * @param name is the updated name of the component
      * @param price is the updated price of the component
@@ -451,15 +452,14 @@ public class OrderMapper {
             try {
                 con = Connector.connection();
                 con.setAutoCommit(false);
-                List<Integer> intArray = new ArrayList<>();
-                intArray = stk.toIntArray();
+                int[] intArray = stk.toIntArray();
                 String SQL = "INSERT INTO `itemlist` VALUES (?, ?, ?)";
                 PreparedStatement ps;
-                for (int i = 0; i < 45; i++) {
+                for (int i = 0; i < intArray.length - 1; i++) {
 
                     ps = con.prepareStatement(SQL);
 
-                    ps.setInt(1, intArray.get(i));
+                    ps.setInt(1, intArray[i]);
                     ps.setInt(2, stk.getId());
                     ps.setInt(3, i + 1);
                     ps.executeUpdate();
@@ -484,7 +484,7 @@ public class OrderMapper {
      * @throws UniversalException
      */
     public static Stykliste getItemList(int orderId) throws UniversalException {
-        List<Integer> intArray = new ArrayList<>();
+        int[] intArray = new int[100];
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM itemlist WHERE order_id=?";
@@ -492,7 +492,7 @@ public class OrderMapper {
             ps.setInt(1, orderId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                intArray.add(rs.getInt("amount"));
+                intArray[rs.getInt("component_id") - 1] = rs.getInt("amount");
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new UniversalException(ex.getMessage());
@@ -502,21 +502,22 @@ public class OrderMapper {
 
     /**
      * This is used to get a list of components as an array with the length of
-     * 45. This is because we currently have 45 components. The position in the
-     * array matches the id in the database minus 1
+     * 100. We currently have 45 used in the calculator but more components can
+     * be added, although they will not be integrated in the calculator. The
+     * position in the array matches the id in the database minus 1
      *
      * @return a StringArray with names of the components
      * @throws UniversalException
      */
-    public static List<String> getComponentNames() throws UniversalException {
-        List<String> StringArray = new ArrayList<>();
+    public static String[] getComponentNames() throws UniversalException {
+        String[] StringArray = new String[100];
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM components";
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                StringArray.add(rs.getString("componenet_name"));
+                StringArray[rs.getInt("id") - 1] = rs.getString("componenet_name");
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new UniversalException(ex.getMessage());
@@ -531,15 +532,15 @@ public class OrderMapper {
      * @return an intArray with the prices
      * @throws UniversalException
      */
-    public static List<Integer> getPrices() throws UniversalException {
-        List<Integer> intArray = new ArrayList<>();
+    public static int[] getPrices() throws UniversalException {
+        int[] intArray = new int[100];
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM components";
             PreparedStatement ps = con.prepareStatement(SQL);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                intArray.add(rs.getInt("price"));
+                intArray[rs.getInt("id") - 1] = rs.getInt("price");
             }
         } catch (ClassNotFoundException | SQLException ex) {
             throw new UniversalException(ex.getMessage());
@@ -581,17 +582,32 @@ public class OrderMapper {
      */
     public static int createCustomer(String name, String address, int phone, String email) throws UniversalException {
         try {
+            int id;
             Connection con = Connector.connection();
-            String SQL = "INSERT INTO customer (name, address, phone, email) VALUES (?, ?, ?, ?)";
-            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, name);
-            ps.setString(2, address);
-            ps.setInt(3, phone);
-            ps.setString(4, email);
-            ps.executeUpdate();
-            ResultSet ids = ps.getGeneratedKeys();
-            ids.next();
-            int id = ids.getInt(1);
+            String SQL = "SELECT id FROM customer WHERE email = ?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                id = rs.getInt("id");
+                SQL = "UPDATE customer name = ?, adress = ?, phone = ? WHERE email = ?";
+                ps = con.prepareStatement(SQL);
+                ps.setString(1, name);
+                ps.setString(2, address);
+                ps.setInt(3, phone);
+                ps.setString(4, email);
+            } else {
+                SQL = "INSERT INTO customer (name, address, phone, email) VALUES (?, ?, ?, ?)";
+                ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+                ps.setString(1, name);
+                ps.setString(2, address);
+                ps.setInt(3, phone);
+                ps.setString(4, email);
+                ps.executeUpdate();
+                ResultSet ids = ps.getGeneratedKeys();
+                ids.next();
+                id = ids.getInt(1);
+            }
             return id;
         } catch (SQLException | ClassNotFoundException ex) {
             throw new UniversalException(ex.getMessage());
@@ -618,7 +634,7 @@ public class OrderMapper {
         }
         return carports;
     }
-    
+
     public static List<Carport> getAllPredef() throws UniversalException {
         List<Carport> carports = new ArrayList<>();
         try {
@@ -657,7 +673,7 @@ public class OrderMapper {
     }
 
     public static Carport getPredef(int id) throws UniversalException {
-          Carport carport = null;
+        Carport carport = null;
         try {
             Connection con = Connector.connection();
             String SQL = "SELECT * FROM predef WHERE predef_id = ?";
