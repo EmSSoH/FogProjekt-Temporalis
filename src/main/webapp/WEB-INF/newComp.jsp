@@ -28,7 +28,7 @@
                     <tbody>
                         <tr>           
                         <td><input class="table" type="text" name="name" value="navn"></td>
-                        <td><input class="table" type="text" name="price" value="pris"></td>     
+                        <td><input class="table" type="number" name="price" value="pris"></td>     
                      </tr>        
                     </tbody>
                     </table>

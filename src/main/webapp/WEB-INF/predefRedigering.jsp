@@ -45,13 +45,13 @@
                      <td>
                          <form action="FrontController" method="POST">
                          <input class="table" type="hidden" name="command" value="redigerpredef">
-                         <input class="table" type="hidden" name="id" value="<%out.print(o.getPredef_id());%>">
-                         <input class="table" type="hidden" name="clength" value="<%out.print(o.getCarL());%>">
-                         <input class="table" type="hidden" name="cwidth" value="<%out.print(o.getCarB());%>">
-                         <input class="table" type="hidden" name="Rtype" value="<%out.print(o.getTagtype());%>">
-                         <input class="table" type="hidden" name="incline" value="<%out.print(o.getTaghæld());%>">
-                         <input class="table" type="hidden" name="slength" value="<%out.print(o.getRedL());%>">
-                         <input class="table" type="hidden" name="swidth" value="<%out.print(o.getRedB());%>">
+                         <input class="table" type="hidden" type="number" name="id" value="<%out.print(o.getPredef_id());%>">
+                         <input class="table" type="hidden" type="number" name="clength" value="<%out.print(o.getCarL());%>">
+                         <input class="table" type="hidden" type="number" name="cwidth" value="<%out.print(o.getCarB());%>">
+                         <input class="table" type="hidden" type="number" name="Rtype" value="<%out.print(o.getTagtype());%>">
+                         <input class="table" type="hidden" type="number" name="incline" value="<%out.print(o.getTaghæld());%>">
+                         <input class="table" type="hidden" type="number" name="slength" value="<%out.print(o.getRedL());%>">
+                         <input class="table" type="hidden" type="number" name="swidth" value="<%out.print(o.getRedB());%>">
                          <input class="table" type="submit" name="redigerpredef" value="Rediger">
                          </form>
                          <br>

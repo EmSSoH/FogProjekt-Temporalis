@@ -43,6 +43,11 @@
                         <input class="nonTable" type="submit" value="login">  
                 </form>
         </div>
-</div>
+        </div>
+        <% String error = (String) request.getAttribute("error");
+            if (error != null) {%>
+            <H2>Error!!</h2>
+            <p><%= error%>
+                <% } %>
     </body>
 </html>

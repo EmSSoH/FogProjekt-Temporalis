@@ -32,13 +32,13 @@
                     </thead>
                     <tbody>
                         <tr>           
-                        <td><input class="table" type="text" name="incline" value="incline"></td>
-                        <td><input class="table" type="text" name="Rtype" value="Roof Type"></td> 
-                        <td><input class="table" type="text" name="clength" value="Length"></td>     
-                        <td><input class="table" type="text" name="cwidth" value="Width"></td>     
-                        <td><input class="table" type="text" name="slength" value="Shed length"></td>     
-                        <td><input class="table" type="text" name="swidth" value="Shed Width"></td>     
-                        <td><input class="table" type="text" name="price" value="pris"></td>     
+                        <td><input class="table" type="number" name="incline" value="incline"></td>
+                        <td><input class="table" type="number" name="Rtype" value="Roof Type"></td> 
+                        <td><input class="table" type="number" name="clength" value="Length"></td>     
+                        <td><input class="table" type="number" name="cwidth" value="Width"></td>     
+                        <td><input class="table" type="number" name="slength" value="Shed length"></td>     
+                        <td><input class="table" type="number" name="swidth" value="Shed Width"></td>     
+                        <td><input class="table" type="number" name="price" value="pris"></td>     
                      </tr>        
                     </tbody>
                     </table>
