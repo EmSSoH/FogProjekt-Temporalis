@@ -67,7 +67,7 @@
                      <td><input class="table" type="number" name="nswidth" value="<% out.print(request.getAttribute("swidth")); %>"></td>
                      <td><input class="table" type="text" name="ncomment" value="<% out.print(request.getAttribute("comment")); %>"></td>
                      <td><input class="table" type="number" name="nprice" value="<% out.print(request.getAttribute("price")); %>"></td>
-                     <td><input class="table" type="number" name="ndelivery" value="<% out.print(request.getAttribute("date")); %>"></td>
+                     <td><input class="table" type="number" name="ndelivery" value="<% out.print(request.getAttribute("delivery")); %>"></td>
                  </tr>  
               
             </tbody>
