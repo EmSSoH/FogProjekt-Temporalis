@@ -20,7 +20,7 @@
                         <input class="table" type="text" name="name" value="mads">
                         <br>
                         Phone:<br>
-                        <input class="table" type="text" name="phone" value="21844131">
+                        <input class="table" type="number" name="phone" value="21844131">
                         <br>
                         email:<br>
                         <input class="table" type="text" name="email" value="minmail@mail.com">

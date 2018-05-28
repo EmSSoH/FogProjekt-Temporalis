@@ -17,16 +17,16 @@
          <form name="customer" action="FrontController" method="POST">
                         <input class="table" type="hidden" name="command" value="customer">
                         Carport Længden:<br>
-                        <input class="table" type="text" name="clength" value="600">
+                        <input class="table" type="number" name="clength" value="600">
                         <br>
                         Carport Bredde:<br>
-                        <input class="table" type="text" name="cwidth" value="720">
+                        <input class="table" type="number" name="cwidth" value="720">
                         <br>
                         Shed Længden:<br>
-                        <input class="table" type="text" name="slength" value="530">
+                        <input class="table" type="number" name="slength" value="530">
                         <br>
                         Shed Bredde:<br>
-                        <input class="table" type="text" name="swidth" value="220">
+                        <input class="table" type="number" name="swidth" value="220">
                         <br>
                         <input class="table" type="submit" value="Submit">
                     </form>

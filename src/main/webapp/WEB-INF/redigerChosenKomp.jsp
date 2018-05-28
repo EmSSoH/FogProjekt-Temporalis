@@ -34,7 +34,7 @@
                  <tr>           
                      <td><input class="table" type="hidden" name="nid" value="<% out.print(request.getAttribute("id")); %>"></td>
                      <td><input class="table" type="text" name="nname" value="<% out.print(request.getAttribute("name")); %>"></td>
-                     <td><input class="table" type="text" name="nprice" value="<% out.print(request.getAttribute("price")); %>"></td>     
+                     <td><input class="table" type="number" name="nprice" value="<% out.print(request.getAttribute("price")); %>"></td>     
                  </tr>  
               
             </tbody>

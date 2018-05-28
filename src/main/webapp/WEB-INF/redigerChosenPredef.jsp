@@ -41,12 +41,12 @@
               
                  <tr>
                      
-                     <td><input class="table" type="text" name="nCPL" value="<% out.print(request.getAttribute("clength")); %>"></td>
-                     <td><input class="table" type="text" name="nCPW" value="<% out.print(request.getAttribute("cwidth")); %>"></td>
-                     <td><input class="table" type="text" name="nincline" value="<% out.print(request.getAttribute("Rtype")); %>"></td>
-                     <td><input class="table" type="text" name="nRtype" value="<% out.print(request.getAttribute("incline")); %>"></td>
-                     <td><input class="table" type="text" name="nslength" value="<% out.print(request.getAttribute("slength")); %>"></td>
-                     <td><input class="table" type="text" name="nswidth" value="<% out.print(request.getAttribute("swidth")); %>"></td>
+                     <td><input class="table" type="number" name="nCPL" value="<% out.print(request.getAttribute("clength")); %>"></td>
+                     <td><input class="table" type="number" name="nCPW" value="<% out.print(request.getAttribute("cwidth")); %>"></td>
+                     <td><input class="table" type="number" name="nincline" value="<% out.print(request.getAttribute("Rtype")); %>"></td>
+                     <td><input class="table" type="number" name="nRtype" value="<% out.print(request.getAttribute("incline")); %>"></td>
+                     <td><input class="table" type="number" name="nslength" value="<% out.print(request.getAttribute("slength")); %>"></td>
+                     <td><input class="table" type="number" name="nswidth" value="<% out.print(request.getAttribute("swidth")); %>"></td>
                     
                  </tr>  
               

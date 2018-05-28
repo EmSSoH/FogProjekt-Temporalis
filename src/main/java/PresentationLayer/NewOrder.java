@@ -36,7 +36,12 @@ public class NewOrder extends Command {
         String email = request.getParameter( "email" );
         String address = request.getParameter( "address" );
         temp = request.getParameter("phone");
-        int phone = Integer.parseInt(temp);
+        int phone = 0;
+        if(temp.matches("\\d+")){
+        phone = Integer.parseInt(temp);
+        } else {
+            throw new UniversalException("Phone number contained a nondigit Char.");
+        }
         
         Order order = new Order(0, clength, cwidth, 0, 0,
             slength, swidth, "hej", 12345, 4, 1);

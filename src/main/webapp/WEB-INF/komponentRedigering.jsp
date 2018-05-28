@@ -35,9 +35,9 @@
                      <td>
                          <form action="FrontController" method="POST">
                          <input class="table" type="hidden" name="command" value="redigercomponent">
-                         <input class="table" type="hidden" name="id" value="<%out.print(o.getId());%>">
-                         <input class="table" type="hidden" name="name" value="<%out.print(o.getCompName());%>">
-                         <input class="table" type="hidden" name="price" value="<%out.print(o.getPrice());%>">
+                         <input class="table" type="hidden" type="number" name="id" value="<%out.print(o.getId());%>">
+                         <input class="table" type="hidden" type="text" name="name" value="<%out.print(o.getCompName());%>">
+                         <input class="table" type="hidden" type="number" name="price" value="<%out.print(o.getPrice());%>">
                          <input class="table" type="submit" name="redigercomponent" value="Rediger">
                          </form>
                          <br>
