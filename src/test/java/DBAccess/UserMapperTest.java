@@ -6,6 +6,7 @@
 package DBAccess;
 
 import FunctionLayer.Carport;
+import FunctionLayer.Customer;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.Order;
 import FunctionLayer.UniversalException;
@@ -146,13 +147,24 @@ public class UserMapperTest {
             
     }
     
-    public static void updatePredef(int id, int incline, int roof_type, int length, int width, int toolshed_length, int toolshed_width) throws UniversalException {
-            
-    }
+    @Test
+    public void testCreateGetAddCustomer() throws UniversalException {
+        int cus_id = OrderMapper.createCustomer("Magnus", "herogder 2", 54848475, "mail@her.com");
+        Order order = new Order(1, 300, 300, 10, 1, 300, 300, "what what", 2, 1, 1);
+        OrderMapper.createOrder(order, 1);
+            int  id = order.getOrderId();
+            order = OrderMapper.getOrder(id);
+            Customer customer = order.getCustomer();
+        assertEquals(customer.getId(),1);
+        OrderMapper.addCustomer(id, cus_id);
+        order = OrderMapper.getOrder(id);
+        customer = order.getCustomer();
+        assertEquals(customer.getId(),cus_id);
+       
+    }   
+     
 /*
-    public static Customer getCustomer(int customerid) throws UniversalException {
-
-    }
+   
     
     public static List<Components> getAllComp() throws UniversalException {
 
@@ -188,13 +200,7 @@ public class UserMapperTest {
     }
 
 
-    public static void addCustomer(int oid, int cid) throws UniversalException {
-
-    }
-
-    public static int createCustomer(String name, String address, int phone, String email) throws UniversalException {
-
-    }
+    
 
 
     public static List<Carport> getAllPredefhæld() throws UniversalException {
@@ -209,10 +215,7 @@ public class UserMapperTest {
     public static List<Carport> getAllPredefUhæld() throws UniversalException {
 
     }
-
-    public static Carport getPredef(int id) throws UniversalException {
-
-    }*/
+*/
 }
 
     

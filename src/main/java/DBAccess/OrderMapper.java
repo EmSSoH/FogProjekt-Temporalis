@@ -340,30 +340,7 @@ public class OrderMapper {
         }
     }
 
-    /**
-     * This is used to get a specific customer from the database with their
-     * information
-     *
-     * @param customerid the id of the customer
-     * @return a customer object
-     * @throws UniversalException
-     */
-    public static Customer getCustomer(int customerid) throws UniversalException {
-        Customer customer = null;
-        try {
-            Connection con = Connector.connection();
-            String SQL = "SELECT * FROM customer WHERE id=?";
-            PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, customerid);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                customer = new Customer(rs.getInt("id"), rs.getString("name"), rs.getString("address"), rs.getInt("phone"), rs.getString("email"));
-            }
-        } catch (ClassNotFoundException | SQLException ex) {
-            throw new UniversalException(ex.getMessage());
-        }
-        return customer;
-    }
+    
 
     public static List<Components> getAllComp() throws UniversalException {
         List<Components> comp = new ArrayList<>();
@@ -564,7 +541,7 @@ public class OrderMapper {
         try {
             Connection con = Connector.connection();
             String SQL = "UPDATE orders SET customer_id = ? WHERE order_id = ? ";
-            PreparedStatement ps = con.prepareStatement(SQL);
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, cid);
             ps.setInt(2, oid);
             ps.executeUpdate();
@@ -692,5 +669,31 @@ public class OrderMapper {
             throw new UniversalException(ex.getMessage());
         }
         return carport;
+    }
+    
+ /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
+    /**
+     * This is used to get a specific customer from the database with their
+     * information
+     *
+     * @param customerid the id of the customer
+     * @return a customer object
+     * @throws UniversalException
+     */
+    public static Customer getCustomer(int customerid) throws UniversalException {
+        Customer customer = null;
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM customer WHERE id=?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, customerid);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                customer = new Customer(rs.getInt("id"), rs.getString("name"), rs.getString("address"), rs.getInt("phone"), rs.getString("email"));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+        return customer;
     }
 }
