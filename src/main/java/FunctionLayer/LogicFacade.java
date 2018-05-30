@@ -83,8 +83,8 @@ public class LogicFacade {
     }
 
 
-    public static void updatePredef(int id, int incline, int Rtype, int cpl, int cpw, int slength, int swidth) throws UniversalException {
-        OrderMapper.updatePredef(id, incline, Rtype, slength, swidth, slength, swidth);
+    public static void updatePredef(Carport carport) throws UniversalException {
+        OrderMapper.updatePredef(carport);
     }
 
     public static List<Components> getAllComponents() throws UniversalException {
@@ -104,8 +104,8 @@ public class LogicFacade {
         OrderMapper.createComponent(name, price);
     }
 
-    public static void createPredef(int incline, int Rtype, int clength, int cwidth, int slength, int swidth) throws UniversalException {
-        OrderMapper.createPredef(incline, Rtype, slength, swidth, slength, swidth);
+    public static void createPredef(Carport carport) throws UniversalException {
+        OrderMapper.createPredef(carport);
     }
 
 }

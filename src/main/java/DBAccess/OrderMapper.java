@@ -285,19 +285,24 @@ public class OrderMapper {
      * @param price price of this construction
      * @throws UniversalException
      */
-    public static void createPredef(int incline, int roof_type, int length, int width, int toolshed_length, int toolshed_width) throws UniversalException {
+    public static void createPredef(Carport carport) throws UniversalException {
         try {
             Connection con = Connector.connection();
             String SQL = "INSERT INTO predef (incline_amount, roof_type, length, width, toolshed_length, toolshed_width) VALUES (?, ?, ?, ?, ?, ?)";
-            PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, incline);
-            ps.setInt(2, roof_type);
-            ps.setInt(3, length);
-            ps.setInt(4, width);
-            ps.setInt(5, toolshed_length);
-            ps.setInt(6, toolshed_width);
+            PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, carport.getTaghæld());
+            ps.setInt(2, carport.getTagtype());
+            ps.setInt(3, carport.getCarL());
+            ps.setInt(4, carport.getCarB());
+            ps.setInt(5, carport.getRedL());
+            ps.setInt(6, carport.getRedB());
             ps.executeUpdate();
-
+            ResultSet rs = ps.getGeneratedKeys();
+            if (rs.next()) {
+                carport.setPredef_id(rs.getInt(1));
+            } else {
+                throw new SQLException("no generated key found");
+            }
         } catch (SQLException | ClassNotFoundException ex) {
             throw new UniversalException(ex.getMessage());
         }
@@ -316,18 +321,18 @@ public class OrderMapper {
      * @param price price of this construction
      * @throws UniversalException
      */
-    public static void updatePredef(int id, int incline, int roof_type, int length, int width, int toolshed_length, int toolshed_width) throws UniversalException {
+    public static void updatePredef(Carport carport) throws UniversalException {
         try {
             Connection con = Connector.connection();
             String SQL = "UPDATE predef SET incline_amount = ?, roof_type = ?, length = ?, width = ?, toolshed_length = ?, toolshed_width = ? WHERE predef_id = ? ";
             PreparedStatement ps = con.prepareStatement(SQL, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, incline);
-            ps.setInt(2, roof_type);
-            ps.setInt(3, length);
-            ps.setInt(4, width);
-            ps.setInt(5, toolshed_length);
-            ps.setInt(6, toolshed_width);
-            ps.setInt(7, id);
+            ps.setInt(1, carport.getTaghæld());
+            ps.setInt(2, carport.getTagtype());
+            ps.setInt(3, carport.getCarL());
+            ps.setInt(4, carport.getCarB());
+            ps.setInt(5, carport.getRedL());
+            ps.setInt(6, carport.getRedB());
+            ps.setInt(7, carport.getPredef_id());
             ps.executeUpdate();
 
         } catch (SQLException | ClassNotFoundException ex) {

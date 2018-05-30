@@ -5,6 +5,7 @@
  */
 package DBAccess;
 
+import FunctionLayer.Carport;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.Order;
 import FunctionLayer.UniversalException;
@@ -115,13 +116,38 @@ public class UserMapperTest {
             
         }
         
-
-    public static void createPredef(int incline, int roof_type, int length, int width, int toolshed_length, int toolshed_width) throws UniversalException {
-
+    @Test
+    public void testCreateUpdatePredef() throws UniversalException {
+            Carport carport = new Carport(700, 620, 1, 10, 210, 300);
+            OrderMapper.createPredef(carport);
+            int id = carport.getPredef_id();
+            carport = OrderMapper.getPredef(id);
+            assertEquals(carport.getCarL(),700);
+            assertEquals(carport.getCarB(),620);
+            assertEquals(carport.getTaghæld(),10);
+            assertEquals(carport.getTagtype(),1);
+            assertEquals(carport.getRedL(),210);
+            assertEquals(carport.getRedB(),300);
+            assertEquals(carport.getPredef_id(),id);
+            
+            carport = new Carport(id,720,600,1,20,240,300);
+            OrderMapper.updatePredef(carport);
+            carport = OrderMapper.getPredef(id);
+            assertEquals(carport.getCarL(),720);
+            assertEquals(carport.getCarB(),600);
+            assertEquals(carport.getTaghæld(),20);
+            assertEquals(carport.getTagtype(),1);
+            assertEquals(carport.getRedL(),240);
+            assertEquals(carport.getRedB(),300);
+            assertEquals(carport.getPredef_id(),id);
+            
+            
+            
+            
     }
-
+    
     public static void updatePredef(int id, int incline, int roof_type, int length, int width, int toolshed_length, int toolshed_width) throws UniversalException {
-
+            
     }
 /*
     public static Customer getCustomer(int customerid) throws UniversalException {

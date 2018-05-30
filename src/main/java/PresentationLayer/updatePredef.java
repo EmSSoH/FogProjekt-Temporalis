@@ -37,8 +37,8 @@ public class updatePredef extends Command {
         int slength = Integer.parseInt(temp);
         temp = request.getParameter( "nswidth" );
         int swidth = Integer.parseInt(temp);
- 
-        LogicFacade.updatePredef(id, incline, Rtype, cpl, cpw,slength,swidth);
+        Carport carport = new Carport(id, cpl, cpw, Rtype, incline, slength, swidth);
+        LogicFacade.updatePredef(carport);
 
         
         int tempi = (int) session.getAttribute("role");

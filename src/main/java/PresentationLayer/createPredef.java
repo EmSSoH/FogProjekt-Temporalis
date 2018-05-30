@@ -5,6 +5,7 @@
  */
 package PresentationLayer;
 
+import FunctionLayer.Carport;
 import FunctionLayer.LogicFacade;
 import FunctionLayer.UniversalException;
 import javax.servlet.http.HttpServletRequest;
@@ -33,8 +34,8 @@ public class createPredef extends Command {
         int Rtype = Integer.parseInt(temp);
         temp = request.getParameter("price");
         int price = Integer.parseInt(temp);
-        
-        LogicFacade.createPredef(incline, Rtype, clength, cwidth, slength, swidth);
+        Carport carport = new Carport(clength, cwidth, Rtype, incline, slength, swidth);
+        LogicFacade.createPredef(carport);
         
         
         return "loginAdmin";
