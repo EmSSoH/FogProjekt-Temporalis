@@ -483,7 +483,7 @@ public class Stykliste {
     public void calculate(int width, int length) {
         double tempd, tempwidth, templength, hulbånd;
         int tempi, hulbåndi, beslagskruer;
-        setTrykimpstolpe97x97mm300(6);
+        setTrykimpstolpe97x97mm300(7);
         //udregn rem
         if (length <= 600) {
             setSpærtræubh45x195mm600(2);
@@ -512,7 +512,7 @@ public class Stykliste {
         tempd = tempi;
         tempd = tempd / 250;
         tempi = (int) Math.ceil(tempd);
-        setBeslagskruer4x50mm250stk(tempi);
+        setBeslagskruer4x50mm250stk(tempi+1);
 
         //Hulbånd og skruer
         tempwidth = width - 70;
@@ -625,7 +625,7 @@ public class Stykliste {
     public void calculate(int width, int length, int swidth, int slength) {
         double tempd, tempwidth, templength, hulbånd;
         int tempi, tempi2, hulbåndi, beslagskruer;
-        setTrykimpstolpe97x97mm300(6);
+        setTrykimpstolpe97x97mm300(7);
         //udregn rem
         if (length <= 600) {
             setSpærtræubh45x195mm600(2);
@@ -674,7 +674,7 @@ public class Stykliste {
         tempd = tempd / 250;
         tempi = (int) Math.ceil(tempd);
         tempi = getBeslagskruer4x50mm250stk() + tempi;
-        setBeslagskruer4x50mm250stk(tempi);
+        setBeslagskruer4x50mm250stk(tempi+1);
 
         //understernsbræt
         if (width == 720) {
@@ -805,7 +805,8 @@ public class Stykliste {
         //de siger man skal bruge 200 brædder jeg for det dog til 250. vært bræt dækker 6cm, den smalede længde rundt om skuret er 530+530+220+220 = 1500 
         // derefter dividere du med 6 og for antal brædder du skal bruge hvilket er 250, jeg misser noget.
         tempi = slength * 2 + swidth * 2;
-        tempi = tempi / 6;
+        tempd = tempi / 7.5;
+        tempi = (int) Math.ceil(tempd);
         setTrykimpbrædt19x100mm210(tempi);
 
         //skruer til inderst beklædning
@@ -814,7 +815,7 @@ public class Stykliste {
         tempd = tempd * 3;
         tempd = tempd / 300;
         tempi = (int) Math.ceil(tempd);
-        setSkruer4komma5x50mm300stk(tempi);
+        setSkruer4komma5x50mm300stk(tempi+1);
         //skruer til ydere beklædning
         tempd = tempi2 / 2;
         tempd = tempd * 6;
