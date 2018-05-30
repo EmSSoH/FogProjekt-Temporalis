@@ -262,7 +262,7 @@ public class OrderMapper {
         boolean changedLines;
         try {
             Connection con = Connector.connection();
-            String SQL = "UPDATE orders SET status=? WHERE order_id=?";
+            String SQL = "UPDATE orders SET status = ? WHERE order_id=?";
             PreparedStatement ps = con.prepareStatement(SQL);
             ps.setInt(1, newStatus);
             ps.setInt(2, orderId);

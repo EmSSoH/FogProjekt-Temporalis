@@ -114,30 +114,7 @@ public class UserMapperTest {
             assertEquals(torder.getComment(),"what what sup");
             
         }
-
-/*
-    public static boolean createOrder(Order order, int customerid) throws UniversalException {
-
-    }
-
-
-    public static List<Order> getCustomerOrders(int id) throws UniversalException {
- 
-    }
-
-    public static List<Order> getAllOrdersLight() throws UniversalException {
-
-    }
-
-    public static List<Order> getAllOrders() throws UniversalException {
-
-    }
-
-
-    public static boolean updateStatus(int orderId, int newStatus) throws UniversalException {
- 
-    }
-
+        
 
     public static void createPredef(int incline, int roof_type, int length, int width, int toolshed_length, int toolshed_width) throws UniversalException {
 
@@ -146,7 +123,7 @@ public class UserMapperTest {
     public static void updatePredef(int id, int incline, int roof_type, int length, int width, int toolshed_length, int toolshed_width) throws UniversalException {
 
     }
-
+/*
     public static Customer getCustomer(int customerid) throws UniversalException {
 
     }

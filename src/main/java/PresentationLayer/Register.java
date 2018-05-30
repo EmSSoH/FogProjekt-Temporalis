@@ -21,9 +21,9 @@ public class Register extends Command {
             User user = LogicFacade.createUser(name, email, password1 );
             HttpSession session = request.getSession();
             session.setAttribute( "user", user );
-            session.setAttribute( "role", user.getRole() );
+            session.setAttribute( "role", user.getRole() ); 
             
-            return "LoginNonAdmin";
+            return "LoginAdmin";
 
         } else {
             throw new UniversalException( "the two passwords did not match" );
