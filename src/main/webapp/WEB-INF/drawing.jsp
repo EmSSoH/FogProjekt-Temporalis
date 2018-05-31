@@ -5,10 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<% int length = (int)session.getAttribute("length");
-   int width = (int)session.getAttribute("width");
-   int slength = (int)session.getAttribute("slength");
-   int swidth = (int)session.getAttribute("swidth");
+<% int length = (int)request.getAttribute("length");
+   int width = (int)request.getAttribute("width");
+   int slength = (int)request.getAttribute("slength");
+   int swidth = (int)request.getAttribute("swidth");
    
     int hOffset = 50;
     int roofOffset = 5;

@@ -104,82 +104,7 @@ public class OrderMapper {
         }
     }
 
-    /**
-     * This is used for getting a list of all orders placed by a customer with
-     * the id supplied
-     *
-     * @param id is the id of the customer
-     * @return a list of all order objects
-     * @throws UniversalException
-     */
-    public static List<Order> getCustomerOrders(int id) throws UniversalException {
-        List<Order> orders = new ArrayList<>();
-        try {
-            Connection con = Connector.connection();
-            String SQL = "SELECT * FROM orders WHERE customer_id=?";
-            PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                orders.add(new Order(rs.getInt("order_id"), rs.getInt("status"), rs.getInt("length"), rs.getInt("width"), rs.getInt("incline"), rs.getInt("roof_type"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"), rs.getString("comment"), rs.getInt("price"), rs.getInt("employee_id"), rs.getInt("delivery"), rs.getDate("date"), getCustomer(rs.getInt("customer_id"))));
-            }
-        } catch (ClassNotFoundException | SQLException ex) {
-            throw new UniversalException(ex.getMessage());
-        }
-        return orders;
-    }
-
-    /**
-     * This is for getting all orders with a specific status. For example
-     * getting all non-assigned orders, which is status 0 in the database.
-     *
-     * @param status is the int marking what status we want all orders with
-     * @return a list of all the orders in a list
-     * @throws UniversalException
-     */
-    public static List<Order> getOrderWithStatus(int status) throws UniversalException {
-        List<Order> orders = new ArrayList<>();
-        try {
-            Connection con = Connector.connection();
-            String SQL = "SELECT * FROM orders WHERE status=?";
-            PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, status);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                orders.add(new Order(rs.getInt("order_id"), rs.getInt("status"), rs.getInt("length"), rs.getInt("width"), rs.getInt("incline"), rs.getInt("roof_type"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"), rs.getString("comment"), rs.getInt("price"), rs.getInt("employee_id"), rs.getInt("delivery"), rs.getDate("date"), getCustomer(rs.getInt("customer_id"))));
-            }
-        } catch (ClassNotFoundException | SQLException ex) {
-            throw new UniversalException(ex.getMessage());
-        }
-        return orders;
-    }
-
-    /**
-     * This is for getting all orders assigned to a specific employee, this is
-     * good as the employee will not have to look through a massive list of all
-     * orders to find which is his / hers
-     *
-     * @param id the id of the employee
-     * @return a list of order objects
-     * @throws UniversalException
-     */
-    public static List<Order> getEmployeeOrders(int id) throws UniversalException {
-        List<Order> orders = new ArrayList<>();
-        try {
-            Connection con = Connector.connection();
-            String SQL = "SELECT * FROM orders WHERE employee_id=?";
-            PreparedStatement ps = con.prepareStatement(SQL);
-            ps.setInt(1, id);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                orders.add(new Order(rs.getInt("order_id"), rs.getInt("status"), rs.getInt("length"), rs.getInt("width"), rs.getInt("incline"), rs.getInt("roof_type"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"), rs.getString("comment"), rs.getInt("price"), rs.getInt("employee_id"), rs.getInt("delivery"), rs.getDate("date"), getCustomer(rs.getInt("customer_id"))));
-            }
-        } catch (ClassNotFoundException | SQLException ex) {
-            throw new UniversalException(ex.getMessage());
-        }
-        return orders;
-    }
-
+   
     /**
      * This gets a specific order with the order_id matching the id
      *
@@ -204,29 +129,7 @@ public class OrderMapper {
         return order;
     }
 
-    /**
-     * This gets all orders that haven't been marked as completed / archived.
-     *
-     * @return a list of all order objects that are incomplete
-     * @throws UniversalException
-     */
-    public static List<Order> getAllOrdersLight() throws UniversalException {
-        List<Order> orders = new ArrayList<>();
-        try {
-            int completedOrder = 999;
-            Connection con = Connector.connection();
-            String SQL = "SELECT * FROM orders where status != " + completedOrder;
-            PreparedStatement ps = con.prepareStatement(SQL);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                orders.add(new Order(rs.getInt("order_id"), rs.getInt("status"), rs.getInt("length"), rs.getInt("width"), rs.getInt("incline"), rs.getInt("roof_type"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"), rs.getString("comment"), rs.getInt("price"), rs.getInt("employee_id"), rs.getInt("delivery"), rs.getDate("date"), getCustomer(rs.getInt("customer_id"))));
-            }
-        } catch (ClassNotFoundException | SQLException ex) {
-            throw new UniversalException(ex.getMessage());
-        }
-        return orders;
-    }
-
+    
     /**
      * This gets all orders from the DB
      *
@@ -482,30 +385,7 @@ public class OrderMapper {
         return new Stykliste(orderId, intArray);
     }
 
-    /**
-     * This is used to get a list of components as an array with the length of
-     * 100. We currently have 45 used in the calculator but more components can
-     * be added, although they will not be integrated in the calculator. The
-     * position in the array matches the id in the database minus 1
-     *
-     * @return a StringArray with names of the components
-     * @throws UniversalException
-     */
-    public static String[] getComponentNames() throws UniversalException {
-        String[] StringArray = new String[100];
-        try {
-            Connection con = Connector.connection();
-            String SQL = "SELECT * FROM components";
-            PreparedStatement ps = con.prepareStatement(SQL);
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                StringArray[rs.getInt("id") - 1] = rs.getString("componenet_name");
-            }
-        } catch (ClassNotFoundException | SQLException ex) {
-            throw new UniversalException(ex.getMessage());
-        }
-        return StringArray;
-    }
+    
 
     /**
      * This gets an intArray with the prices of the components with a position
@@ -670,8 +550,7 @@ public class OrderMapper {
         }
         return carport;
     }
-    
- /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////   
+     
     /**
      * This is used to get a specific customer from the database with their
      * information
@@ -696,4 +575,132 @@ public class OrderMapper {
         }
         return customer;
     }
+    
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Everything from here is unused methods.
+   
+     /**
+     * This is used for getting a list of all orders placed by a customer with
+     * the id supplied
+     *
+     * @param id is the id of the customer
+     * @return a list of all order objects
+     * @throws UniversalException
+     */
+    public static List<Order> getCustomerOrders(int id) throws UniversalException {
+        List<Order> orders = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM orders WHERE customer_id=?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                orders.add(new Order(rs.getInt("order_id"), rs.getInt("status"), rs.getInt("length"), rs.getInt("width"), rs.getInt("incline"), rs.getInt("roof_type"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"), rs.getString("comment"), rs.getInt("price"), rs.getInt("employee_id"), rs.getInt("delivery"), rs.getDate("date"), getCustomer(rs.getInt("customer_id"))));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+        return orders;
+    }
+
+    /**
+     * This is for getting all orders with a specific status. For example
+     * getting all non-assigned orders, which is status 0 in the database.
+     *
+     * @param status is the int marking what status we want all orders with
+     * @return a list of all the orders in a list
+     * @throws UniversalException
+     */
+    public static List<Order> getOrderWithStatus(int status) throws UniversalException {
+        List<Order> orders = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM orders WHERE status=?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, status);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                orders.add(new Order(rs.getInt("order_id"), rs.getInt("status"), rs.getInt("length"), rs.getInt("width"), rs.getInt("incline"), rs.getInt("roof_type"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"), rs.getString("comment"), rs.getInt("price"), rs.getInt("employee_id"), rs.getInt("delivery"), rs.getDate("date"), getCustomer(rs.getInt("customer_id"))));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+        return orders;
+    }
+
+    /**
+     * This is for getting all orders assigned to a specific employee, this is
+     * good as the employee will not have to look through a massive list of all
+     * orders to find which is his / hers
+     *
+     * @param id the id of the employee
+     * @return a list of order objects
+     * @throws UniversalException
+     */
+    public static List<Order> getEmployeeOrders(int id) throws UniversalException {
+        List<Order> orders = new ArrayList<>();
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM orders WHERE employee_id=?";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                orders.add(new Order(rs.getInt("order_id"), rs.getInt("status"), rs.getInt("length"), rs.getInt("width"), rs.getInt("incline"), rs.getInt("roof_type"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"), rs.getString("comment"), rs.getInt("price"), rs.getInt("employee_id"), rs.getInt("delivery"), rs.getDate("date"), getCustomer(rs.getInt("customer_id"))));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+        return orders;
+    }
+    
+    /**
+     * This is used to get a list of components as an array with the length of
+     * 100. We currently have 45 used in the calculator but more components can
+     * be added, although they will not be integrated in the calculator. The
+     * position in the array matches the id in the database minus 1
+     *
+     * @return a StringArray with names of the components
+     * @throws UniversalException
+     */
+    public static String[] getComponentNames() throws UniversalException {
+        String[] StringArray = new String[100];
+        try {
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM components";
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                StringArray[rs.getInt("id") - 1] = rs.getString("componenet_name");
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+        return StringArray;
+    }
+    /**
+     * This gets all orders that haven't been marked as completed / archived.
+     *
+     * @return a list of all order objects that are incomplete
+     * @throws UniversalException
+     */
+    public static List<Order> getAllOrdersLight() throws UniversalException {
+        List<Order> orders = new ArrayList<>();
+        try {
+            int completedOrder = 999;
+            Connection con = Connector.connection();
+            String SQL = "SELECT * FROM orders where status != " + completedOrder;
+            PreparedStatement ps = con.prepareStatement(SQL);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                orders.add(new Order(rs.getInt("order_id"), rs.getInt("status"), rs.getInt("length"), rs.getInt("width"), rs.getInt("incline"), rs.getInt("roof_type"), rs.getInt("toolshed_length"), rs.getInt("toolshed_width"), rs.getString("comment"), rs.getInt("price"), rs.getInt("employee_id"), rs.getInt("delivery"), rs.getDate("date"), getCustomer(rs.getInt("customer_id"))));
+            }
+        } catch (ClassNotFoundException | SQLException ex) {
+            throw new UniversalException(ex.getMessage());
+        }
+        return orders;
+    }
+ 
+     
 }

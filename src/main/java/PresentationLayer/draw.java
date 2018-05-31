@@ -27,11 +27,11 @@ public class draw extends Command{
          temp = request.getParameter("swidth");
          int swidth = Integer.parseInt(temp);
          
-        HttpSession session = request.getSession();
-        session.setAttribute( "length", length);
-        session.setAttribute( "width", width );
-        session.setAttribute( "slength", slength);
-        session.setAttribute( "swidth", swidth );
+        
+        request.setAttribute( "length", length);
+        request.setAttribute( "width", width );
+        request.setAttribute( "slength", slength);
+        request.setAttribute( "swidth", swidth );
          
          
          return "drawing";

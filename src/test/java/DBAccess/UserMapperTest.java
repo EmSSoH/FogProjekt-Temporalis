@@ -156,6 +156,10 @@ public class UserMapperTest {
             order = OrderMapper.getOrder(id);
             Customer customer = order.getCustomer();
         assertEquals(customer.getId(),1);
+        assertEquals(customer.getAddress(),"test");
+        assertEquals(customer.getEmail(),"test");
+        assertEquals(customer.getName(),"test");
+        assertEquals(customer.getPhone(),1234);
         OrderMapper.addCustomer(id, cus_id);
         order = OrderMapper.getOrder(id);
         customer = order.getCustomer();
